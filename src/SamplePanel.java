@@ -45,8 +45,6 @@ public class SamplePanel extends JPanel implements ActionListener, KeyListener
             circY = 0;
         }
         repaint();
-
-
     }
 
     public void keyPressed (KeyEvent e)
