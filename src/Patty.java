@@ -9,5 +9,11 @@ public class Patty
         lives = 3;
     }
 
+    // accessors
+    public int getLives()
+    {
+        return lives;
+    }
+
 
 }
