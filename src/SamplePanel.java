@@ -49,7 +49,7 @@ public class SamplePanel extends JPanel implements ActionListener, KeyListener
 
     public void keyPressed (KeyEvent e)
     {
-        int c = e.getKeyCode();`
+        int c = e.getKeyCode();
         if (c == KeyEvent.VK_LEFT)
             changeX = -2;
         if (c == KeyEvent.VK_RIGHT)
