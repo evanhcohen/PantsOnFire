@@ -30,14 +30,15 @@ public class GameFrame extends JFrame
     {
         frame.pack();
         frame.setVisible(true);
+    }
 
+    public static void changePanel()
+    {
         if(MenuPanel.getStartGame())
         {
             System.out.println("we got there");
             frame.getContentPane().removeAll();
             frame.getContentPane().add(game);
-            display();
         }
-
     }
 }
