@@ -40,7 +40,6 @@ public class GameFrame extends JFrame
     {
         if(MenuPanel.getStartGame())
         {
-            System.out.println("we got there");
             frame.getContentPane().removeAll();
             frame.getContentPane().add(game);
         }
