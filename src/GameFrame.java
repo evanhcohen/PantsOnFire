@@ -3,9 +3,9 @@ import java.awt.*;
 
 public class GameFrame extends JFrame
 {
-    private JFrame frame;
+    private static JFrame frame;
     private MenuPanel menu;
-    private GamePanel game;
+    private static GamePanel game;
 
     // constructor
     public GameFrame()
@@ -23,6 +23,10 @@ public class GameFrame extends JFrame
 
         // add the panel to the frame
         frame.getContentPane().add(menu);
+    }
+    public static JFrame getFrame()
+    {
+        return frame;
     }
 
     // shows the frame
