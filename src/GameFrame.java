@@ -4,11 +4,10 @@ import java.awt.*;
 public class GameFrame extends JFrame
 {
     private JFrame frame;
-    private SamplePanel panel; //modify this to a different panel
     private MenuPanel menu;
     private GamePanel game;
-    // constructor
 
+    // constructor
     public GameFrame()
     {
         // creates the frame
@@ -16,11 +15,18 @@ public class GameFrame extends JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // creates the panel
-        game = new GamePanel(); // modify this later
+        game = new GamePanel();
+        menu = new MenuPanel();
+
+        menu.setPreferredSize(new Dimension(1100,700));
         game.setPreferredSize(new Dimension(1100,700));
 
         // add the panel to the frame
-        frame.getContentPane().add(game);
+        frame.getContentPane().add(menu);
+        frame.getContentPane().removeAll();
+
+        frame.getContentPane().add(menu);
+
     }
 
     // shows the frame
