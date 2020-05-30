@@ -17,6 +17,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 //        start.addActionListener(this);
 //        start.setEnabled(true);
         start.setBounds(50,100,95,30);
+        add(start);
 
     }
 
