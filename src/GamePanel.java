@@ -7,10 +7,6 @@ import java.awt.event.KeyListener;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
-    private int locx = 300;
-    private int locy = 300;
-    private int circX = 400;
-    private int circY = 0;
     private int changeX = 0;
     private int changeY = 0;
     private Patty p;
@@ -33,22 +29,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void paintComponent (Graphics g)
     {
-        super.paintComponent(g);
-        g.setColor(Color.blue);
-        g.fillRect(locx, locy, 50, 50);
         p.paintComponent(g);
     }
 
     public void actionPerformed (ActionEvent e)
     {
-        locx += changeX;
-        locy += changeY;
-        circY += 2;
-        if (circY > 800)
-        {
-            circY = 0;
-        }
-        repaint();
+        p.changeX(changeX);
+        p.changeY(changeY);
+        p.repaint();
     }
 
     public void keyPressed (KeyEvent e)
