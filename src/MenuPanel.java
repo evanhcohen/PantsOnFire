@@ -8,6 +8,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
     private JButton start;
     private JButton instructions;
+    private boolean startGame = false;
 
     public MenuPanel()
     {
@@ -15,15 +16,21 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructions = new JButton("HOW TO PLAY");
 
         start.addActionListener(this);
-
+        start.setActionCommand("Start");
         add(start);
         add(instructions);
 
     }
-
+    public boolean getStartGame()
+    {
+        return startGame;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        String action = e.getActionCommand();
+        if (action.equals("Start")) {
+            startGame = true;
+        }
     }
 
     @Override
