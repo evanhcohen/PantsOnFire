@@ -23,9 +23,9 @@ public class GameFrame extends JFrame
 
         // add the panel to the frame
         frame.getContentPane().add(menu);
-        frame.getContentPane().removeAll();
+        //frame.getContentPane().removeAll();
 
-        frame.getContentPane().add(menu);
+        //frame.getContentPane().add(menu);
 
     }
 

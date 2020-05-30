@@ -6,8 +6,19 @@ import java.awt.event.KeyListener;
 
 public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
-    private JButton start = new JButton("START");
-    private JButton Instructions = new JButton("HOW TO PLAY");
+    private JButton start;
+    //private JButton instructions;
+
+    public MenuPanel()
+    {
+        start = new JButton("START");
+        //instructions = new JButton("HOW TO PLAY");
+
+//        start.addActionListener(this);
+//        start.setEnabled(true);
+        start.setBounds(50,100,95,30);
+
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
