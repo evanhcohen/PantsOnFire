@@ -13,6 +13,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private int circY = 0;
     private int changeX = 0;
     private int changeY = 0;
+    private Patty p;
     private Timer time = new Timer (5, this);
 
 
@@ -26,6 +27,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
+        p = new Patty();
+
     }
 
     public void paintComponent (Graphics g)
@@ -33,6 +36,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         super.paintComponent(g);
         g.setColor(Color.blue);
         g.fillRect(locx, locy, 50, 50);
+        p.paintComponent(g);
     }
 
     public void actionPerformed (ActionEvent e)
