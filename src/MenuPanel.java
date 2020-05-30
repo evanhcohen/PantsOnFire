@@ -31,7 +31,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         String action = e.getActionCommand();
         if (action.equals("Start"))
         {
-            startGame = true;
+            GameFrame.changePanel();
         }
     }
 
