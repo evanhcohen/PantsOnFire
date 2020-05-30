@@ -29,14 +29,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void paintComponent (Graphics g)
     {
+        super.paintComponent(g);
         p.paintComponent(g);
     }
 
     public void actionPerformed (ActionEvent e)
     {
-        p.changeX(changeX);
-        p.changeY(changeY);
-        p.repaint();
+        repaint();
     }
 
     public void keyPressed (KeyEvent e)
