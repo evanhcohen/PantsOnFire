@@ -17,6 +17,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
         start.addActionListener(this);
         start.setActionCommand("Start");
+
         add(start);
         add(instructions);
 
@@ -28,7 +29,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if (action.equals("Start")) {
+        if (action.equals("Start"))
+        {
             startGame = true;
         }
     }

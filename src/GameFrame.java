@@ -23,14 +23,6 @@ public class GameFrame extends JFrame
 
         // add the panel to the frame
         frame.getContentPane().add(menu);
-
-        if(MenuPanel.getStartGame())
-        {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(game);
-        }
-        //frame.getContentPane().add(menu);
-
     }
 
     // shows the frame
@@ -38,5 +30,16 @@ public class GameFrame extends JFrame
     {
         frame.pack();
         frame.setVisible(true);
+
+
+        if(MenuPanel.getStartGame())
+        {
+            System.out.println("we got there");
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(game);
+            display();
+        }
+
+
     }
 }
