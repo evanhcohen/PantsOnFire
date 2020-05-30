@@ -1,8 +1,6 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.*;
+
 public class Patty extends JComponent
 
 {
@@ -15,7 +13,15 @@ public class Patty extends JComponent
         lives = 3;
     }
 
-    // accessors
+    public void paintComponent(Graphics g)
+    {
+        g.setColor(Color.red);
+        g.fillRect(30,30,80,80);
+    }
+
+
+
+                      // accessors
     public int getLives()
     {
         return lives;

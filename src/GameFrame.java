@@ -16,11 +16,11 @@ public class GameFrame extends JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // creates the panel
-        menu = new MenuPanel(); // modify this later
-        menu.setPreferredSize(new Dimension(500,300));
+        game = new GamePanel(); // modify this later
+        game.setPreferredSize(new Dimension(1100,700));
 
         // add the panel to the frame
-        frame.getContentPane().add(menu);
+        frame.getContentPane().add(game);
     }
 
     // shows the frame
