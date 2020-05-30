@@ -31,7 +31,6 @@ public class GameFrame extends JFrame
         frame.pack();
         frame.setVisible(true);
 
-
         if(MenuPanel.getStartGame())
         {
             System.out.println("we got there");
@@ -39,7 +38,6 @@ public class GameFrame extends JFrame
             frame.getContentPane().add(game);
             display();
         }
-
 
     }
 }
