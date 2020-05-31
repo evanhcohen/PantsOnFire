@@ -6,8 +6,8 @@ public class Patty extends JComponent
 {
     // instance variables
     private int lives;
-    private int locX;
-    private int locY;
+    private static int locX;
+    private static int locY;
     private int changeX = 0;
     private int changeY = 0;
 
@@ -33,12 +33,12 @@ public class Patty extends JComponent
 
 
     //mutators
-    public void changeLocX(int x)
+    /*public static void changeLocX(int x)
     {
         locX += x;
     }
-    public void changeLocY(int y)
+    public static void changeLocY(int y)
     {
         locY += y;
-    }
+    }*/
 }

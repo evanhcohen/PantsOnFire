@@ -38,7 +38,7 @@ public class GameFrame extends JFrame
 
     public static void changePanel()
     {
-        if(MenuPanel.getStartGame())
+        //if(MenuPanel.getStartGame())
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(game);
