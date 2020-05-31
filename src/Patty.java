@@ -43,7 +43,7 @@ public class Patty extends JComponent
     }
     public void repaint()
     {
-        repaint();
+        repaint(locX,locY,80,80);
         System.out.println("repaint");
     }
 }
