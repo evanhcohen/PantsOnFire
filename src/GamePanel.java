@@ -38,8 +38,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         p.changeLocX(changeX);
         p.changeLocY(changeY);
 
-        p.repaint();
-        repaint();
+       // p.repaint();
+        repaint(p.getLocX(), p.getLocY(), 80, 80);
 
     }
 
