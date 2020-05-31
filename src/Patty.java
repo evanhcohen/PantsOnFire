@@ -24,7 +24,14 @@ public class Patty extends JComponent
         g.setColor(Color.red);
         g.fillRect(locX,locY,80,80);
     }
-
+    public static int getLocX()
+    {
+        return locX;
+    }
+    public static int getLocY()
+    {
+        return locY;
+    }
     // accessors
     public int getLives()
     {
