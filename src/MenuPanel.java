@@ -50,7 +50,6 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         {
             goToInstructions = true;
             GameFrame.changePanel();
-
             GameFrame.getFrame().pack();
             GameFrame.getFrame().setVisible(true);
         }
