@@ -8,8 +8,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
     private JButton start;
     private JButton instructions;
-    private static boolean startGame = false;
-    private static boolean goToInstructions = false;
+
 
     public MenuPanel()
     {
@@ -24,18 +23,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         add(instructions);
 
     }
-    public static boolean getStartGame()
-    {
-        return startGame;
-    }
-    public static boolean getGoToInstructions()
-    {
-        return goToInstructions;
-    }
-    public static void setGoToInstructions(boolean x)
-    {
-        goToInstructions = x;
-    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();

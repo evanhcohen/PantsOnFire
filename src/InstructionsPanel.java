@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 public class InstructionsPanel extends JPanel implements ActionListener, KeyListener
 {
     private JButton menu;
-    private static boolean backToMenu = false;
 
     public InstructionsPanel()
     {
@@ -18,14 +17,6 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         add(menu);
 
     }
-
-    public static boolean getBackToMenu()
-    {
-        return backToMenu;
-    }
-
-
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
