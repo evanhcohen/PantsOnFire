@@ -4,8 +4,9 @@ import java.awt.*;
 public class GameFrame extends JFrame
 {
     private static JFrame frame;
-    private MenuPanel menu;
+    private static MenuPanel menu;
     private static GamePanel game;
+    private static InstructionsPanel instructions;
 
     // constructor
     public GameFrame()
@@ -38,10 +39,20 @@ public class GameFrame extends JFrame
 
     public static void changePanel()
     {
-        //if(MenuPanel.getStartGame())
+        if(MenuPanel.getStartGame())
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(game);
+        }
+        else if(MenuPanel.getGoToInstructions())
+        {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(instructions);
+        }
+        else if(InstructionsPanel.getBackToMenu())
+        {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(menu);
         }
     }
 }
