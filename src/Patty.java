@@ -41,4 +41,8 @@ public class Patty extends JComponent
     {
         locY += y;
     }
+    public void repaint()
+    {
+        repaint();
+    }
 }
