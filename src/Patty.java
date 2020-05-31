@@ -36,13 +36,17 @@ public class Patty extends JComponent
     public static void changeLocX(int x)
     {
         locX += x;
+
+
     }
     public static void changeLocY(int y)
     {
         locY += y;
+
     }
     public void repaint()
     {
         repaint();
+        System.out.println("repaint");
     }
 }
