@@ -30,4 +30,15 @@ public class Patty extends JComponent
     {
         return lives;
     }
+
+
+    //mutators
+    public void changeLocX(int x)
+    {
+        locX += x;
+    }
+    public void changeLocY(int y)
+    {
+        locY += y;
+    }
 }
