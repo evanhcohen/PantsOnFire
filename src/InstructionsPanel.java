@@ -31,10 +31,14 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
         if (action.equals("Menu")) {
+            MenuPanel.setGoToInstructions(false);
             backToMenu = true;
+
             GameFrame.changePanel();
+
             GameFrame.getFrame().pack();
             GameFrame.getFrame().setVisible(true);
+
         }
     }
 

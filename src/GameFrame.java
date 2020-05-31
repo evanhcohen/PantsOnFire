@@ -46,15 +46,16 @@ public class GameFrame extends JFrame
             frame.getContentPane().removeAll();
             frame.getContentPane().add(game);
         }
-        else if(MenuPanel.getGoToInstructions())
-        {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(instructions);
-        }
         else if(InstructionsPanel.getBackToMenu())
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(menu);
         }
+        else if(MenuPanel.getGoToInstructions())
+        {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(instructions);
+        }
+
     }
 }
