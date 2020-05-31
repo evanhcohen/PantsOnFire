@@ -7,6 +7,7 @@ public class GameFrame extends JFrame
     private static MenuPanel menu;
     private static GamePanel game;
     private static InstructionsPanel instructions;
+    private static int panelNum = 0;
 
     // constructor
     public GameFrame()
@@ -32,6 +33,11 @@ public class GameFrame extends JFrame
         return frame;
     }
 
+    public static void setPanelNum(int x)
+    {
+        panelNum = x;
+    }
+
     // shows the frame
     public void display()
     {
@@ -41,17 +47,17 @@ public class GameFrame extends JFrame
 
     public static void changePanel()
     {
-        if(MenuPanel.getStartGame())
+        if(panelNum == 3)
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(game);
         }
-        else if(InstructionsPanel.getBackToMenu())
+        else if(panelNum == 1)
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(menu);
         }
-        else if(MenuPanel.getGoToInstructions())
+        else if(panelNum == 2)
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(instructions);
