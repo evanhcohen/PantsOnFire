@@ -33,12 +33,12 @@ public class Patty extends JComponent
 
 
     //mutators
-    /*public static void changeLocX(int x)
+    public static void changeLocX(int x)
     {
         locX += x;
     }
     public static void changeLocY(int y)
     {
         locY += y;
-    }*/
+    }
 }
