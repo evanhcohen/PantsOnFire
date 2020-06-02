@@ -9,6 +9,7 @@ public class Patty extends JComponent
     private int locY;
     private int changeX = 0;
     private int changeY = 0;
+    ImageIcon img = new ImageIcon("square.jpg", "some text");
 
     // constructor
     public Patty(int x, int y)
