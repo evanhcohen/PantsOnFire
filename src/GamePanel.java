@@ -7,8 +7,6 @@ import java.awt.event.KeyListener;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
-    private int changeX = 0;
-    private int changeY = 0;
     private Patty p;
     private Timer time = new Timer (5, this);
 
@@ -35,12 +33,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
-        System.out.println(e);
-        p.changeLocX(changeX);
-        p.changeLocY(changeY);
-
-        //p.repaint();
-        repaint(p.getLocX(), p.getLocY(), 80, 80);
+        p.repaint();
+        //repaint(p.getLocX(), p.getLocY(), 80, 80);
     }
 
     public void keyPressed (KeyEvent e)
@@ -48,19 +42,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         int c = e.getKeyCode();
         if (c == KeyEvent.VK_LEFT)
         {
-            changeX = -2;
+            p.changeX(-2);
         }
         if (c == KeyEvent.VK_RIGHT)
         {
-            changeX = 2;
+            p.changeX(2);
         }
         if (c == KeyEvent.VK_UP)
         {
-            changeY = -2;
+            p.changeY(-2);
         }
         if (c == KeyEvent.VK_DOWN)
         {
-            changeY = 2;
+            p.changeY(2);
         }
     }
 
@@ -69,11 +63,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         int c = e.getKeyCode();
         if (c == KeyEvent.VK_LEFT || c == KeyEvent.VK_RIGHT)
         {
-            changeX = 0;
+            p.changeX(0);
         }
         if (c == KeyEvent.VK_UP || c == KeyEvent.VK_DOWN)
         {
-            changeY = 0;
+            p.changeY(0);
         }
     }
 
