@@ -9,7 +9,7 @@ public class Patty extends JComponent
     private int locY;
     private int changeX = 0;
     private int changeY = 0;
-    ImageIcon img = new ImageIcon("square.jpg", "some text");
+    ImageIcon img = new ImageIcon("square.jpg");
 
     // constructor
     public Patty(int x, int y)
@@ -36,6 +36,10 @@ public class Patty extends JComponent
     public int getLives()
     {
         return lives;
+    }
+    public ImageIcon getImg()
+    {
+        return img;
     }
 
     public void changeX(int x)

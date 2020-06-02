@@ -27,7 +27,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public void paintComponent (Graphics g)
     {
         super.paintComponent(g);
-        g.fillRect(p.getLocX(),p.getLocY(),80,80);
+        p.getImg().paintIcon(this, g,30,30);
+        //g.fillRect(p.getLocX(),p.getLocY(),80,80);
     }
 
     public void actionPerformed (ActionEvent e)
