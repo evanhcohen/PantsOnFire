@@ -1,22 +1,23 @@
 import javax.swing.*;
+import java.awt.*;
 
 
 public class Patty extends JComponent
 {
     // instance variables
     private int lives;
-    private int locX;
-    private int locY;
+    private int locX = 0;
+    private int locY = 0;
     private int changeX = 0;
     private int changeY = 0;
-    ImageIcon img = new ImageIcon("square.jpg");
+    Image img = new ImageIcon("square.jpg").getImage();
 
     // constructor
     public Patty(int x, int y)
     {
         lives = 3;
-        locX = x;
-        locY = y;
+        locX = 30;
+        locY = 30;
     }
 
 //    public void paintComponent(Graphics g)
@@ -37,7 +38,7 @@ public class Patty extends JComponent
     {
         return lives;
     }
-    public ImageIcon getImg()
+    public Image getImg()
     {
         return img;
     }
@@ -45,14 +46,15 @@ public class Patty extends JComponent
     public void changeX(int x)
     {
         locX += x;
+        System.out.println("locx:" + locX);
     }
     public void changeY(int y)
     {
         locY += y;
     }
-    public void repaint()
-    {
-        repaint(locX,locY,80,80);
-        System.out.println("repaint");
-    }
+//    public void repaint()
+//    {
+//        repaint(locX,locY,80,80);
+//        System.out.println("repaint");
+//    }
 }

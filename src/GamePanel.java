@@ -10,6 +10,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Patty p;
     private Timer time = new Timer (5, this);
 
+    private int changeX = 0;
+    private int changeY = 0;
+
 
     public GamePanel()
     {
@@ -27,12 +30,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public void paintComponent (Graphics g)
     {
         super.paintComponent(g);
-        p.getImg().paintIcon(this, g,30,30);
-        //g.fillRect(p.getLocX(),p.getLocY(),80,80);
+        //g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), null);
+        g.fillRect(p.getLocX(),p.getLocY(),80,80);
     }
 
     public void actionPerformed (ActionEvent e)
     {
+        //System.out.println("LocX before change: " + p.getLocX());
+        p.changeX(changeX);
+        //System.out.println("LocX after change: " + p.getLocX());
         repaint();
         //repaint(p.getLocX(), p.getLocY(), 80, 80);
     }
@@ -42,11 +48,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         int c = e.getKeyCode();
         if (c == KeyEvent.VK_LEFT)
         {
-            p.changeX(-2);
+            System.out.println("KeyEvent left occurred");
+
+            changeX = -50;
         }
         if (c == KeyEvent.VK_RIGHT)
         {
-            p.changeX(2);
+            System.out.println("KeyEvent right occurred");
+
+            changeX = 50;
         }
         if (c == KeyEvent.VK_UP)
         {
