@@ -13,15 +13,15 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     public MenuPanel()
     {
         start = new JButton("START");
-        instructions = new JButton("HOW TO PLAY");
-
         start.addActionListener(this);
         start.setActionCommand("Start");
+        add(start);
+
+
+        instructions = new JButton("HOW TO PLAY");
         instructions.addActionListener(this);
         instructions.setActionCommand("Instructions");
-        add(start);
         add(instructions);
-
     }
 
     @Override
@@ -29,17 +29,11 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         String action = e.getActionCommand();
         if (action.equals("Start"))
         {
-            GameFrame.setPanelNum(3);
-            GameFrame.changePanel();
-            GameFrame.getFrame().pack();
-            GameFrame.getFrame().setVisible(true);
+            GameFrame.changePanel(3);
         }
         if (action.equals("Instructions"))
         {
-            GameFrame.setPanelNum(2);
-            GameFrame.changePanel();
-            GameFrame.getFrame().pack();
-            GameFrame.getFrame().setVisible(true);
+            GameFrame.changePanel(2);
         }
     }
 

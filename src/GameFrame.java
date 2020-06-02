@@ -25,7 +25,7 @@ public class GameFrame extends JFrame
         game.setPreferredSize(new Dimension(1100,700));
         instructions.setPreferredSize(new Dimension(1100,700));
 
-        // add the panel to the frame
+        // add menu panel to the frame
         frame.getContentPane().add(menu);
     }
     public static JFrame getFrame()
@@ -35,18 +35,18 @@ public class GameFrame extends JFrame
 
     public static void setPanelNum(int x)
     {
-        panelNum = x;
     }
 
     // shows the frame
-    public void display()
+    public static void display() // potentially make this static
     {
         frame.pack();
         frame.setVisible(true);
     }
 
-    public static void changePanel()
+    public static void changePanel(int x)
     {
+        panelNum = x;
         if(panelNum == 3)
         {
             frame.getContentPane().removeAll();
@@ -62,6 +62,6 @@ public class GameFrame extends JFrame
             frame.getContentPane().removeAll();
             frame.getContentPane().add(instructions);
         }
-
+        display();
     }
 }

@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -21,16 +20,9 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if (action.equals("Menu")) {
-
-            GameFrame.setPanelNum(1);
-
-
-            GameFrame.changePanel();
-
-            GameFrame.getFrame().pack();
-            GameFrame.getFrame().setVisible(true);
-
+        if (action.equals("Menu"))
+        {
+            GameFrame.changePanel(1);
         }
     }
 
