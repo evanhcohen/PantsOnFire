@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 
 public class Patty extends JComponent
@@ -19,11 +18,11 @@ public class Patty extends JComponent
         locY = 30;
     }
 
-    public void paintComponent(Graphics g)
-    {
-        g.setColor(Color.red);
-        g.fillRect(locX,locY,80,80);
-    }
+//    public void paintComponent(Graphics g)
+//    {
+//        g.setColor(Color.red);
+//        g.fillRect(locX,locY,80,80);
+//    }
 
     public int getLocX()
     {
