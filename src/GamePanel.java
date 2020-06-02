@@ -21,7 +21,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
-        p = new Patty();
+        p = new Patty(30, 30);
 
     }
 

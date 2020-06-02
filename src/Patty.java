@@ -11,11 +11,11 @@ public class Patty extends JComponent
     private int changeY = 0;
 
     // constructor
-    public Patty()
+    public Patty(int x, int y)
     {
         lives = 3;
-        locX = 30;
-        locY = 30;
+        locX = x;
+        locY = y;
     }
 
 //    public void paintComponent(Graphics g)
