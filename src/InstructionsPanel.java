@@ -19,11 +19,11 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
 
     @Override
     public void actionPerformed(ActionEvent e) {
-//        String action = e.getActionCommand();
-//        if (action.equals("Menu"))
-//        {
-//            GameFrame.changePanel(1);
-//        }
+        String action = e.getActionCommand();
+        if (action.equals("Menu"))
+        {
+            MenuFrame.changePanel(1);
+        }
     }
 
     @Override
