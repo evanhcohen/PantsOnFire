@@ -4,9 +4,9 @@ import java.awt.*;
 public class GameFrame extends JFrame
 {
     private static JFrame frame;
-    private static MenuPanel menu;
+//    private static MenuPanel menu;
     private static GamePanel game;
-    private static InstructionsPanel instructions;
+//    private static InstructionsPanel instructions;
     private static int panelNum = 0;
 
     // constructor
@@ -18,24 +18,24 @@ public class GameFrame extends JFrame
 
         // creates the panel
         game = new GamePanel();
-        menu = new MenuPanel();
-        instructions = new InstructionsPanel();
+//        menu = new MenuPanel();
+//        instructions = new InstructionsPanel();
 
-        menu.setPreferredSize(new Dimension(1100,700));
+//        menu.setPreferredSize(new Dimension(1100,700));
         game.setPreferredSize(new Dimension(1100,700));
-        instructions.setPreferredSize(new Dimension(1100,700));
+//        instructions.setPreferredSize(new Dimension(1100,700));
 
         // add menu panel to the frame
-        frame.getContentPane().add(menu);
+        frame.getContentPane().add(game);
     }
-    public static JFrame getFrame()
-    {
-        return frame;
-    }
+//    public static JFrame getFrame()
+//    {
+//        return frame;
+//    }
 
-    public static void setPanelNum(int x)
-    {
-    }
+//    public static void setPanelNum(int x)
+//    {
+//    }
 
     // shows the frame
     public static void display() // potentially make this static
@@ -44,24 +44,24 @@ public class GameFrame extends JFrame
         frame.setVisible(true);
     }
 
-    public static void changePanel(int x)
-    {
-        panelNum = x;
-        if(panelNum == 3)
-        {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(game);
-        }
-        else if(panelNum == 1)
-        {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(menu);
-        }
-        else if(panelNum == 2)
-        {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(instructions);
-        }
-        display();
-    }
+//    public static void changePanel(int x)
+//    {
+//        panelNum = x;
+//        if(panelNum == 3)
+//        {
+//            frame.getContentPane().removeAll();
+//            frame.getContentPane().add(game);
+//        }
+//        else if(panelNum == 1)
+//        {
+//            frame.getContentPane().removeAll();
+//            frame.getContentPane().add(menu);
+//        }
+//        else if(panelNum == 2)
+//        {
+//            frame.getContentPane().removeAll();
+//            frame.getContentPane().add(instructions);
+//        }
+//        display();
+//    }
 }

@@ -1,16 +1,19 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
 
 
 public class Patty extends JComponent
 {
     // instance variables
     private int lives;
-    private int locX = 0;
-    private int locY = 0;
+    private int locX;
+    private int locY;
     private int changeX = 0;
     private int changeY = 0;
-    Image img = new ImageIcon("square.jpg").getImage();
+    private Image img;
 
     // constructor
     public Patty(int x, int y)
@@ -20,11 +23,6 @@ public class Patty extends JComponent
         locY = 30;
     }
 
-//    public void paintComponent(Graphics g)
-//    {
-//        g.setColor(Color.red);
-//        g.fillRect(locX,locY,80,80);
-//    }
 
     public int getLocX()
     {
@@ -38,10 +36,21 @@ public class Patty extends JComponent
     {
         return lives;
     }
-    public Image getImg()
+
+    public void drawImg()
     {
-        return img;
+        URL resource = getClass().getResource("square.jpg");
+        try {
+            img = ImageIO.read(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    public Image getImg(int w, int h)
+    {
+        return img.getScaledInstance(w, h, Image.SCALE_SMOOTH);
+    }
+
 
     public void changeX(int x)
     {
@@ -52,9 +61,5 @@ public class Patty extends JComponent
     {
         locY += y;
     }
-//    public void repaint()
-//    {
-//        repaint(locX,locY,80,80);
-//        System.out.println("repaint");
-//    }
+
 }
