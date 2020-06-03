@@ -12,9 +12,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     private int changeX = 0;
     private int changeY = 0;
-    private Image myImg;
-
-
 
     public GamePanel()
     {
