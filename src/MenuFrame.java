@@ -18,8 +18,8 @@ public class MenuFrame extends JFrame
         menu = new MenuPanel();
         instructions = new InstructionsPanel();
 
-        menu.setPreferredSize(new Dimension(1100,700));
-        instructions.setPreferredSize(new Dimension(1100,700));
+        menu.setPreferredSize(new Dimension(1500,500));
+        instructions.setPreferredSize(new Dimension(1500,500));
 
         // add menu panel to the frame
         frame.getContentPane().add(menu);
