@@ -46,6 +46,7 @@ public class Patty extends JComponent
             e.printStackTrace();
         }
     }
+
     public Image getImg(int w, int h)
     {
         return img.getScaledInstance(w, h, Image.SCALE_SMOOTH);
