@@ -1,14 +1,17 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
     private Patty p;
     private Timer time = new Timer (5, this);
+    Image background;
 
     private int changeX = 0;
     private int changeY = 0;
@@ -25,12 +28,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         p = new Patty(30, 30);
         p.drawImg();
+
+        //setBackground(Color.blue);
+
+        try {
+            background = ImageIO.read(getClass().getResource("backgroundTest.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void paintComponent (Graphics g)
     {
         super.paintComponent(g);
-
+        g.drawImage(background,0,0,this.getWidth(),this.getHeight(),this);
         g.drawImage(p.getImg(50, 50),p.getLocX(),p.getLocY(), this);
         //g.fillRect(p.getLocX(),p.getLocY(),80,80); // makes a rectangle
     }
