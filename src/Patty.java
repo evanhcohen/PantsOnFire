@@ -39,7 +39,7 @@ public class Patty extends JComponent
 
     public void drawImg()
     {
-        URL resource = getClass().getResource("square.jpg");
+        URL resource = getClass().getResource("images/square.jpg");
         try {
             img = ImageIO.read(resource);
         } catch (IOException e) {

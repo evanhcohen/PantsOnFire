@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         p.drawImg();
 
         try {
-            background = ImageIO.read(getClass().getResource("backgroundTest.jpg"));
+            background = ImageIO.read(getClass().getResource("images/backgroundTest.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
