@@ -12,6 +12,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Patty p;
     private Timer time = new Timer (3, this);
 
+    private JButton settings;
+
     Image background;
 
     private int changeX = 0;
@@ -30,11 +32,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         p = new Patty(30, 400);
         p.drawImg();
 
+        settings = new JButton();
+
         try {
             background = ImageIO.read(getClass().getResource("images/backgroundTest.jpg"));
+            settings.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/settings.png"))));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        settings.setMargin(new Insets(0, 0, 0, 0));
+        settings.setBorder(null);
+        settings.setPreferredSize(new Dimension(20,20));
+        add(settings);
+
     }
 
     public void paintComponent (Graphics g)
