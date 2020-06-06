@@ -19,8 +19,8 @@ public class Patty extends JComponent
     public Patty(int x, int y)
     {
         lives = 3;
-        locX = 30;
-        locY = 30;
+        locX = x;
+        locY = y;
     }
 
 
@@ -52,12 +52,11 @@ public class Patty extends JComponent
         return img.getScaledInstance(w, h, Image.SCALE_SMOOTH);
     }
 
-
     public void changeX(int x)
     {
         locX += x;
-        System.out.println("locx:" + locX);
     }
+
     public void changeY(int y)
     {
         locY += y;

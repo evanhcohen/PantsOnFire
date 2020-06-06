@@ -10,7 +10,8 @@ import java.io.IOException;
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
     private Patty p;
-    private Timer time = new Timer (5, this);
+    private Timer time = new Timer (3, this);
+
     Image background;
 
     private int changeX = 0;
@@ -26,10 +27,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
-        p = new Patty(30, 30);
+        p = new Patty(30, 400);
         p.drawImg();
-
-        //setBackground(Color.blue);
 
         try {
             background = ImageIO.read(getClass().getResource("backgroundTest.jpg"));
@@ -41,19 +40,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public void paintComponent (Graphics g)
     {
         super.paintComponent(g);
+
+        // draw background
         g.drawImage(background,0,0,this.getWidth(),this.getHeight(),this);
+
+        //draw Patty
         g.drawImage(p.getImg(50, 50),p.getLocX(),p.getLocY(), this);
-        //g.fillRect(p.getLocX(),p.getLocY(),80,80); // makes a rectangle
     }
 
     public void actionPerformed (ActionEvent e)
     {
-        //System.out.println("LocX before change: " + p.getLocX());
+        // modify the players x and y values
         p.changeX(changeX);
         p.changeY(changeY);
-        //System.out.println("LocX after change: " + p.getLocX());
+
         repaint();
-        //repaint(p.getLocX(), p.getLocY(), 80, 80);
     }
 
     public void keyPressed (KeyEvent e)
@@ -61,14 +62,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         int c = e.getKeyCode();
         if (c == KeyEvent.VK_LEFT)
         {
-            System.out.println("KeyEvent left occurred");
-
             changeX = -2;
         }
         if (c == KeyEvent.VK_RIGHT)
         {
-            System.out.println("KeyEvent right occurred");
-
             changeX = 2;
         }
         if (c == KeyEvent.VK_UP)
