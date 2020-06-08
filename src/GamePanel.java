@@ -10,6 +10,7 @@ import java.io.IOException;
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
     private Patty p;
+    private Platform platform1;
     private Timer time = new Timer (3, this);
 
     private JButton settings;
@@ -31,6 +32,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         p = new Patty(30, 400);
         p.drawImg();
+        platform1 = new Platform(30, 400);
+        platform1.drawImg();
 
         settings = new JButton();
 
@@ -57,6 +60,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         //draw Patty
         g.drawImage(p.getImg(50, 50),p.getLocX(),p.getLocY(), this);
+
+        g.drawImage(platform1.getImg(50, 50),platform1.getLocX(),platform1.getLocY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
