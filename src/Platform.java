@@ -1,6 +1,10 @@
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
 
-public class Platform {
+public class Platform extends JComponent {
 
     //instance variables
     private int locX;
@@ -24,6 +28,17 @@ public class Platform {
     public int getLocY()
     {
         return locY;
+    }
+
+
+    public void drawImg()
+    {
+        URL resource = getClass().getResource("images/platform.png");
+        try {
+            img = ImageIO.read(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
