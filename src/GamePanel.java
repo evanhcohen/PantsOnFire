@@ -32,7 +32,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         p = new Patty(30, 400);
         p.drawImg();
-        platform1 = new Platform(30, 400);
+        platform1 = new Platform(100, 400);
         platform1.drawImg();
 
         settings = new JButton();
@@ -66,7 +66,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
+
+
         // modify the players x and y values
+
         p.changeX(changeX);
         p.changeY(changeY);
 
@@ -104,6 +107,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (c == KeyEvent.VK_UP || c == KeyEvent.VK_DOWN)
         {
             changeY = 0;
+
         }
     }
 
