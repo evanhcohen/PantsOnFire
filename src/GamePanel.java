@@ -61,7 +61,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         //draw Patty
         g.drawImage(p.getImg(50, 50),p.getLocX(),p.getLocY(), this);
 
-        g.drawImage(platform1.getImg(50, 50),platform1.getLocX(),platform1.getLocY(), this);
+        g.drawImage(platform1.getImg(100, 100),platform1.getLocX(),platform1.getLocY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
