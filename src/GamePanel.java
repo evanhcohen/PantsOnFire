@@ -66,8 +66,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
-
-
         // modify the players x and y values
 
         p.changeX(changeX);
