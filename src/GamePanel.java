@@ -11,6 +11,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
     private Patty p;
     private Platform platform1;
+    private Platform platform2;
+    private Platform platform3;
     private Timer time = new Timer (3, this);
 
     private JButton settings;
@@ -36,6 +38,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         p.drawImg();
         platform1 = new Platform(100, 400);
         platform1.drawImg();
+        platform2 = new Platform(200, 400);
+        platform2.drawImg();
+        platform3 = new Platform(300, 400);
+        platform3.drawImg();
 
         settings = new JButton();
 
@@ -64,6 +70,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(p.getImg(50, 50),p.getLocX(),p.getLocY(), this);
 
         g.drawImage(platform1.getImg(100, 100),platform1.getLocX(),platform1.getLocY(), this);
+        g.drawImage(platform2.getImg(100, 100),platform2.getLocX(),platform2.getLocY(), this);
+        g.drawImage(platform3.getImg(100, 100),platform3.getLocX(),platform3.getLocY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
