@@ -52,7 +52,7 @@ public class Platform extends JComponent {
     {
         Patty p = GamePanel.getP();
 
-        return false;
+        return true;
 
     }
 

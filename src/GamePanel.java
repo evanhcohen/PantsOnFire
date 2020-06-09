@@ -17,8 +17,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
+    private boolean ready = false;
 
-    private ArrayList<Platform> platforms;
+    private ArrayList<Platform> myPlatforms;
+    private ArrayList<String> myString;
 
     private Timer time = new Timer (3, this);
 
@@ -51,10 +53,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform3 = new Platform(300, 400);
         platform3.drawImg();
 
-        platforms = new ArrayList<>();
-        platforms.add(platform1);
-        platforms.add(platform2);
-        platforms.add(platform3);
+        myPlatforms = new ArrayList<Platform>();
+        myPlatforms.add(platform1);
+        myPlatforms.add(platform2);
+        myPlatforms.add(platform3);
+
+        String s1 = "1";
+        String s2 = "2";
+        String s3 = "3";
+
+        myString = new ArrayList<String>();
+        myString.add(s1);
+        myString.add(s2);
+        myString.add(s3);
+
+
 
         settings = new JButton();
 
@@ -71,6 +84,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         settings.setBorder(null);
         settings.setPreferredSize(new Dimension(20,20));
         add(settings);
+
+        ready = true;
     }
 
     public void paintComponent (Graphics g)
@@ -114,10 +129,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         p.changeY(changeY);
 
-//        if(test() == 1)
-//        {
-//            p.fall();
-//        }
+        if(ready && isTouching() == 1)
+        {
+            p.fall();
+        }
 
 
 
@@ -170,23 +185,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         return p;
     }
 
-    public boolean isTouching()
-    {
-
-        return false;
-    }
-
-    public int test()
+    public int isTouching()
     {
         int answer = 0;
-        System.out.print(platforms);
-        for (int i = 0; i <platforms.size(); i++)
+        for (Platform x : myPlatforms)
         {
-            if (platforms.get(i).touching())
+            if (x.touching())
             {
                 answer = 1;
             }
-
         }
         return answer;
     }
