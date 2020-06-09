@@ -12,6 +12,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
     private static Patty p;
 
+    private int jump = 0;
+
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
@@ -95,6 +97,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         {
 
         }
+       // if(jump == 0)
+       // {
+       //     changeY = 0;
+       // }
+        if(jump >= 1 && jump <= 20)
+        {
+            changeY = -2;
+            jump ++;
+        }
+        if(jump > 20)
+        {
+            changeY = 2;
+        }
+
+
         p.changeY(changeY);
 
 //        if(test() == 1)
@@ -121,6 +138,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (c == KeyEvent.VK_UP)
         {
             up = true;
+            jump = 1;
         }
         if (c == KeyEvent.VK_DOWN)
         {
