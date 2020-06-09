@@ -43,10 +43,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
-        p = new Patty(30, 0);
+        p = new Patty(30, 0, 50, 50);
         p.drawImg();
 
-        platform1 = new Platform(100, 400);
+        platform1 = new Platform(50, 400);
         platform1.drawImg();
         platform2 = new Platform(200, 400);
         platform2.drawImg();
@@ -96,11 +96,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(background,0,0,this.getWidth(),this.getHeight(),this);
 
         //draw Patty
-        g.drawImage(p.getImg(50, 50),p.getLocX(),p.getLocY(), this);
+        g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), this);
 
-        g.drawImage(platform1.getImg(100, 100),platform1.getLocX(),platform1.getLocY(), this);
-        g.drawImage(platform2.getImg(100, 100),platform2.getLocX(),platform2.getLocY(), this);
-        g.drawImage(platform3.getImg(100, 100),platform3.getLocX(),platform3.getLocY(), this);
+        g.drawImage(platform1.getImg(),platform1.getLocX(),platform1.getLocY(), this);
+        g.drawImage(platform2.getImg(),platform2.getLocX(),platform2.getLocY(), this);
+        g.drawImage(platform3.getImg(),platform3.getLocX(),platform3.getLocY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
@@ -108,43 +108,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // modify the players x and y values
 
         p.changeX(changeX);
-        if (up)
-        {
-
-        }
-       // if(jump == 0)
-       // {
-       //     changeY = 0;
-       // }
-
-        if(jump >= 1 && jump <= 30)
-        {
-            changeY = -4;
-            jump ++;
-        }
-        if(jump > 30)
-        {
-            changeY = 4;
-        }
-        if(p.getLocY() >= 450)
-        {
-            p.changeY(-1);
-            changeY = 0;
-            jump = 0;
-
-        }
-
-
-
         p.changeY(changeY);
 
-        if(ready && isTouching() == 1)
+        if(ready && isTouching() == 0)
         {
             p.fall();
         }
-
-
-
         repaint();
     }
 
@@ -180,7 +149,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (c == KeyEvent.VK_UP || c == KeyEvent.VK_DOWN)
         {
             changeY = 0;
-
         }
     }
 

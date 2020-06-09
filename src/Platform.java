@@ -9,6 +9,8 @@ public class Platform extends JComponent {
     //instance variables
     private int locX;
     private int locY;
+    private int width;
+    private int height;
     private int changeX = 0;
     private int changeY = 0;
     private Image img;
@@ -18,6 +20,8 @@ public class Platform extends JComponent {
     {
         locX = x;
         locY = y;
+        width = 80;
+        height = 30;
     }
 
     //accessors
@@ -25,10 +29,20 @@ public class Platform extends JComponent {
     {
         return locX;
     }
+    public int getRightX()
+    {
+        return locX + width;
+    }
+
     public int getLocY()
     {
         return locY;
     }
+    public int getBottomY()
+    {
+        return locY + height;
+    }
+
 
 
     public void drawImg()
@@ -42,9 +56,9 @@ public class Platform extends JComponent {
     }
 
 
-    public Image getImg(int w, int h)
+    public Image getImg()
     {
-        return img.getScaledInstance(w, h, Image.SCALE_SMOOTH);
+        return img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
     }
 
 
@@ -52,8 +66,14 @@ public class Platform extends JComponent {
     {
         Patty p = GamePanel.getP();
 
-        return true;
-
+        if (p.getLocX() < this.getRightX() && p.getRightX() > this.getLocX() && p.getBottomY() == this.getLocY())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

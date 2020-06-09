@@ -11,28 +11,43 @@ public class Patty extends JComponent
     private int lives;
     private int locX;
     private int locY;
+    private int width;
+    private int height;
     private int changeX = 0;
     private int changeY = 0;
     private Image img;
     private boolean isFalling;
 
     // constructor
-    public Patty(int x, int y)
+    public Patty(int x, int y, int w, int h)
     {
         lives = 3;
         locX = x;
         locY = y;
+        width = w;
+        height = h;
     }
-
 
     public int getLocX()
     {
         return locX;
     }
+    public int getRightX()
+    {
+        return locX + width;
+    }
+
     public int getLocY()
     {
         return locY;
     }
+    public int getBottomY()
+    {
+        return locY + height;
+    }
+
+
+
     public int getLives()
     {
         return lives;
@@ -48,9 +63,9 @@ public class Patty extends JComponent
         }
     }
 
-    public Image getImg(int w, int h)
+    public Image getImg()
     {
-        return img.getScaledInstance(w, h, Image.SCALE_SMOOTH);
+        return img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
     }
 
     public void changeX(int x)
