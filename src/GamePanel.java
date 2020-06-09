@@ -52,7 +52,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform3 = new Platform(300, 400);
         platform3.drawImg();
 
-        myPlatforms = new ArrayList<Platform>();
+        myPlatforms = new ArrayList<>();
         myPlatforms.add(platform1);
         myPlatforms.add(platform2);
         myPlatforms.add(platform3);
@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
          settings = new JButton();
 
         try {
-            background = ImageIO.read(getClass().getResource("images/backgroundTest.jpg"));
+            background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
             settings.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/settings.png"))));
         }
         catch (IOException e)
