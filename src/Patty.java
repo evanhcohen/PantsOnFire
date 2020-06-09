@@ -14,6 +14,7 @@ public class Patty extends JComponent
     private int changeX = 0;
     private int changeY = 0;
     private Image img;
+    private boolean isFalling;
 
     // constructor
     public Patty(int x, int y)
@@ -60,6 +61,11 @@ public class Patty extends JComponent
     public void changeY(int y)
     {
         locY += y;
+    }
+
+    public void changeFallStatus(boolean status)
+    {
+        isFalling = status;
     }
 
 

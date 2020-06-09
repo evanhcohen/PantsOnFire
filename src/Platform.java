@@ -13,14 +13,14 @@ public class Platform extends JComponent {
     private int changeY = 0;
     private Image img;
 
-  //constructor
+    //constructor
     public Platform(int x, int y)
     {
         locX = x;
         locY = y;
     }
 
-//accessors
+    //accessors
     public int getLocX()
     {
         return locX;
@@ -45,6 +45,15 @@ public class Platform extends JComponent {
     public Image getImg(int w, int h)
     {
         return img.getScaledInstance(w, h, Image.SCALE_SMOOTH);
+    }
+
+
+    public void touching()
+    {
+        Patty p = GamePanel.getP();
+
+
+
     }
 
 }

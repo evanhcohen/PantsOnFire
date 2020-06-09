@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
-    private Patty p;
+    private static Patty p;
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
@@ -127,5 +127,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public void keyTyped (KeyEvent e)
     {
 
+    }
+
+    public static Patty getP()
+    {
+        return p;
     }
 }
