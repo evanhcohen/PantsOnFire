@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
@@ -13,6 +14,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
+
+    ArrayList<Platform> platforms;
+
     private Timer time = new Timer (3, this);
 
     private JButton settings;
@@ -42,6 +46,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform2.drawImg();
         platform3 = new Platform(300, 400);
         platform3.drawImg();
+
+        platforms.add(platform1);
+        platforms.add(platform2);
+        platforms.add(platform3);
+
 
         settings = new JButton();
 
@@ -82,9 +91,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (up)
         {
 
-
         }
         p.changeY(changeY);
+
+        for (Platform x : platforms)
+        {
+            x.touching();
+        }
 
         repaint();
     }
