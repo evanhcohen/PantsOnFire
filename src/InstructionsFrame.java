@@ -20,7 +20,6 @@ public class InstructionsFrame extends MainFrame
         frame.getContentPane().add(instructions);
     }
 
-
     public static void changePanel(int x)
     {
         if (x == 2)

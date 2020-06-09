@@ -19,6 +19,7 @@ public class MenuFrame extends MainFrame
         // add panel to the frame
         frame.getContentPane().add(menu);
     }
+
     public static JFrame getFrame()
     {
         return frame;
