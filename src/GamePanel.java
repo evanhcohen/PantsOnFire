@@ -29,7 +29,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private int changeX = 0;
     private int changeY = 0;
 
-    private boolean up = false;
     private int jump = 0;
 
     // constructor
@@ -120,7 +119,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if(ready && !isTouching())
         {
             changeY = 4;
-            up = false;
         }
 
         // change x and y for player
@@ -146,8 +144,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
         if (c == KeyEvent.VK_UP)
         {
-            up = true;
-            if(isTouching()) {
+            if(isTouching())
+            {
                 jump = 1;
                 ready = false;
             }
