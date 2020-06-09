@@ -42,7 +42,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
-        p = new Patty(30, 0, 50, 50);
+        p = new Patty(50, 350, 50, 50);
         p.drawImg();
 
         platform1 = new Platform(50, 400);
@@ -102,13 +102,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
         if(jump > 30)
         {
-            changeY = 1;
+            changeY = 4;
+            ready = true;
         }
         if(ready && isTouching() == 1)
         {
-            p.changeY(-1);
+            //p.changeY(-1);
             jump = 0;
             changeY = 0;
+        }
+        if(!ready)
+        {
 
         }
         p.changeX(changeX);
@@ -121,22 +125,33 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public void keyPressed (KeyEvent e)
     {
         int c = e.getKeyCode();
+
         if (c == KeyEvent.VK_LEFT)
         {
             changeX = -2;
+
         }
         if (c == KeyEvent.VK_RIGHT)
         {
             changeX = 2;
+
         }
         if (c == KeyEvent.VK_UP)
         {
             up = true;
-            jump = 1;
+            if(isTouching() == 1) {
+                jump = 1;
+                ready = false;
+            }
+            else
+            {
+                jump = 0;
+            }
         }
         if (c == KeyEvent.VK_DOWN)
         {
             changeY = 2;
+
         }
     }
 
