@@ -97,10 +97,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
         p.changeY(changeY);
 
-        if(test() == 1)
-        {
-            p.fall();
-        }
+//        if(test() == 1)
+//        {
+//            p.fall();
+//        }
 
 
 
