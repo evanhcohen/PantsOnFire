@@ -115,6 +115,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         {
             p.changeY(-1);
             changeY = 0;
+            jump = 0;
 
         }
 
