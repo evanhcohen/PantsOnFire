@@ -94,7 +94,7 @@ public class Patty extends JComponent
 
     public void fall()
     {
-        locY += 1;
+        locY += 4;
     }
 
 }
