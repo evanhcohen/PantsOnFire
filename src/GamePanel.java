@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
@@ -81,12 +82,37 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         p.changeX(changeX);
         if (up)
         {
+            System.out.println("Y: " + p.getLocY());
+            System.out.println("jump1");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+            p.changeY(5);
+            repaint();
+            System.out.println("Y: " + p.getLocY());
 
+            System.out.println("jump2");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+            p.changeY(5);
+            repaint();
+            System.out.println("Y: " + p.getLocY());
+
+            p.changeY(20);
+            System.out.println("Y: " + p.getLocY());
+
+            up = false;
+            System.out.println("jump done");
 
         }
         //p.changeY(changeY);
 
-        repaint();
+        //repaint();
     }
 
     public void keyPressed (KeyEvent e)
