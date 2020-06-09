@@ -46,8 +46,6 @@ public class Patty extends JComponent
         return locY + height;
     }
 
-
-
     public int getLives()
     {
         return lives;
