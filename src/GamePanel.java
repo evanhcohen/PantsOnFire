@@ -110,14 +110,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
 
         // don't move when touching platform
-        if(ready && isTouching() == 1)
+        if(ready && isTouching())
         {
             jump = 0;
             changeY = 0;
         }
 
         // fall when not touching platform
-        if(ready && isTouching() == 0)
+        if(ready && !isTouching())
         {
             changeY = 4;
             up = false;
@@ -147,7 +147,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (c == KeyEvent.VK_UP)
         {
             up = true;
-            if(isTouching() == 1) {
+            if(isTouching()) {
                 jump = 1;
                 ready = false;
             }
@@ -180,16 +180,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     }
 
-    public int isTouching()
+    public boolean isTouching()
     {
-        int yes = 0;
         for (Platform x : myPlatforms)
         {
             if (x.touching(p))
             {
-                yes = 1;
+                return true;
             }
         }
-        return yes;
+        return false;
     }
 }
