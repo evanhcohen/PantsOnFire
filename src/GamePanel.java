@@ -11,11 +11,12 @@ import java.util.ArrayList;
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
     private static Patty p;
+
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
 
-    ArrayList<Platform> platforms;
+    private ArrayList<Platform> platforms;
 
     private Timer time = new Timer (3, this);
 
@@ -38,8 +39,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
-        p = new Patty(30, 400);
+        p = new Patty(30, 0);
         p.drawImg();
+
         platform1 = new Platform(100, 400);
         platform1.drawImg();
         platform2 = new Platform(200, 400);
@@ -47,17 +49,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform3 = new Platform(300, 400);
         platform3.drawImg();
 
+        platforms = new ArrayList<>();
         platforms.add(platform1);
         platforms.add(platform2);
         platforms.add(platform3);
-
 
         settings = new JButton();
 
         try {
             background = ImageIO.read(getClass().getResource("images/backgroundTest.jpg"));
             settings.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/settings.png"))));
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
 
@@ -65,7 +69,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         settings.setBorder(null);
         settings.setPreferredSize(new Dimension(20,20));
         add(settings);
-
     }
 
     public void paintComponent (Graphics g)
@@ -94,7 +97,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
         p.changeY(changeY);
 
-        isTouching();
+        if(test() == 1)
+        {
+            p.fall();
+        }
 
 
 
@@ -148,12 +154,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public boolean isTouching()
     {
-        for (Platform x : platforms)
+
+        return false;
+    }
+
+    public int test()
+    {
+        int answer = 0;
+        System.out.print(platforms);
+        for (int i = 0; i <platforms.size(); i++)
         {
-            if (x.touching())
-                return true;
+            if (platforms.get(i).touching())
+            {
+                answer = 1;
+            }
 
         }
-        return false;
+        return answer;
     }
 }
