@@ -93,8 +93,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
-        // modify the players x and y values
 
+        // jumping with gravity
         if(jump >= 1 && jump <= 30)
         {
             changeY = -4;
@@ -180,14 +180,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public int isTouching()
     {
-        int answer = 0;
+        int yes = 0;
         for (Platform x : myPlatforms)
         {
             if (x.touching())
             {
-                answer = 1;
+                yes = 1;
             }
         }
-        return answer;
+        return yes;
     }
 }
