@@ -2,7 +2,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.net.URL;
 
 public class Platform extends JComponent {
 
@@ -11,8 +10,6 @@ public class Platform extends JComponent {
     private int locY;
     private int width;
     private int height;
-    private int changeX = 0;
-    private int changeY = 0;
     private Image img;
 
     //constructor
@@ -25,55 +22,41 @@ public class Platform extends JComponent {
     }
 
     //accessors
-    public int getLocX()
+    public int leftBoundX()
     {
         return locX;
     }
-    public int getRightX()
+    public int rightBoundX()
     {
         return locX + width;
     }
-
-    public int getLocY()
+    public int topY()
     {
         return locY;
     }
-    public int getBottomY()
+    public int bottomY()
     {
         return locY + height;
     }
 
-
-
     public void drawImg()
     {
-        URL resource = getClass().getResource("images/platform.png");
         try {
-            img = ImageIO.read(resource);
+            img = ImageIO.read(getClass().getResource("images/platform.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
     public Image getImg()
     {
         return img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
     }
 
-
-    public boolean touching()
+    public boolean touching(Patty p)
     {
-        Patty p = GamePanel.getP();
-
-        if (p.getLocX() < this.getRightX() && p.getRightX() > this.getLocX() && p.getBottomY() == this.getLocY())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        // checks right, left, then bottom of patty; checks left, right, then top of platform
+        return (p.getLocX() < this.rightBoundX() && p.rightBoundX() > this.leftBoundX() && p.getBottomY() == this.topY());
     }
 
 }

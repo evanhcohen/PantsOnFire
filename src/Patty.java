@@ -2,7 +2,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.net.URL;
 
 
 public class Patty extends JComponent
@@ -13,10 +12,7 @@ public class Patty extends JComponent
     private int locY;
     private int width;
     private int height;
-    private int changeX = 0;
-    private int changeY = 0;
     private Image img;
-    private boolean isFalling;
 
     // constructor
     public Patty(int x, int y, int w, int h)
@@ -32,7 +28,7 @@ public class Patty extends JComponent
     {
         return locX;
     }
-    public int getRightX()
+    public int rightBoundX()
     {
         return locX + width;
     }
@@ -53,9 +49,8 @@ public class Patty extends JComponent
 
     public void drawImg()
     {
-        URL resource = getClass().getResource("images/square.jpg");
         try {
-            img = ImageIO.read(resource);
+            img = ImageIO.read(getClass().getResource("images/square.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,22 +69,6 @@ public class Patty extends JComponent
     public void changeY(int y)
     {
         locY += y;
-    }
-
-    public void changeFallStatus(boolean status)
-    {
-        isFalling = status;
-    }
-
-
-    public void gravity()
-    {
-        locY += 1;
-        locY += 1;
-        locY += 1;
-        locY += -1;
-        locY += -1;
-        locY += -1;
     }
 
     public void fall()

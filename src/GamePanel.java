@@ -89,9 +89,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), this);
 
         // draw platforms
-        g.drawImage(platform1.getImg(),platform1.getLocX(),platform1.getLocY(), this);
-        g.drawImage(platform2.getImg(),platform2.getLocX(),platform2.getLocY(), this);
-        g.drawImage(platform3.getImg(),platform3.getLocX(),platform3.getLocY(), this);
+        g.drawImage(platform1.getImg(),platform1.leftBoundX(),platform1.topY(), this);
+        g.drawImage(platform2.getImg(),platform2.leftBoundX(),platform2.topY(), this);
+        g.drawImage(platform3.getImg(),platform3.leftBoundX(),platform3.topY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
@@ -108,19 +108,23 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             changeY = 4;
             ready = true;
         }
+
+        // check to see if touching
         if(ready && isTouching() == 1)
         {
             //p.changeY(-1);
             jump = 0;
             changeY = 0;
         }
+
         if(!ready)
         {
 
         }
+
+        // change x and y for player
         p.changeX(changeX);
         p.changeY(changeY);
-
 
         repaint();
     }
@@ -153,8 +157,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
         if (c == KeyEvent.VK_DOWN)
         {
-            changeY = 2;
-
+            // intentionally left blank (nothing happens on down click)
         }
     }
 
@@ -176,17 +179,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     }
 
-    public static Patty getP()
-    {
-        return p;
-    }
-
     public int isTouching()
     {
         int yes = 0;
         for (Platform x : myPlatforms)
         {
-            if (x.touching())
+            if (x.touching(p))
             {
                 yes = 1;
             }
