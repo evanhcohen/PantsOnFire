@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class GameFrame extends JFrame
+public class GameFrame extends MainFrame
 {
     private static JFrame frame;
     private static GamePanel game;
@@ -20,19 +20,11 @@ public class GameFrame extends JFrame
         frame.getContentPane().add(game);
     }
 
-    // shows the frame
-    public static void display() // potentially make this static
-    {
-        frame.pack();
-        frame.setLocation(0,0);
-        frame.setVisible(true);
-    }
-
     public static void changePanel(int x)
     {
         if(x == 3)
         {
-            display();
+            display(frame);
         }
         else
         {

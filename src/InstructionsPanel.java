@@ -14,7 +14,6 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         menu.addActionListener(this);
         menu.setActionCommand("Menu");
         add(menu);
-
     }
 
     @Override

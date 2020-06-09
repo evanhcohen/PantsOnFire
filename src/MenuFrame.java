@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class MenuFrame extends JFrame
+public class MenuFrame extends MainFrame
 {
     private static JFrame frame;
     private static MenuPanel menu;
@@ -24,19 +24,11 @@ public class MenuFrame extends JFrame
         return frame;
     }
 
-    // shows the frame
-    public static void display() // potentially make this static
-    {
-        frame.pack();
-        frame.setLocation(0,0);
-        frame.setVisible(true);
-    }
-
     public static void changePanel(int x)
     {
         if(x == 1)
         {
-            display();
+            display(frame);
         }
         else
         {

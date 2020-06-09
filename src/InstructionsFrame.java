@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class InstructionsFrame extends JFrame
+public class InstructionsFrame extends MainFrame
 {
     private static JFrame frame;
     private static InstructionsPanel instructions;
@@ -19,24 +19,13 @@ public class InstructionsFrame extends JFrame
         // add panel to the frame
         frame.getContentPane().add(instructions);
     }
-    public static JFrame getFrame()
-    {
-        return frame;
-    }
 
-    // shows the frame
-    public static void display() // potentially make this static
-    {
-        frame.pack();
-        frame.setLocation(0,0);
-        frame.setVisible(true);
-    }
 
     public static void changePanel(int x)
     {
         if (x == 2)
         {
-            display();
+            display(frame);
         }
         else
         {

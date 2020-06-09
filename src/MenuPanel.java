@@ -9,14 +9,12 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private JButton start;
     private JButton instructions;
 
-
     public MenuPanel()
     {
         start = new JButton("START");
         start.addActionListener(this);
         start.setActionCommand("Start");
         add(start);
-
 
         instructions = new JButton("HOW TO PLAY");
         instructions.addActionListener(this);
