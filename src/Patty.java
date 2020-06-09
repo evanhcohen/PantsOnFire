@@ -64,7 +64,12 @@ public class Patty extends JComponent
 
     public void gravity()
     {
-
+        locY += 1;
+        locY += 1;
+        locY += 1;
+        locY += -1;
+        locY += -1;
+        locY += -1;
     }
 
 }
