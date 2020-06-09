@@ -102,7 +102,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             changeY = -4;
             jump ++;
         }
-        if(jump > 30)
+        else if(jump > 30 || (ready && !isTouching()))
         {
             changeY = 4;
             ready = true;
@@ -113,12 +113,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         {
             jump = 0;
             changeY = 0;
-        }
-
-        // fall when not touching platform
-        if(ready && !isTouching())
-        {
-            changeY = 4;
         }
 
         // change x and y for player
@@ -142,17 +136,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             changeX = 2;
 
         }
-        if (c == KeyEvent.VK_UP)
+        if (c == KeyEvent.VK_UP && isTouching())
         {
-            if(isTouching())
-            {
-                jump = 1;
-                ready = false;
-            }
-            else
-            {
-                jump = 0;
-            }
+            jump = 1;
+            ready = false;
         }
         if (c == KeyEvent.VK_DOWN)
         {
