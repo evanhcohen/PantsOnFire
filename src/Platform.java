@@ -48,11 +48,11 @@ public class Platform extends JComponent {
     }
 
 
-    public void touching()
+    public boolean touching()
     {
         Patty p = GamePanel.getP();
 
-
+        return false;
 
     }
 

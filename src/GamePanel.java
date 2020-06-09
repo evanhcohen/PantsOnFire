@@ -94,10 +94,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
         p.changeY(changeY);
 
-        for (Platform x : platforms)
-        {
-            x.touching();
-        }
+        isTouching();
+
+
 
         repaint();
     }
@@ -145,5 +144,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public static Patty getP()
     {
         return p;
+    }
+
+    public boolean isTouching()
+    {
+        for (Platform x : platforms)
+        {
+            if (x.touching())
+                return true;
+
+        }
+        return false;
     }
 }
