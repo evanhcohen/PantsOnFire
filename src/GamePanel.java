@@ -95,13 +95,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         // modify the players x and y values
 
+        if(jump >= 1 && jump <= 30)
+        {
+            changeY = -4;
+            jump ++;
+        }
+        if(jump > 30)
+        {
+            changeY = 1;
+        }
+        if(ready && isTouching() == 1)
+        {
+            p.changeY(-1);
+            jump = 0;
+            changeY = 0;
+
+        }
         p.changeX(changeX);
         p.changeY(changeY);
 
-        if(ready && isTouching() == 0)
-        {
-            p.fall();
-        }
+
         repaint();
     }
 
