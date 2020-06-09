@@ -10,28 +10,29 @@ import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
+    // player object
     private static Patty p;
-
-    private int jump = 0;
 
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
-    private boolean ready = false;
-
     private ArrayList<Platform> myPlatforms;
 
-    private Timer time = new Timer (3, this);
+    private boolean ready;
+
+    private Timer time = new Timer(3, this);
 
     private JButton settings;
 
     private Image background;
 
-    private boolean up = false;
-
     private int changeX = 0;
     private int changeY = 0;
 
+    private boolean up = false;
+    private int jump = 0;
+
+    // constructor
     public GamePanel()
     {
         // starts timer
@@ -42,9 +43,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
+        // sets up player object
         p = new Patty(50, 350, 50, 50);
         p.drawImg();
 
+        // sets up platforms
         platform1 = new Platform(50, 400);
         platform1.drawImg();
         platform2 = new Platform(200, 400);
@@ -57,21 +60,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform2);
         myPlatforms.add(platform3);
 
-         settings = new JButton();
-
-        try {
-            background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
-            settings.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/settings.png"))));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
+        // set up settings button
+        settings = new JButton(); //*** change this to pause button
         settings.setMargin(new Insets(0, 0, 0, 0));
         settings.setBorder(null);
         settings.setPreferredSize(new Dimension(20,20));
         add(settings);
+
+        // set up images
+        try {
+            background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
+            settings.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/settings.png"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ready = true;
     }
@@ -83,9 +85,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // draw background
         g.drawImage(background,0,0,this.getWidth(),this.getHeight(),this);
 
-        //draw Patty
+        // draw Patty
         g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), this);
 
+        // draw platforms
         g.drawImage(platform1.getImg(),platform1.getLocX(),platform1.getLocY(), this);
         g.drawImage(platform2.getImg(),platform2.getLocX(),platform2.getLocY(), this);
         g.drawImage(platform3.getImg(),platform3.getLocX(),platform3.getLocY(), this);
