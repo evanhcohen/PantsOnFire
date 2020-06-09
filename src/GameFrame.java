@@ -14,10 +14,9 @@ public class GameFrame extends JFrame
 
         // creates panel
         game = new GamePanel();
-
         game.setPreferredSize(new Dimension(1500,500));
 
-        // add menu panel to the frame
+        // add panel to the frame
         frame.getContentPane().add(game);
     }
 

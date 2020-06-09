@@ -14,10 +14,9 @@ public class MenuFrame extends JFrame
 
         // creates panel
         menu = new MenuPanel();
-
         menu.setPreferredSize(new Dimension(1500,500));
 
-        // add menu panel to the frame
+        // add panel to the frame
         frame.getContentPane().add(menu);
     }
     public static JFrame getFrame()

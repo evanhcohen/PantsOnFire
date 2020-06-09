@@ -14,10 +14,9 @@ public class InstructionsFrame extends JFrame
 
         // creates panel
         instructions = new InstructionsPanel();
-
         instructions.setPreferredSize(new Dimension(1500,500));
 
-        // add menu panel to the frame
+        // add panel to the frame
         frame.getContentPane().add(instructions);
     }
     public static JFrame getFrame()
