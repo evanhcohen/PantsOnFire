@@ -81,28 +81,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         p.changeX(changeX);
         if (up)
         {
-            p.changeY(5);
-            System.out.println("jump1");
-            repaint();
-            System.out.println("jump2");
 
-            p.changeY(5);
-            System.out.println("jump3");
-            repaint();
-            System.out.println("jump4");
-
-            p.changeY(-5);
-            System.out.println("jump5");
-            repaint();
-            System.out.println("jump6");
-
-            p.changeY(-5);
-            System.out.println("jump7");
-            repaint();
-            System.out.println("jump8");
-
-            up = false;
-            System.out.println("jump done");
 
         }
         //p.changeY(changeY);
