@@ -1,28 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class MenuFrame extends JFrame
+public class InstructionsFrame extends JFrame
 {
     private static JFrame frame;
-    private static MenuPanel menu;
     private static InstructionsPanel instructions;
     private static int panelNum = 0;
 
-    public MenuFrame()
+    public InstructionsFrame()
     {
         // creates the frame
         frame = new JFrame("Pants on Fyre");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // creates panel
-        menu = new MenuPanel();
         instructions = new InstructionsPanel();
 
-        menu.setPreferredSize(new Dimension(1500,500));
         instructions.setPreferredSize(new Dimension(1500,500));
 
         // add menu panel to the frame
-        frame.getContentPane().add(menu);
+        frame.getContentPane().add(instructions);
     }
     public static JFrame getFrame()
     {
@@ -39,7 +36,7 @@ public class MenuFrame extends JFrame
     public static void changePanel(int x)
     {
         panelNum = x;
-        if(panelNum == 1)
+        if (panelNum == 2)
         {
             display();
         }
@@ -47,5 +44,6 @@ public class MenuFrame extends JFrame
         {
             frame.setVisible(false);
         }
+
     }
 }

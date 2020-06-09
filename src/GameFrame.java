@@ -44,19 +44,13 @@ public class GameFrame extends JFrame
         panelNum = x;
         if(panelNum == 3)
         {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(game);
+            display();
         }
-//        else if(panelNum == 1)
-//        {
-//            frame.getContentPane().removeAll();
-//            frame.getContentPane().add(menu);
-//        }
-//        else if(panelNum == 2)
-//        {
-//            frame.getContentPane().removeAll();
-//            frame.getContentPane().add(instructions);
-//        }
-        display();
+        else
+        {
+            frame.setVisible(false);
+        }
+
+
     }
 }

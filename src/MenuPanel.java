@@ -27,14 +27,17 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if (action.equals("Start"))
-        {
-            GameFrame.changePanel(3);
-            MenuFrame.changePanel(-1);
-        }
         if (action.equals("Instructions"))
         {
             MenuFrame.changePanel(2);
+            GameFrame.changePanel(2);
+            InstructionsFrame.changePanel(2);
+        }
+        if (action.equals("Start"))
+        {
+            GameFrame.changePanel(3);
+            MenuFrame.changePanel(3);
+            InstructionsFrame.changePanel(3);
         }
     }
 

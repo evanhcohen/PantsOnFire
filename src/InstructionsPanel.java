@@ -23,6 +23,8 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         if (action.equals("Menu"))
         {
             MenuFrame.changePanel(1);
+            GameFrame.changePanel(1);
+            InstructionsFrame.changePanel(1);
         }
     }
 
