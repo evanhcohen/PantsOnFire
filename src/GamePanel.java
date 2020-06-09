@@ -20,7 +20,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private boolean ready = false;
 
     private ArrayList<Platform> myPlatforms;
-    private ArrayList<String> myString;
 
     private Timer time = new Timer (3, this);
 
