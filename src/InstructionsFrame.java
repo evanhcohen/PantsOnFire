@@ -31,6 +31,5 @@ public class InstructionsFrame extends MainFrame
         {
             frame.setVisible(false);
         }
-
     }
 }
