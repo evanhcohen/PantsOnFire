@@ -58,18 +58,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform2);
         myPlatforms.add(platform3);
 
-        String s1 = "1";
-        String s2 = "2";
-        String s3 = "3";
-
-        myString = new ArrayList<String>();
-        myString.add(s1);
-        myString.add(s2);
-        myString.add(s3);
-
-
-
-        settings = new JButton();
+         settings = new JButton();
 
         try {
             background = ImageIO.read(getClass().getResource("images/backgroundTest.jpg"));
