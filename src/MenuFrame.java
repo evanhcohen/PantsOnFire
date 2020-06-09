@@ -43,12 +43,18 @@ public class MenuFrame extends JFrame
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(menu);
+            display();
         }
         else if(panelNum == 2)
         {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(instructions);
+            display();
         }
-        display();
+        else
+        {
+            frame.dispose();
+        }
+
     }
 }

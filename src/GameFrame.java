@@ -4,9 +4,9 @@ import java.awt.*;
 public class GameFrame extends JFrame
 {
     private static JFrame frame;
-    private static MenuPanel menu;
+//    private static MenuPanel menu;
     private static GamePanel game;
-    private static InstructionsPanel instructions;
+//    private static InstructionsPanel instructions;
     private static int panelNum = 0;
 
     public GameFrame()
@@ -17,12 +17,12 @@ public class GameFrame extends JFrame
 
         // creates panel
         game = new GamePanel();
-        menu = new MenuPanel();
-        instructions = new InstructionsPanel();
+//        menu = new MenuPanel();
+//        instructions = new InstructionsPanel();
 
-        menu.setPreferredSize(new Dimension(1500,500));
+//        menu.setPreferredSize(new Dimension(1500,500));
         game.setPreferredSize(new Dimension(1500,500));
-        instructions.setPreferredSize(new Dimension(1500,500));
+//        instructions.setPreferredSize(new Dimension(1500,500));
 
         // add menu panel to the frame
         frame.getContentPane().add(game);
@@ -47,16 +47,16 @@ public class GameFrame extends JFrame
             frame.getContentPane().removeAll();
             frame.getContentPane().add(game);
         }
-        else if(panelNum == 1)
-        {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(menu);
-        }
-        else if(panelNum == 2)
-        {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(instructions);
-        }
+//        else if(panelNum == 1)
+//        {
+//            frame.getContentPane().removeAll();
+//            frame.getContentPane().add(menu);
+//        }
+//        else if(panelNum == 2)
+//        {
+//            frame.getContentPane().removeAll();
+//            frame.getContentPane().add(instructions);
+//        }
         display();
     }
 }
