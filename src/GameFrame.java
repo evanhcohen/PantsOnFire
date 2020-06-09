@@ -4,10 +4,7 @@ import java.awt.*;
 public class GameFrame extends JFrame
 {
     private static JFrame frame;
-//    private static MenuPanel menu;
     private static GamePanel game;
-//    private static InstructionsPanel instructions;
-    private static int panelNum = 0;
 
     public GameFrame()
     {
@@ -17,32 +14,24 @@ public class GameFrame extends JFrame
 
         // creates panel
         game = new GamePanel();
-//        menu = new MenuPanel();
-//        instructions = new InstructionsPanel();
 
-//        menu.setPreferredSize(new Dimension(1500,500));
         game.setPreferredSize(new Dimension(1500,500));
-//        instructions.setPreferredSize(new Dimension(1500,500));
 
         // add menu panel to the frame
         frame.getContentPane().add(game);
-    }
-    public static JFrame getFrame()
-    {
-        return frame;
     }
 
     // shows the frame
     public static void display() // potentially make this static
     {
         frame.pack();
+        frame.setLocation(0,0);
         frame.setVisible(true);
     }
 
     public static void changePanel(int x)
     {
-        panelNum = x;
-        if(panelNum == 3)
+        if(x == 3)
         {
             display();
         }
@@ -50,7 +39,5 @@ public class GameFrame extends JFrame
         {
             frame.setVisible(false);
         }
-
-
     }
 }

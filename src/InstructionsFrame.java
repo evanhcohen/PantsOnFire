@@ -5,7 +5,6 @@ public class InstructionsFrame extends JFrame
 {
     private static JFrame frame;
     private static InstructionsPanel instructions;
-    private static int panelNum = 0;
 
     public InstructionsFrame()
     {
@@ -30,13 +29,13 @@ public class InstructionsFrame extends JFrame
     public static void display() // potentially make this static
     {
         frame.pack();
+        frame.setLocation(0,0);
         frame.setVisible(true);
     }
 
     public static void changePanel(int x)
     {
-        panelNum = x;
-        if (panelNum == 2)
+        if (x == 2)
         {
             display();
         }

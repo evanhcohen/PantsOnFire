@@ -5,8 +5,6 @@ public class MenuFrame extends JFrame
 {
     private static JFrame frame;
     private static MenuPanel menu;
-    private static InstructionsPanel instructions;
-    private static int panelNum = 0;
 
     public MenuFrame()
     {
@@ -16,10 +14,8 @@ public class MenuFrame extends JFrame
 
         // creates panel
         menu = new MenuPanel();
-        instructions = new InstructionsPanel();
 
         menu.setPreferredSize(new Dimension(1500,500));
-        instructions.setPreferredSize(new Dimension(1500,500));
 
         // add menu panel to the frame
         frame.getContentPane().add(menu);
@@ -33,13 +29,13 @@ public class MenuFrame extends JFrame
     public static void display() // potentially make this static
     {
         frame.pack();
+        frame.setLocation(0,0);
         frame.setVisible(true);
     }
 
     public static void changePanel(int x)
     {
-        panelNum = x;
-        if(panelNum == 1)
+        if(x == 1)
         {
             display();
         }
