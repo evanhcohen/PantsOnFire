@@ -109,6 +109,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             changeY = 4;
             ready = true;
 
+
         }
         // don't move when touching platform
         if(ready && isTouching())
@@ -116,20 +117,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             jump = 0;
             changeY = 0;
 
+
         }
 
         // if player falls down to bottom it goes back to begining
-        if(p.getLocY()  >= 500)
+        if(p.getLocY()  >= 500 &&)
         {
             changeX = -(p.getLocX() - 50);
             changeY = -(p.getLocY() - 350);
+
         }
 
         // change x and y for player
         p.changeX(changeX);
         p.changeY(changeY);
-        changeY = 0;
-        changeX = 0;
+        //changeY = 0;
+        //changeX = 0;
         repaint();
     }
 
