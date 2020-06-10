@@ -97,6 +97,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
 
         // jumping with gravity
+
+
         if(jump >= 1 && jump <= 30)
         {
             changeY = -4;
@@ -116,12 +118,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         }
 
-
+        // if player falls down to bottom it goes back to begining
+        if(p.getLocY()  >= 500)
+        {
+            changeX = -(p.getLocX() - 50);
+            changeY = -(p.getLocY() - 350);
+        }
 
         // change x and y for player
         p.changeX(changeX);
         p.changeY(changeY);
-
+        changeY = 0;
+        changeX = 0;
         repaint();
     }
 
@@ -131,12 +139,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         if (c == KeyEvent.VK_LEFT)
         {
-            changeX = -2;
+            changeX = -4;
 
         }
         if (c == KeyEvent.VK_RIGHT)
         {
-            changeX = 2;
+            changeX = 4;
 
         }
         if (c == KeyEvent.VK_UP && isTouching())
