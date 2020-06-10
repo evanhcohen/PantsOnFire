@@ -121,7 +121,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
 
         // if player falls down to bottom it goes back to begining
-        if(p.getLocY()  >= 500 &&)
+        if(p.getLocY()  >= 500)
         {
             changeX = -(p.getLocX() - 50);
             changeY = -(p.getLocY() - 350);
