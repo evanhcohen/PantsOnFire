@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // sets up platforms
         platform1 = new Platform(50, 400);
         platform1.drawImg();
-        platform2 = new Platform(200, 400);
+        platform2 = new Platform(200, 340);
         platform2.drawImg();
         platform3 = new Platform(300, 400);
         platform3.drawImg();
@@ -105,14 +105,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         else if(jump > 30 || (ready && !isTouching()))
         {
             changeY = 4;
+            ready = true;
 
-            // don't move when touching platform
-            if(ready && isTouching())
-            {
-                jump = 0;
-                changeY = 0;
-            }
         }
+        // don't move when touching platform
+        if(ready && isTouching())
+        {
+            jump = 0;
+            changeY = 0;
+
+        }
+
 
 
         // change x and y for player
@@ -139,6 +142,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (c == KeyEvent.VK_UP && isTouching())
         {
             jump = 1;
+            ready = false;
         }
         if (c == KeyEvent.VK_DOWN)
         {
