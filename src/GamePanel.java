@@ -126,8 +126,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // change x and y for player
         p.changeX(changeX);
         p.changeY(changeY);
-        //changeY = 0;
-        //changeX = 0;
+
         repaint();
         death = false;
     }
