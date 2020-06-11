@@ -59,7 +59,6 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         inst.setBounds(0,MainFrame.height/2 - instDim.height/2, 1500, instDim.height);
 
         add(inst);
-
     }
 
     @Override
