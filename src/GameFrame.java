@@ -11,6 +11,9 @@ public class GameFrame extends MainFrame
         frame = new JFrame("Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame.setResizable(false);
+        frame.setUndecorated(true);
+
         // creates panel
         game = new GamePanel();
         game.setPreferredSize(d);
