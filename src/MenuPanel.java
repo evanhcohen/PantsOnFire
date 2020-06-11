@@ -70,10 +70,20 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         add(title);
 
         yes = new JButton("Yes");
+        yes.setFont(new Font("Arial", Font.PLAIN, 15));
+        yes.setPreferredSize(new Dimension(60,30));
+        yes.setContentAreaFilled(false);
+        yes.setFocusPainted(false);
+        yes.setOpaque(false);
         yes.addActionListener(this);
         yes.setActionCommand("yes");
 
         no = new JButton("No");
+        no.setFont(new Font("Arial", Font.PLAIN, 15));
+        no.setPreferredSize(new Dimension(60,30));
+        no.setContentAreaFilled(false);
+        no.setFocusPainted(false);
+        no.setOpaque(false);
         no.addActionListener(this);
         no.setActionCommand("no");
 
@@ -89,6 +99,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         confirm.setOptions(options);
         confirm.setInitialSelectionValue(options[0]);
         confirmDialog = confirm.createDialog(null,null);
+
     }
 
     @Override
@@ -110,6 +121,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         if (action.equals("quit"))
         {
             confirmDialog.setVisible(true);
+
         }
         if (action.equals("yes"))
         {
