@@ -99,7 +99,6 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         confirm.setOptions(options);
         confirm.setInitialSelectionValue(options[0]);
         confirmDialog = confirm.createDialog(null,null);
-
     }
 
     @Override
