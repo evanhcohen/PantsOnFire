@@ -43,6 +43,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
+        setLayout(null);
+
         // sets up player object
         p = new Patty(50, 350, 50, 50);
         p.drawImg();
@@ -62,10 +64,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         // set up pause button
         pause = new JButton(); //*** change this to pause button
+        pause.setBounds(100, 0, 512, 512);
+//        pause = new JButton("Pause");
+
         pause.setMargin(new Insets(0, 0, 0, 0));
         pause.setBorder(null);
-        pause.setPreferredSize(new Dimension(20,20));
-        add(pause);
+//        pause.setPreferredSize(new Dimension(50,20));
 
         // set up images
         try {
@@ -74,6 +78,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        add(pause);
 
         ready = true;
     }
