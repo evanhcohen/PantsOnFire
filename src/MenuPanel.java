@@ -36,6 +36,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
             GameFrame.changePanel(3);
             MenuFrame.changePanel(3);
             InstructionsFrame.changePanel(3);
+            GamePanel.changeStatus(true);
         }
     }
 

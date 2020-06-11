@@ -13,6 +13,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     // player object
     private static Patty p;
 
+    private static boolean play = false;
+
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
@@ -23,6 +25,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Timer time = new Timer(3, this);
 
     private JButton pause;
+    private Image pauseButton;
+    private int pauseSize = 50;
 
     private Image background;
 
@@ -62,23 +66,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform2);
         myPlatforms.add(platform3);
 
-        // set up pause button
-        pause = new JButton(); //*** change this to pause button
-        pause.setBounds(100, 0, 512, 512);
-//        pause = new JButton("Pause");
-
-        pause.setMargin(new Insets(0, 0, 0, 0));
-        pause.setBorder(null);
-//        pause.setPreferredSize(new Dimension(50,20));
-
         // set up images
         try {
             background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
-            pause.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/pause.png"))));
+            pauseButton = ImageIO.read(getClass().getResource("images/pause.png")).getScaledInstance(pauseSize,pauseSize, Image.SCALE_SMOOTH);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        // set up pause button
+        pause = new JButton();
+        pause.setMargin(new Insets(0, 0, 0, 0));
+        pause.setBorder(null);
+
+        pause.setBorderPainted(false);
+        pause.setContentAreaFilled(false);
+        pause.setFocusPainted(false);
+        pause.setOpaque(false);
+        pause.addActionListener(this);
+        pause.setActionCommand("pause");
+        pause.setIcon(new ImageIcon(pauseButton));
         add(pause);
 
         ready = true;
@@ -87,6 +94,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public void paintComponent (Graphics g)
     {
         super.paintComponent(g);
+        pause.setBounds(this.getWidth() - pauseSize - 15, 15, pauseSize, pauseSize);
+
 
         // draw background
         g.drawImage(background,0,0,this.getWidth(),this.getHeight(),this);
@@ -102,39 +111,50 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
-
-        // jumping with gravity
-
-
-        if(jump >= 1 && jump <= 30)
+        if (play)
         {
-            changeY = -4;
-            jump ++;
-        }
-        else if(jump > 30 || (ready && !isTouching()))
-        {
-            changeY = 4;
-            ready = true;
-        }
-        // don't move when touching platform
-        if(ready && isTouching())
-        {
-            jump = 0;
-            changeY = 0;
-        }
 
-        // if player falls down to bottom it goes back to beginning
-        if(p.getLocY() >= 500)
-        {
-            death = true;
+            // jumping with gravity
+            if(jump >= 1 && jump <= 30)
+            {
+                changeY = -4;
+                jump ++;
+            }
+            else if(jump > 30 || (ready && !isTouching()))
+            {
+                changeY = 4;
+                ready = true;
+            }
+            // don't move when touching platform
+            if(ready && isTouching())
+            {
+                jump = 0;
+                changeY = 0;
+            }
+
+            // if player falls down to bottom it goes back to beginning
+            if(p.getLocY() >= 500)
+            {
+                death = true;
+            }
+
+            // change x and y for player
+            p.changeX(changeX);
+            p.changeY(changeY);
+
+            repaint();
+            death = false;
+
+
+            String action = e.getActionCommand();
+            if (action == "pause")
+            {
+                MenuFrame.changePanel(1);
+                GameFrame.changePanel(1);
+                InstructionsFrame.changePanel(1);
+                play = false;
+            }
         }
-
-        // change x and y for player
-        p.changeX(changeX);
-        p.changeY(changeY);
-
-        repaint();
-        death = false;
     }
 
     public void keyPressed (KeyEvent e)
@@ -191,5 +211,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public static boolean isDead()
     {
         return death;
+    }
+
+    public static void changeStatus(boolean status)
+    {
+        play = status;
     }
 }
