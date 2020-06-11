@@ -146,7 +146,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform21);
 
         //sets up fire
-        flame = new Fire(1835, 400);
+        flame = new Fire(1185, 350);
         flame.drawImg();
 
         // set up images
@@ -185,6 +185,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // draw Patty
         g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), this);
 
+        //draw fire
+        g.drawImage(flame.getImg(),flame.leftBoundX(),flame.topY(), this);
+
         // draw platforms
         g.drawImage(platform1.getImg(),platform1.leftBoundX(),platform1.topY(), this);
         g.drawImage(platform2.getImg(),platform2.leftBoundX(),platform2.topY(), this);
@@ -207,9 +210,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(platform19.getImg(),platform19.leftBoundX(),platform19.topY(), this);
         g.drawImage(platform20.getImg(),platform20.leftBoundX(),platform20.topY(), this);
         g.drawImage(platform21.getImg(),platform21.leftBoundX(),platform21.topY(), this);
-
-        //draw fire
-        g.drawImage(flame.getImg(),flame.leftBoundX(),flame.topY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
