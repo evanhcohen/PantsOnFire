@@ -41,16 +41,14 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructionsDim = instructions.getPreferredSize();
 
         int totW = playDim.width + instructionsDim.width;
-        play.setBounds(MainFrame.width/2 - totW/2,MainFrame.height/2 - playDim.height/2, playDim.width, playDim.height);
-        makeButton(play);
-        play.addActionListener(this);
-        play.setActionCommand("Start");
-        add(play);
 
-        instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
+        play.setBounds(MainFrame.width/2 - totW/2 + 1,MainFrame.height/2 - playDim.height/2, playDim.width, playDim.height);
+        makeButton(play);
+        play.setActionCommand("Start");
+
+        instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width - 1,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
         makeButton(instructions);
         instructions.setActionCommand("Instructions");
-        add(instructions);
     }
 
     @Override
@@ -84,6 +82,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         b.setOpaque(false);
 
         b.addActionListener(this);
+
+        add(b);
     }
 
     @Override
