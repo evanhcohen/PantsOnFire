@@ -63,7 +63,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
         makeButton(quit, "quit");
 
-        title = new JLabel("Pants on Fyre");
+        title = new JLabel("Pants on Fire");
         title.setFont(new Font("Arial", Font.PLAIN, 70));
         Dimension titleDim = title.getPreferredSize();
         title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
