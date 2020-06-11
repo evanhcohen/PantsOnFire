@@ -48,29 +48,26 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         int totW = playDim.width + instructionsDim.width;
 
         play.setBounds(MainFrame.width/2 - totW/2 + 1,MainFrame.height/2 - playDim.height/2, playDim.width, playDim.height);
-        makeButton(play);
-        play.setActionCommand("Start");
+        makeButton(play, "play");
 
         instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width - 1,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
-        makeButton(instructions);
-        instructions.setActionCommand("Instructions");
+        makeButton(instructions, "instructions");
 
         close.setBounds(0,0,close.getPreferredSize().width,close.getPreferredSize().height);
-        makeButton(close);
-        close.setActionCommand("close");
+        makeButton(close, "close");
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if (action.equals("Instructions"))
+        if (action.equals("instructions"))
         {
             MenuFrame.changePanel(2);
             GameFrame.changePanel(2);
             InstructionsFrame.changePanel(2);
         }
-        if (action.equals("Start"))
+        if (action.equals("play"))
         {
             GameFrame.changePanel(3);
             MenuFrame.changePanel(3);
@@ -83,7 +80,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         }
     }
 
-    public void makeButton(JButton b)
+    public void makeButton(JButton b,String text)
     {
         b.setFont(new Font("Arial", Font.PLAIN, 40));
 
@@ -96,7 +93,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         b.setOpaque(false);
 
         b.addActionListener(this);
-
+        b.setActionCommand(text);
         add(b);
     }
 
