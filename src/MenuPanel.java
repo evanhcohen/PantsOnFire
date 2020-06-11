@@ -40,14 +40,14 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         playDim = play.getPreferredSize();
         instructionsDim = instructions.getPreferredSize();
 
-
-        play.setBounds(MainFrame.width/2 - playDim.width,MainFrame.height/2 - playDim.height/2, playDim.width, playDim.height);
+        int totW = playDim.width + instructionsDim.width;
+        play.setBounds(MainFrame.width/2 - totW/2,MainFrame.height/2 - playDim.height/2, playDim.width, playDim.height);
         makeButton(play);
         play.addActionListener(this);
         play.setActionCommand("Start");
         add(play);
 
-        instructions.setBounds(MainFrame.width/2,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
+        instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
         makeButton(instructions);
         instructions.setActionCommand("Instructions");
         add(instructions);
