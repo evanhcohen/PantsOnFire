@@ -24,6 +24,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform7;
     private Platform platform8;
     private Platform platform9;
+    private Platform platform10;
+    private Platform platform11;
+    private Platform platform12;
+    private Platform platform13;
+    private Platform platform14;
+    private Platform platform15;
     private ArrayList<Platform> myPlatforms;
 
     private boolean ready;
@@ -76,8 +82,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform7.drawImg();
         platform8 = new Platform(450, 132);
         platform8.drawImg();
-        platform9 = new Platform(75, 164);
+        platform9 = new Platform(675, 124);
         platform9.drawImg();
+        platform10 = new Platform(800, 92);
+        platform10.drawImg();
+        platform11 = new Platform(1050, 96);
+        platform11.drawImg();
+        platform12 = new Platform(1100, 96);
+        platform12.drawImg();
+        platform13 = new Platform(1150, 96);
+        platform13.drawImg();
+        platform14 = new Platform(1200, 96);
+        platform14.drawImg();
+        platform15 = new Platform(1250, 96);
+        platform15.drawImg();
 
 
         myPlatforms = new ArrayList<>();
@@ -90,6 +108,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform7);
         myPlatforms.add(platform8);
         myPlatforms.add(platform9);
+        myPlatforms.add(platform10);
+        myPlatforms.add(platform11);
+        myPlatforms.add(platform12);
+        myPlatforms.add(platform13);
+        myPlatforms.add(platform14);
+        myPlatforms.add(platform15);
+
 
         // set up images
         try {
@@ -137,6 +162,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(platform7.getImg(),platform7.leftBoundX(),platform7.topY(), this);
         g.drawImage(platform8.getImg(),platform8.leftBoundX(),platform8.topY(), this);
         g.drawImage(platform9.getImg(),platform9.leftBoundX(),platform9.topY(), this);
+        g.drawImage(platform10.getImg(),platform10.leftBoundX(),platform10.topY(), this);
+        g.drawImage(platform11.getImg(),platform11.leftBoundX(),platform11.topY(), this);
+        g.drawImage(platform12.getImg(),platform12.leftBoundX(),platform12.topY(), this);
+        g.drawImage(platform13.getImg(),platform13.leftBoundX(),platform13.topY(), this);
+        g.drawImage(platform14.getImg(),platform14.leftBoundX(),platform14.topY(), this);
+        g.drawImage(platform15.getImg(),platform15.leftBoundX(),platform15.topY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
