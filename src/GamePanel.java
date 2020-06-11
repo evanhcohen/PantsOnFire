@@ -22,7 +22,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     private Timer time = new Timer(3, this);
 
-    private JButton settings;
+    private JButton pause;
 
     private Image background;
 
@@ -60,17 +60,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform2);
         myPlatforms.add(platform3);
 
-        // set up settings button
-        settings = new JButton(); //*** change this to pause button
-        settings.setMargin(new Insets(0, 0, 0, 0));
-        settings.setBorder(null);
-        settings.setPreferredSize(new Dimension(20,20));
-        add(settings);
+        // set up pause button
+        pause = new JButton(); //*** change this to pause button
+        pause.setMargin(new Insets(0, 0, 0, 0));
+        pause.setBorder(null);
+        pause.setPreferredSize(new Dimension(20,20));
+        add(pause);
 
         // set up images
         try {
             background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
-            settings.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/settings.png"))));
+            pause.setIcon(new ImageIcon (ImageIO.read(getClass().getResource("images/pause.png"))));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -150,10 +150,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         {
             jump = 1;
             ready = false;
-        }
-        if (c == KeyEvent.VK_DOWN)
-        {
-            // intentionally left blank (nothing happens on down click)
         }
     }
 
