@@ -114,7 +114,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform19.drawImg();
         platform20 = new Platform(1135, 400);
         platform20.drawImg();
-        platform21 = new Platform(1835, 400);
+        platform21 = new Platform(1185, 400);
         platform21.drawImg();
 
 
