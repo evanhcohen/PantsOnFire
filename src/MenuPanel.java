@@ -18,8 +18,9 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private int playSize = 50;
 
     private JButton quit;
-    private Image quitImage;
-    private int quitSize;
+
+     JButton yes;
+     JButton no;
 
     JLabel title;
 
@@ -65,6 +66,10 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
         add(title);
 
+        yes = new JButton("Yes");
+        yes.addActionListener(this);
+        yes.setActionCommand("yes");
+        no = new JButton("No");
     }
 
     @Override
@@ -84,6 +89,15 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
             GamePanel.changeStatus(true);
         }
         if (action.equals("quit"))
+        {
+//            System.exit(0);
+
+            JButton[] options = {yes,no};
+            JOptionPane.showOptionDialog(null, "Are you sure you want to quit? All progress will be lost.", null,
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+                    null, options, options[0]);
+        }
+        if (action.equals("yes"))
         {
             System.exit(0);
         }
