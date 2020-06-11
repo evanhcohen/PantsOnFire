@@ -119,6 +119,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
 
 
+
         myPlatforms = new ArrayList<>();
         myPlatforms.add(platform1);
         myPlatforms.add(platform2);
