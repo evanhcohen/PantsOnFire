@@ -21,6 +21,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private Image closeImage;
     private int closeSize;
 
+    JLabel title;
+
     public MenuPanel()
     {
         setLayout(null);
@@ -55,6 +57,12 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
         close.setBounds(0,0,close.getPreferredSize().width,close.getPreferredSize().height);
         makeButton(close, "close");
+
+        title = new JLabel("Pants on Fyre");
+        title.setFont(new Font("Arial", Font.PLAIN, 70));
+        Dimension titleDim = title.getPreferredSize();
+        title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
+        add(title);
 
     }
 
