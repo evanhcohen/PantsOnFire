@@ -18,6 +18,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
+    private Platform platform4;
+    private Platform platform5;
+    private Platform platform6;
     private ArrayList<Platform> myPlatforms;
 
     private boolean ready;
@@ -56,15 +59,24 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // sets up platforms
         platform1 = new Platform(50, 400);
         platform1.drawImg();
-        platform2 = new Platform(200, 340);
+        platform2 = new Platform(150, 348);
         platform2.drawImg();
-        platform3 = new Platform(300, 400);
+        platform3 = new Platform(50, 304);
         platform3.drawImg();
+        platform4 = new Platform(150, 284);
+        platform4.drawImg();
+        platform5 = new Platform(50, 264);
+        platform5.drawImg();
+        platform6 = new Platform(50, 304);
+        platform6.drawImg();
 
         myPlatforms = new ArrayList<>();
         myPlatforms.add(platform1);
         myPlatforms.add(platform2);
         myPlatforms.add(platform3);
+        myPlatforms.add(platform4);
+        myPlatforms.add(platform5);
+        myPlatforms.add(platform6);
 
         // set up images
         try {
@@ -107,6 +119,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(platform1.getImg(),platform1.leftBoundX(),platform1.topY(), this);
         g.drawImage(platform2.getImg(),platform2.leftBoundX(),platform2.topY(), this);
         g.drawImage(platform3.getImg(),platform3.leftBoundX(),platform3.topY(), this);
+        g.drawImage(platform4.getImg(),platform4.leftBoundX(),platform4.topY(), this);
+        g.drawImage(platform5.getImg(),platform5.leftBoundX(),platform5.topY(), this);
+        g.drawImage(platform6.getImg(),platform6.leftBoundX(),platform6.topY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
@@ -116,12 +131,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         {
 
             // jumping with gravity
-            if(jump >= 1 && jump <= 30)
+            if(jump >= 1 && jump <= 15)
             {
                 changeY = -4;
                 jump ++;
             }
-            else if(jump > 30 || (ready && !isTouching()))
+            else if(jump > 15 || (ready && !isTouching()))
             {
                 changeY = 4;
                 ready = true;
