@@ -9,9 +9,12 @@ import java.io.IOException;
 
 public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
-    private JButton play;
     private JButton instructions;
+    private Image instructionsImage;
+    private int instructionsSize = 15;
 
+
+    private JButton play;
     private Image playImage;
     private int playSize = 15;
 
@@ -21,6 +24,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         // set up images
         try {
             playImage = ImageIO.read(getClass().getResource("images/play.png")).getScaledInstance(playSize,playSize, Image.SCALE_SMOOTH);
+            instructionsImage = ImageIO.read(getClass().getResource("images/instructions.png")).getScaledInstance(instructionsSize,instructionsSize, Image.SCALE_SMOOTH);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,7 +42,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         play.setBounds(0,300, 0, 0);
         add(play);
 
-        instructions = new JButton("Instructions");
+        instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
         instructions.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
                 BorderFactory.createEmptyBorder(1, 5, 1, 5)));
