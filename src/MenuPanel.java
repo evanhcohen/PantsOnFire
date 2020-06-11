@@ -55,7 +55,6 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         add(instructions);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
