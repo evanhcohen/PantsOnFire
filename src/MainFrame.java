@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame
 {
-    protected static int width = 1500;
+    protected static int width = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     protected static int height = 500;
     Dimension d = new Dimension(width,height);
 

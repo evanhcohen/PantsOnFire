@@ -19,8 +19,10 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
     private JButton quit;
 
-     JButton yes;
-     JButton no;
+    JOptionPane confirm;
+    JButton yes;
+    JButton no;
+    JButton[] options;
 
     JLabel title;
 
@@ -66,10 +68,15 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
         add(title);
 
+        confirm = new JOptionPane();
+
         yes = new JButton("Yes");
         yes.addActionListener(this);
         yes.setActionCommand("yes");
         no = new JButton("No");
+        options = new JButton[2];
+        options[0] = yes;
+        options[1] = no;
     }
 
     @Override
@@ -90,8 +97,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         }
         if (action.equals("quit"))
         {
-            JButton[] options = {yes,no};
-            JOptionPane.showOptionDialog(null, "Are you sure you want to quit? All progress will be lost.", null,
+            confirm.showOptionDialog(null, "Are you sure you want to quit? All progress will be lost.", null,
                     JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
                     null, options, options[0]);
         }
