@@ -28,6 +28,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     private int changeX = 0;
     private int changeY = 0;
+    private static boolean death = false;
 
     private int jump = 0;
 
@@ -108,24 +109,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         {
             changeY = 4;
             ready = true;
-
-
         }
         // don't move when touching platform
         if(ready && isTouching())
         {
             jump = 0;
             changeY = 0;
-
-
         }
 
-        // if player falls down to bottom it goes back to begining
-        if(p.getLocY()  >= 500)
+        // if player falls down to bottom it goes back to beginning
+        if(p.getLocY() >= 500)
         {
-            changeX = -(p.getLocX() - 50);
-            changeY = -(p.getLocY() - 350);
-
+            death = true;
         }
 
         // change x and y for player
@@ -134,6 +129,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         //changeY = 0;
         //changeX = 0;
         repaint();
+        death = false;
     }
 
     public void keyPressed (KeyEvent e)
@@ -189,5 +185,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             }
         }
         return false;
+    }
+
+    public static boolean isDead()
+    {
+        return death;
     }
 }

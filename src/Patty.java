@@ -10,6 +10,8 @@ public class Patty extends JComponent
     private int lives;
     private int locX;
     private int locY;
+    private int startX;
+    private int startY;
     private int width;
     private int height;
     private Image img;
@@ -20,6 +22,8 @@ public class Patty extends JComponent
         lives = 3;
         locX = x;
         locY = y;
+        startX = x;
+        startY = y;
         width = w;
         height = h;
     }
@@ -63,12 +67,27 @@ public class Patty extends JComponent
 
     public void changeX(int x)
     {
-        locX += x;
+        if (GamePanel.isDead())
+        {
+            locX = startX;
+        }
+        else
+        {
+            locX += x;
+
+        }
     }
 
     public void changeY(int y)
     {
-        locY += y;
+        if (GamePanel.isDead())
+        {
+            locY = startY;
+        }
+        else
+        {
+            locY += y;
+        }
     }
 
     public void fall()
