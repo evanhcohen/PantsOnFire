@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class MenuFrame extends MainFrame
 {
@@ -14,7 +13,7 @@ public class MenuFrame extends MainFrame
 
         // creates panel
         menu = new MenuPanel();
-        menu.setPreferredSize(new Dimension(1500,500));
+        menu.setPreferredSize(d);
 
         // add panel to the frame
         frame.getContentPane().add(menu);

@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class InstructionsFrame extends MainFrame
 {
@@ -14,7 +13,7 @@ public class InstructionsFrame extends MainFrame
 
         // creates panel
         instructions = new InstructionsPanel();
-        instructions.setPreferredSize(new Dimension(1500,500));
+        instructions.setPreferredSize(d);
 
         // add panel to the frame
         frame.getContentPane().add(instructions);

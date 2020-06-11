@@ -11,17 +11,17 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
     private JButton instructions;
     private Image instructionsImage;
-    private int instructionsSize = 15;
-
-    Dimension size;
+    private int instructionsSize = 50;
 
     private JButton play;
     private Image playImage;
-    private int playSize = 15;
+    private int playSize = 50;
+
+    Dimension size;
 
     public MenuPanel()
     {
-//        setLayout(null);
+        setLayout(null);
 
         // set up images
         try {
@@ -33,6 +33,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         }
 
         play = new JButton("Play", new ImageIcon(playImage));
+        play.setFont(new Font("Arial", Font.PLAIN, 40));
         size = play.getPreferredSize();
         play.setBounds(700,30, size.width, size.height);
 
@@ -49,8 +50,9 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         add(play);
 
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
+        instructions.setFont(new Font("Arial", Font.PLAIN, 40));
         size = instructions.getPreferredSize();
-        instructions.setBounds(900,30, size.width, size.height);
+        instructions.setBounds(100,30, size.width, size.height);
 
         instructions.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
@@ -62,7 +64,6 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
         instructions.addActionListener(this);
         instructions.setActionCommand("Instructions");
-        instructions.setBounds(0,300, 0, 0);
         add(instructions);
     }
 

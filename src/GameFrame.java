@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class GameFrame extends MainFrame
 {
@@ -14,7 +13,7 @@ public class GameFrame extends MainFrame
 
         // creates panel
         game = new GamePanel();
-        game.setPreferredSize(new Dimension(1500,500));
+        game.setPreferredSize(d);
 
         // add panel to the frame
         frame.getContentPane().add(game);

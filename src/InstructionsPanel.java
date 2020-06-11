@@ -29,7 +29,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         menu = new JButton("Menu", new ImageIcon(menuImage));
         menu.setFont(new Font("Arial", Font.PLAIN, 40));
         size = menu.getPreferredSize();
-        menu.setBounds(700,30, size.width, size.height);
+        menu.setBounds(700,30, MainFrame.width/2, MainFrame.height/2);
 
         menu.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
@@ -38,6 +38,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         menu.setContentAreaFilled(false);
         menu.setFocusPainted(false);
         menu.setOpaque(false);
+
         menu.addActionListener(this);
         menu.setActionCommand("menu");
         add(menu);
