@@ -12,12 +12,10 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private JButton instructions;
     private Image instructionsImage;
     private int instructionsSize = 50;
-    Dimension instructionsDim;
 
     private JButton play;
     private Image playImage;
     private int playSize = 50;
-    Dimension playDim;
 
     public MenuPanel()
     {
@@ -37,8 +35,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
         instructions.setFont(new Font("Arial", Font.PLAIN, 40));
 
-        playDim = play.getPreferredSize();
-        instructionsDim = instructions.getPreferredSize();
+        Dimension playDim = play.getPreferredSize();
+        Dimension instructionsDim = instructions.getPreferredSize();
 
         int totW = playDim.width + instructionsDim.width;
 
