@@ -11,6 +11,9 @@ public class InstructionsFrame extends MainFrame
         frame = new JFrame("Pants on Fyre");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame.setResizable(false);
+        frame.setUndecorated(true);
+
         // creates panel
         instructions = new InstructionsPanel();
         instructions.setPreferredSize(d);

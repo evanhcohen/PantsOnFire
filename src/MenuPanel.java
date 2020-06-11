@@ -56,7 +56,6 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width - 1,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
         makeButton(instructions, "instructions");
 
-
         quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
         makeButton(quit, "quit");
 
