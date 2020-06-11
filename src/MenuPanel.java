@@ -12,12 +12,12 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private JButton instructions;
     private Image instructionsImage;
     private int instructionsSize = 50;
+    Dimension instructionsDim;
 
     private JButton play;
     private Image playImage;
     private int playSize = 50;
-
-    Dimension size;
+    Dimension playDim;
 
     public MenuPanel()
     {
@@ -34,19 +34,21 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
         play = new JButton("Play", new ImageIcon(playImage));
         play.setFont(new Font("Arial", Font.PLAIN, 40));
-        size = play.getPreferredSize();
-        play.setBounds(MainFrame.width/2 - size.width,MainFrame.height/2 - size.height/2, size.width, size.height);
+        instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
+        instructions.setFont(new Font("Arial", Font.PLAIN, 40));
+
+        playDim = play.getPreferredSize();
+        instructionsDim = instructions.getPreferredSize();
+
+
+        play.setBounds(MainFrame.width/2 - playDim.width,MainFrame.height/2 - playDim.height/2, playDim.width, playDim.height);
         makeButton(play);
         play.addActionListener(this);
         play.setActionCommand("Start");
         add(play);
 
-        instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
-        instructions.setFont(new Font("Arial", Font.PLAIN, 40));
-        size = instructions.getPreferredSize();
-        instructions.setBounds(MainFrame.width/2,MainFrame.height/2 - size.height/2, size.width, size.height);
-        makeButton(play);
-        instructions.addActionListener(this);
+        instructions.setBounds(MainFrame.width/2,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
+        makeButton(instructions);
         instructions.setActionCommand("Instructions");
         add(instructions);
     }
@@ -80,6 +82,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         b.setContentAreaFilled(false);
         b.setFocusPainted(false);
         b.setOpaque(false);
+
+        b.addActionListener(this);
     }
 
     @Override
