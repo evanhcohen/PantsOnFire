@@ -30,6 +30,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform13;
     private Platform platform14;
     private Platform platform15;
+    private Platform platform16;
+    private Platform platform17;
+    private Platform platform18;
     private ArrayList<Platform> myPlatforms;
 
     private boolean ready;
@@ -94,8 +97,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform13.drawImg();
         platform14 = new Platform(1185, 92);
         platform14.drawImg();
-        platform15 = new Platform(1235, 92);
+        platform15 = new Platform(600, 244);
         platform15.drawImg();
+        platform16 = new Platform(550, 244);
+        platform16.drawImg();
+        platform17 = new Platform(1235, 92);
+        platform17.drawImg();
+        platform18 = new Platform(1235, 92);
+        platform18.drawImg();
+
+
 
 
         myPlatforms = new ArrayList<>();
@@ -114,6 +125,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform13);
         myPlatforms.add(platform14);
         myPlatforms.add(platform15);
+        myPlatforms.add(platform16);
+        myPlatforms.add(platform17);
+        myPlatforms.add(platform18);
 
 
         // set up images
@@ -168,6 +182,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(platform13.getImg(),platform13.leftBoundX(),platform13.topY(), this);
         g.drawImage(platform14.getImg(),platform14.leftBoundX(),platform14.topY(), this);
         g.drawImage(platform15.getImg(),platform15.leftBoundX(),platform15.topY(), this);
+        g.drawImage(platform16.getImg(),platform16.leftBoundX(),platform16.topY(), this);
+        g.drawImage(platform17.getImg(),platform17.leftBoundX(),platform17.topY(), this);
+        g.drawImage(platform18.getImg(),platform18.leftBoundX(),platform18.topY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
