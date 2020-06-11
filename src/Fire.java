@@ -46,6 +46,7 @@ public class Fire extends JComponent {
         }
     }
 
+
     public Image getImg()
     {
         return img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
