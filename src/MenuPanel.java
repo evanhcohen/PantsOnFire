@@ -1,17 +1,37 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
     private JButton start;
     private JButton instructions;
 
+    private Image play;
+    private int playSize = 15;
+
     public MenuPanel()
     {
-        start = new JButton("START");
+        // set up images
+        try {
+            play = ImageIO.read(getClass().getResource("images/play.png")).getScaledInstance(playSize,playSize, Image.SCALE_SMOOTH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        start = new JButton("START", new ImageIcon(play));
+        start.setMargin(new Insets(0, 0, 0, 0));
+        start.setBorder(null);
+        start.setBorderPainted(false);
+        start.setContentAreaFilled(false);
+        start.setFocusPainted(false);
+        start.setOpaque(false);
         start.addActionListener(this);
         start.setActionCommand("Start");
         add(start);

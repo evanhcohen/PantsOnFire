@@ -90,7 +90,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         pause = new JButton();
         pause.setMargin(new Insets(0, 0, 0, 0));
         pause.setBorder(null);
-
         pause.setBorderPainted(false);
         pause.setContentAreaFilled(false);
         pause.setFocusPainted(false);
@@ -106,8 +105,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public void paintComponent (Graphics g)
     {
         super.paintComponent(g);
-        pause.setBounds(this.getWidth() - pauseSize - 15, 15, pauseSize, pauseSize);
 
+        pause.setBounds(this.getWidth() - pauseSize - 15, 15, pauseSize, pauseSize);
 
         // draw background
         g.drawImage(background,0,0,this.getWidth(),this.getHeight(),this);
