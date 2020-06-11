@@ -90,8 +90,6 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         }
         if (action.equals("quit"))
         {
-//            System.exit(0);
-
             JButton[] options = {yes,no};
             JOptionPane.showOptionDialog(null, "Are you sure you want to quit? All progress will be lost.", null,
                     JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
