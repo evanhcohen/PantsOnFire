@@ -9,7 +9,7 @@ public class GameFrame extends MainFrame
     public GameFrame()
     {
         // creates the frame
-        frame = new JFrame("Pants on Fyre");
+        frame = new JFrame("Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // creates panel
@@ -24,6 +24,7 @@ public class GameFrame extends MainFrame
     {
         if(x == 3)
         {
+            frame.getContentPane().add(game);
             display(frame);
         }
         else

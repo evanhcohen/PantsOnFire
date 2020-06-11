@@ -126,7 +126,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
-        System.out.println(play);
         if (play)
         {
 
@@ -169,6 +168,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 GameFrame.changePanel(1);
                 InstructionsFrame.changePanel(1);
                 play = false;
+                changeX = 0;
+                changeY = 0;
             }
         }
     }
@@ -180,7 +181,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (c == KeyEvent.VK_LEFT)
         {
             changeX = -4;
-
         }
         if (c == KeyEvent.VK_RIGHT)
         {
