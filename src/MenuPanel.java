@@ -17,9 +17,9 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private Image playImage;
     private int playSize = 50;
 
-    private JButton close;
-    private Image closeImage;
-    private int closeSize;
+    private JButton quit;
+    private Image quitImage;
+    private int quitSize;
 
     JLabel title;
 
@@ -38,14 +38,15 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
         play = new JButton("Play", new ImageIcon(playImage));
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
-        close = new JButton("Close");
+        quit = new JButton("Quit");
 
         play.setFont(new Font("Arial", Font.PLAIN, 40));
         instructions.setFont(new Font("Arial", Font.PLAIN, 40));
-        close.setFont(new Font("Arial", Font.PLAIN, 40));
+        quit.setFont(new Font("Arial", Font.PLAIN, 40));
 
         Dimension playDim = play.getPreferredSize();
         Dimension instructionsDim = instructions.getPreferredSize();
+        Dimension quitDim = quit.getPreferredSize();
 
         int totW = playDim.width + instructionsDim.width;
 
@@ -55,8 +56,9 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width - 1,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
         makeButton(instructions, "instructions");
 
-        close.setBounds(0,0,close.getPreferredSize().width,close.getPreferredSize().height);
-        makeButton(close, "close");
+
+        quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
+        makeButton(quit, "quit");
 
         title = new JLabel("Pants on Fyre");
         title.setFont(new Font("Arial", Font.PLAIN, 70));
@@ -82,7 +84,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
             InstructionsFrame.changePanel(3);
             GamePanel.changeStatus(true);
         }
-        if (action.equals("close"))
+        if (action.equals("quit"))
         {
             System.exit(0);
         }
