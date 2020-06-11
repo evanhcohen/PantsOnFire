@@ -160,7 +160,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         {
             changeX = 0;
         }
-        if (c == KeyEvent.VK_UP || c == KeyEvent.VK_DOWN)
+        if (c == KeyEvent.VK_UP)
         {
             changeY = 0;
         }
