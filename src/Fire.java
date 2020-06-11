@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Fire extends JComponent {
+
     //instance variables
     private int locX;
     private int locY;
@@ -15,8 +16,8 @@ public class Fire extends JComponent {
     {
         locX = x;
         locY = y;
-        width = 80;
-        height = 30;
+        width = 562/12;
+        height = 800/12;
     }
 
     //accessors
