@@ -12,7 +12,10 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
     private JButton menu;
     private Image menuImage;
     private int menuSize = 30;
-    Dimension size;
+    private Dimension menuDim;
+
+    private JLabel inst;
+    private Dimension instDim;
 
     public InstructionsPanel()
     {
@@ -28,8 +31,8 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
 
         menu = new JButton("Menu", new ImageIcon(menuImage));
         menu.setFont(new Font("Arial", Font.PLAIN, 30));
-        size = menu.getPreferredSize();
-        menu.setBounds(MainFrame.width/2 - size.width/2,30, size.width, size.height);
+        menuDim = menu.getPreferredSize();
+        menu.setBounds(MainFrame.width/2 - menuDim.width/2,30, menuDim.width, menuDim.height);
 
         menu.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
@@ -42,6 +45,21 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         menu.addActionListener(this);
         menu.setActionCommand("menu");
         add(menu);
+
+        inst = new JLabel();
+        inst.setText("<html> " +
+                        "Thank you for answering our call!<br>" +
+                        "The city is on fire and <b>you</b> are the only one who can stop it!<br>" +
+                        "Use the arrow keys to move around.<br>" +
+                        "Make sure to collect the fire extinguisher first.<br>" +
+                        "Now, it's your job to save the city. Good luck!" +
+                     "</html>");
+        inst.setFont(new Font("Arial", Font.PLAIN, 20));
+        instDim = inst.getPreferredSize();
+        inst.setBounds(0,MainFrame.height/2 - instDim.height/2, 1500, instDim.height);
+
+        add(inst);
+
     }
 
     @Override
