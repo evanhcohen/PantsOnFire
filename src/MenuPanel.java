@@ -13,6 +13,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private Image instructionsImage;
     private int instructionsSize = 15;
 
+    Dimension size;
 
     private JButton play;
     private Image playImage;
@@ -20,6 +21,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
     public MenuPanel()
     {
+//        setLayout(null);
 
         // set up images
         try {
@@ -31,24 +33,33 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         }
 
         play = new JButton("Play", new ImageIcon(playImage));
+        size = play.getPreferredSize();
+        play.setBounds(700,30, size.width, size.height);
+
         play.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
                 BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+
         play.setContentAreaFilled(false);
         play.setFocusPainted(false);
         play.setOpaque(false);
+
         play.addActionListener(this);
         play.setActionCommand("Start");
-        play.setBounds(0,300, 0, 0);
         add(play);
 
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
+        size = instructions.getPreferredSize();
+        instructions.setBounds(900,30, size.width, size.height);
+
         instructions.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
                 BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+
         instructions.setContentAreaFilled(false);
         instructions.setFocusPainted(false);
         instructions.setOpaque(false);
+
         instructions.addActionListener(this);
         instructions.setActionCommand("Instructions");
         instructions.setBounds(0,300, 0, 0);

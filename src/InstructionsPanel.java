@@ -11,10 +11,13 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
 {
     private JButton menu;
     private Image menuImage;
-    private int menuSize = 15;
+    private int menuSize = 50;
+    Dimension size;
 
     public InstructionsPanel()
     {
+        setLayout(null);
+
         // set up images
         try {
             menuImage = ImageIO.read(getClass().getResource("images/menu.png")).getScaledInstance(menuSize,menuSize, Image.SCALE_SMOOTH);
@@ -24,15 +27,19 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         }
 
         menu = new JButton("Menu", new ImageIcon(menuImage));
+        menu.setFont(new Font("Arial", Font.PLAIN, 40));
+        size = menu.getPreferredSize();
+        menu.setBounds(700,30, size.width, size.height);
+
         menu.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
                 BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+
         menu.setContentAreaFilled(false);
         menu.setFocusPainted(false);
         menu.setOpaque(false);
         menu.addActionListener(this);
         menu.setActionCommand("menu");
-        menu.setBounds(0,300, 0, 0);
         add(menu);
     }
 
