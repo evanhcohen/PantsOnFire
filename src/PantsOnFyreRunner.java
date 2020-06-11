@@ -5,6 +5,7 @@ public class PantsOnFyreRunner
         MenuFrame m = new MenuFrame();
         GameFrame g = new GameFrame();
         InstructionsFrame i = new InstructionsFrame();
+        WinFrame w = new WinFrame();
         MenuFrame.display(MenuFrame.getFrame());
     }
 }
