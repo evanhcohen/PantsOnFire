@@ -38,6 +38,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform21;
     private ArrayList<Platform> myPlatforms;
 
+    private Fire flame;
+
     private boolean ready;
 
     private Timer time = new Timer(3, this);
@@ -143,6 +145,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform20);
         myPlatforms.add(platform21);
 
+        //sets up fire
+        flame = new Fire(1835, 400);
+        flame.drawImg();
 
         // set up images
         try {
@@ -202,6 +207,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(platform19.getImg(),platform19.leftBoundX(),platform19.topY(), this);
         g.drawImage(platform20.getImg(),platform20.leftBoundX(),platform20.topY(), this);
         g.drawImage(platform21.getImg(),platform21.leftBoundX(),platform21.topY(), this);
+
+        //draw fire
+        g.drawImage(flame.getImg(),flame.leftBoundX(),flame.topY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
