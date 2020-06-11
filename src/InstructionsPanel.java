@@ -69,6 +69,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
             MenuFrame.changePanel(1);
             GameFrame.changePanel(1);
             InstructionsFrame.changePanel(1);
+            WinFrame.changePanel(1);
         }
     }
 
