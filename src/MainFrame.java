@@ -14,6 +14,5 @@ public class MainFrame extends JFrame
         f.setLocation(0,0);
         f.setVisible(true);
     }
-
 }
 

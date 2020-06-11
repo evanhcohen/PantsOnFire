@@ -35,16 +35,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         play = new JButton("Play", new ImageIcon(playImage));
         play.setFont(new Font("Arial", Font.PLAIN, 40));
         size = play.getPreferredSize();
-        play.setBounds(700,30, size.width, size.height);
-
-        play.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(Color.BLACK, 3),
-                BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-
-        play.setContentAreaFilled(false);
-        play.setFocusPainted(false);
-        play.setOpaque(false);
-
+        play.setBounds(MainFrame.width/2 - size.width,MainFrame.height/2 - size.height/2, size.width, size.height);
+        makeButton(play);
         play.addActionListener(this);
         play.setActionCommand("Start");
         add(play);
@@ -52,16 +44,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
         instructions.setFont(new Font("Arial", Font.PLAIN, 40));
         size = instructions.getPreferredSize();
-        instructions.setBounds(100,30, size.width, size.height);
-
-        instructions.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(Color.BLACK, 3),
-                BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-
-        instructions.setContentAreaFilled(false);
-        instructions.setFocusPainted(false);
-        instructions.setOpaque(false);
-
+        instructions.setBounds(MainFrame.width/2,MainFrame.height/2 - size.height/2, size.width, size.height);
+        makeButton(play);
         instructions.addActionListener(this);
         instructions.setActionCommand("Instructions");
         add(instructions);
@@ -83,6 +67,19 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
             InstructionsFrame.changePanel(3);
             GamePanel.changeStatus(true);
         }
+    }
+
+    public void makeButton(JButton b)
+    {
+        b.setFont(new Font("Arial", Font.PLAIN, 40));
+
+        b.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(Color.BLACK, 3),
+                BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+
+        b.setContentAreaFilled(false);
+        b.setFocusPainted(false);
+        b.setOpaque(false);
     }
 
     @Override
