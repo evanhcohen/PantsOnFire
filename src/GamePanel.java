@@ -111,6 +111,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
+        System.out.println(play);
         if (play)
         {
 
