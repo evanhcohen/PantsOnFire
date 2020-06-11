@@ -236,7 +236,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             }
 
             // if player falls down to bottom it goes back to beginning
-            if(p.getLocY() >= 500)
+            if(p.getLocY() >= 500 || isOnFire())
             {
                 death = true;
             }
@@ -311,6 +311,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
         return false;
     }
+
+    public boolean isOnFire()
+    {
+
+            if (flame.touching(p))
+            {
+                return true;
+            }
+
+        return false;
+    }
+
+
 
     public static boolean isDead()
     {
