@@ -11,6 +11,10 @@ public class MenuFrame extends MainFrame
         frame = new JFrame("Pants on Fyre");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+        frame.setResizable(false);
+        frame.setUndecorated(true);
+
         // creates panel
         menu = new MenuPanel();
         menu.setPreferredSize(d);

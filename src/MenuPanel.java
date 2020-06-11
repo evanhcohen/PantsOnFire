@@ -17,6 +17,10 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private Image playImage;
     private int playSize = 50;
 
+    private JButton close;
+    private Image closeImage;
+    private int closeSize;
+
     public MenuPanel()
     {
         setLayout(null);
@@ -31,9 +35,12 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         }
 
         play = new JButton("Play", new ImageIcon(playImage));
-        play.setFont(new Font("Arial", Font.PLAIN, 40));
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
+        close = new JButton("Close");
+
+        play.setFont(new Font("Arial", Font.PLAIN, 40));
         instructions.setFont(new Font("Arial", Font.PLAIN, 40));
+        close.setFont(new Font("Arial", Font.PLAIN, 40));
 
         Dimension playDim = play.getPreferredSize();
         Dimension instructionsDim = instructions.getPreferredSize();
@@ -47,6 +54,11 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width - 1,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
         makeButton(instructions);
         instructions.setActionCommand("Instructions");
+
+        close.setBounds(0,0,close.getPreferredSize().width,close.getPreferredSize().height);
+        makeButton(close);
+        close.setActionCommand("close");
+
     }
 
     @Override
@@ -64,6 +76,10 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
             MenuFrame.changePanel(3);
             InstructionsFrame.changePanel(3);
             GamePanel.changeStatus(true);
+        }
+        if (action.equals("close"))
+        {
+            System.exit(0);
         }
     }
 
