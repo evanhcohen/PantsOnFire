@@ -76,12 +76,14 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
         makeButton(quit, "quit");
 
+        // make title label
         title = new JLabel("Pants on Fire");
         title.setFont(new Font("Arial", Font.PLAIN, 70));
         Dimension titleDim = title.getPreferredSize();
         title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
         add(title);
 
+        // create yes button for quit confirmation
         yes = new JButton("Yes");
         yes.setFont(new Font("Arial", Font.PLAIN, 15));
         yes.setPreferredSize(new Dimension(60,30));
@@ -91,6 +93,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         yes.addActionListener(this);
         yes.setActionCommand("yes");
 
+        // create no button for quit confirmation
         no = new JButton("No");
         no.setFont(new Font("Arial", Font.PLAIN, 15));
         no.setPreferredSize(new Dimension(60,30));
@@ -100,10 +103,12 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         no.addActionListener(this);
         no.setActionCommand("no");
 
+        // create options list for quit confirmation
         options = new JButton[2];
         options[0] = yes;
         options[1] = no;
 
+        // create quit confirmation pop-up
         confirm = new JOptionPane();
         confirm.setMessage("Are you sure you want to quit? All progress will be lost.");
         confirm.setOptionType(JOptionPane.DEFAULT_OPTION);
@@ -126,20 +131,24 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
             MainFrame.swapScreen(3);
             GamePanel.changeStatus(true);
         }
+        // pop-up on quit
         if (action.equals("quit"))
         {
             confirmDialog.setVisible(true);
         }
+        // quit if yes confirmed
         if (action.equals("yes"))
         {
             System.exit(0);
         }
+        // close pop-up if no confirmed
         if (action.equals("no"))
         {
             confirmDialog.setVisible(false);
         }
     }
 
+    // button maker method for buttons that require these points
     public void makeButton(JButton b,String text)
     {
         b.setBorder(BorderFactory.createCompoundBorder(
