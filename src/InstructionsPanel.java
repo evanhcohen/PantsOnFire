@@ -26,6 +26,8 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
     private int exW = (int) (557 * .75);
     private Dimension exDim;
 
+    private QuitButton quit;
+
     public InstructionsPanel()
     {
         // allow for layout
@@ -78,6 +80,9 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         exDim = example.getPreferredSize();
         example.setBounds(MainFrame.width/2 + 200,MainFrame.height/2 - exDim.height/2, 1500, exDim.height);
         add(example);
+
+        quit = new QuitButton(this);
+        add(quit.getQuit());
     }
 
     @Override
@@ -87,6 +92,21 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         {
             // change screens
             MainFrame.swapScreen(1);
+        }
+        // pop-up on quit
+        if (action.equals("quit"))
+        {
+            quit.getConfirm().setVisible(true);
+        }
+        // quit if yes confirmed
+        if (action.equals("yes"))
+        {
+            System.exit(0);
+        }
+        // close pop-up if no confirmed
+        if (action.equals("no"))
+        {
+            quit.getConfirm().setVisible(false);
         }
     }
 
