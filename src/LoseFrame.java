@@ -1,11 +1,11 @@
 import javax.swing.*;
 
-public class GameFrame extends MainFrame
+public class LoseFrame extends MainFrame
 {
     private static JFrame frame;
-    private static GamePanel game;
+    private static LosePanel lose;
 
-    public GameFrame()
+    public LoseFrame()
     {
         // creates the frame
         frame = new JFrame("Pants on Fire");
@@ -17,21 +17,18 @@ public class GameFrame extends MainFrame
         frame.setUndecorated(true);
 
         // creates panel
-        game = new GamePanel();
-        game.setPreferredSize(d);
+        lose = new LosePanel();
+        lose.setPreferredSize(d);
 
         // add panel to the frame
-        frame.getContentPane().add(game);
+        frame.getContentPane().add(lose);
     }
 
     // helps with screen swapping
     public static void changePanel(int x)
     {
-        if(x == 3)
+        if (x == 5)
         {
-            frame.getContentPane().add(game);
-            GamePanel.changeStatus(true);
-            GamePanel.restart();
             display(frame);
         }
         else

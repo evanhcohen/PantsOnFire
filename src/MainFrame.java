@@ -23,6 +23,7 @@ public class MainFrame extends JFrame
         InstructionsFrame.changePanel(n);
         MenuFrame.changePanel(n);
         WinFrame.changePanel(n);
+        LoseFrame.changePanel(n);
     }
 }
 

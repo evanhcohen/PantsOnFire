@@ -53,9 +53,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Timer time = new Timer(3, this);
 
     // pause button
-    private JButton pause;
-    private Image pauseButton;
+    private JButton pauseButton;
+    private Image pauseButtonImg;
     private int pauseSize = 50;
+
+    // timer
+    private static long overallStart;
+    private static long overallCurrent;
+    private static long pauseStart;
+    private static long pauseCurrent;
+    private static int pauseSec;
+    private static int overallSec;
+    private static boolean pause = false;
+    private static int displayTime;
+    // time label
+    private JLabel timeLabel;
+    private Dimension timeDim;
 
     // background
     private Image background;
@@ -158,23 +171,34 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // set up images
         try {
             background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
-            pauseButton = ImageIO.read(getClass().getResource("images/pause.png")).getScaledInstance(pauseSize,pauseSize, Image.SCALE_SMOOTH);
+            pauseButtonImg = ImageIO.read(getClass().getResource("images/pause.png")).getScaledInstance(pauseSize,pauseSize, Image.SCALE_SMOOTH);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // set up pause button
-        pause = new JButton();
-        pause.setMargin(new Insets(0, 0, 0, 0));
-        pause.setBorder(null);
-        pause.setBorderPainted(false);
-        pause.setContentAreaFilled(false);
-        pause.setFocusPainted(false);
-        pause.setOpaque(false);
-        pause.addActionListener(this);
-        pause.setActionCommand("pause");
-        pause.setIcon(new ImageIcon(pauseButton));
-        add(pause);
+        pauseButton = new JButton();
+        pauseButton.setMargin(new Insets(0, 0, 0, 0));
+        pauseButton.setBorder(null);
+        pauseButton.setBorderPainted(false);
+        pauseButton.setContentAreaFilled(false);
+        pauseButton.setFocusPainted(false);
+        pauseButton.setOpaque(false);
+        pauseButton.addActionListener(this);
+        pauseButton.setActionCommand("pause");
+        pauseButton.setIcon(new ImageIcon(pauseButtonImg));
+        add(pauseButton);
+
+        // time
+        overallStart = System.currentTimeMillis();
+
+        // instructions text
+        timeLabel = new JLabel();
+        timeLabel.setText("Time remaining: 90");
+        timeLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+        timeDim = timeLabel.getPreferredSize();
+        timeLabel.setBounds(0,0, 1500, timeDim.height);
+        add(timeLabel);
 
         // game status update
         ready = true;
@@ -185,7 +209,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         super.paintComponent(g);
 
         // set pause button location (issues when in constructor)
-        pause.setBounds(this.getWidth() - pauseSize - 15, 15, pauseSize, pauseSize);
+        pauseButton.setBounds(this.getWidth() - pauseSize - 15, 15, pauseSize, pauseSize);
 
         // images drawn in this specific order: the earlier drawn, the farther in the background
 
@@ -233,6 +257,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // game only runs when it's in "play" mode
         if (play)
         {
+            // time
+            overallCurrent = System.currentTimeMillis();
+            overallSec =  (int)((overallCurrent - overallStart) / 1000);
+//            System.out.println(90-overallSec);
+
             // jumping with gravity
             if(jump >= 1 && jump <= 15)
             {
@@ -290,9 +319,28 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             {
                 MainFrame.swapScreen(1);
                 play = false;
+                pause = true;
+                pauseStart = System.currentTimeMillis();
                 changeX = 0;
                 changeY = 0;
             }
+        }
+        else if (pause)
+        {
+            pauseCurrent = System.currentTimeMillis();
+            pauseSec =  (int)((pauseCurrent - pauseStart) / 1000);
+//            System.out.println(pauseSec);
+        }
+
+        displayTime = 90 - overallSec + pauseSec;
+        if (ready)
+        {
+            timeLabel.setText("Time remaining: " + displayTime);
+            add(timeLabel);
+        }
+        if (displayTime == 0)
+        {
+            MainFrame.swapScreen(5);
         }
     }
 
@@ -368,5 +416,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public static void changeStatus(boolean status)
     {
         play = status;
+    }
+
+    public static void restart()
+    {
+        overallStart = System.currentTimeMillis();
+        pauseSec = 0;
+        overallSec = 90;
     }
 }
