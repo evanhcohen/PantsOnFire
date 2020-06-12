@@ -44,6 +44,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     private boolean ready;
 
+    private boolean hasExtinguisher = false;
+
     private Timer time = new Timer(3, this);
 
     private JButton pause;
@@ -226,6 +228,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         if (play)
         {
+            if(extinguisher.touching((p)))
+            {
+                hasExtinguisher = true;
+
+            }
+
             // jumping with gravity
             if(jump >= 1 && jump <= 15)
             {
@@ -245,13 +253,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             }
             if(isOnFire())
             {
-                MainFrame.swapScreen(4);
-                death = true;
-                play = false;
+                if(hasExtinguisher)
+                {
+                    MainFrame.swapScreen(4);
+                    play = false;
+                }
+                else {
+                    death = true;
+                }
+
             }
 
             // if player falls down to bottom it goes back to beginning
-            if(p.getLocY() >= 500 || isOnFire())
+            if(p.getLocY() >= 500)
             {
                 death = true;
             }
@@ -331,6 +345,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         return flame.touching(p);
     }
+
 
 
 
