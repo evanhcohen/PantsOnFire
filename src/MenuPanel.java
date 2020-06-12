@@ -20,14 +20,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
     private int playSize = 50;
 
     // quit button
-    private JButton quit;
-
-    // quit confirmation objects
-    JOptionPane confirm;
-    JDialog confirmDialog;
-    JButton yes;
-    JButton no;
-    JButton[] options;
+    private QuitButton quit;
 
     // title text
     JLabel title;
@@ -49,17 +42,14 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         // create buttons
         play = new JButton("Play", new ImageIcon(playImage));
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
-        quit = new JButton("Quit");
 
         // set button fonts
         play.setFont(new Font("Arial", Font.PLAIN, 40));
         instructions.setFont(new Font("Arial", Font.PLAIN, 40));
-        quit.setFont(new Font("Arial", Font.PLAIN, 40));
 
         // set button dimensions
         Dimension playDim = play.getPreferredSize();
         Dimension instructionsDim = instructions.getPreferredSize();
-        Dimension quitDim = quit.getPreferredSize();
 
         // variable used to set location of buttons
         int totW = playDim.width + instructionsDim.width;
@@ -73,8 +63,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         makeButton(instructions, "instructions");
 
         // set location and make quit button
-        quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
-        makeButton(quit, "quit");
+        quit = new QuitButton(this);
+        add(quit.getQuit());
 
         // make title label
         title = new JLabel("Pants on Fire");
@@ -82,41 +72,6 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         Dimension titleDim = title.getPreferredSize();
         title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
         add(title);
-
-        // create yes button for quit confirmation
-        yes = new JButton("Yes");
-        yes.setFont(new Font("Arial", Font.PLAIN, 15));
-        yes.setPreferredSize(new Dimension(60,30));
-        yes.setContentAreaFilled(false);
-        yes.setFocusPainted(false);
-        yes.setOpaque(false);
-        yes.addActionListener(this);
-        yes.setActionCommand("yes");
-
-        // create no button for quit confirmation
-        no = new JButton("No");
-        no.setFont(new Font("Arial", Font.PLAIN, 15));
-        no.setPreferredSize(new Dimension(60,30));
-        no.setContentAreaFilled(false);
-        no.setFocusPainted(false);
-        no.setOpaque(false);
-        no.addActionListener(this);
-        no.setActionCommand("no");
-
-        // create options list for quit confirmation
-        options = new JButton[2];
-        options[0] = yes;
-        options[1] = no;
-
-        // create quit confirmation pop-up
-        confirm = new JOptionPane();
-        confirm.setMessage("Are you sure you want to quit? All progress will be lost.");
-        confirm.setOptionType(JOptionPane.DEFAULT_OPTION);
-        confirm.setMessageType(JOptionPane.PLAIN_MESSAGE);
-        confirm.setIcon(null);
-        confirm.setOptions(options);
-        confirm.setInitialSelectionValue(options[0]);
-        confirmDialog = confirm.createDialog(null,null);
     }
 
     @Override
@@ -133,7 +88,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         // pop-up on quit
         if (action.equals("quit"))
         {
-            confirmDialog.setVisible(true);
+            quit.getConfirm().setVisible(true);
         }
         // quit if yes confirmed
         if (action.equals("yes"))
@@ -143,7 +98,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         // close pop-up if no confirmed
         if (action.equals("no"))
         {
-            confirmDialog.setVisible(false);
+            quit.getConfirm().setVisible(false);
         }
     }
 
