@@ -192,7 +192,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // instructions text
         timeLabel = new JLabel();
         timeLabel.setText("Time remaining: 90");
-        timeLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+        timeLabel.setFont(new Font("Arial", Font.BOLD, 15));
         timeLabel.setForeground(Color.red);
         timeDim = timeLabel.getPreferredSize();
         timeLabel.setBounds(0,0, 1500, timeDim.height);
