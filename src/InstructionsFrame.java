@@ -8,7 +8,7 @@ public class InstructionsFrame extends MainFrame
     public InstructionsFrame()
     {
         // creates the frame
-        frame = new JFrame("Pants on Fyre");
+        frame = new JFrame("Pants on Fire");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // locks frame size

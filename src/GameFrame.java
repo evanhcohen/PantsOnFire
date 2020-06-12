@@ -8,7 +8,7 @@ public class GameFrame extends MainFrame
     public GameFrame()
     {
         // creates the frame
-        frame = new JFrame("Game");
+        frame = new JFrame("Pants on Fire");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // locks frame size
