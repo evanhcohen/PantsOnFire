@@ -80,7 +80,6 @@ public class LosePanel extends JPanel implements ActionListener, KeyListener
         if (action.equals("instructions"))
         {
             MainFrame.swapScreen(2);
-
         }
         if (action.equals("play"))
         {
