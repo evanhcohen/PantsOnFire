@@ -254,18 +254,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             if(touchEx())
             {
                 hasExtinguisher = true;
-                System.out.println("extinguisher");
-
             }
             // check if touching fire
             if(isOnFire())
             {
-                System.out.println("fire");
-
                 if(hasExtinguisher)
                 {
                     MainFrame.swapScreen(4);
+                    death = true;
+                    hasExtinguisher = false;
                     play = false;
+                    changeX = 0;
+                    changeY = 0;
                 }
                 else
                 {
