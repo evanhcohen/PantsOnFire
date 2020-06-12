@@ -1,4 +1,4 @@
-public class PantsOnFyreRunner
+public class PantsOnFireRunner
 {
     public static void main (String[] args)
     {
