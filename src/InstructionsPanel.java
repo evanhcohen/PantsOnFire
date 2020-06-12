@@ -56,9 +56,9 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         inst.setText("<html> " +
                         "Thank you for answering our call!<br>" +
                         "The city is on fire and <b>you</b> are the only one who can stop it!<br>" +
-//                        "Be sure to collect the fire extinguisher before getting to the fire!<br>" +
+                        "Be sure to collect the fire extinguisher before getting to the fire!<br>" +
                         "Now, it's your job to save the city. Good luck!<br><br>" +
-                        "Use the arrow keys to move around." +
+                        "Use the right and left arrow keys to move around and the up arrow to jump." +
                         "</html>");
         inst.setFont(new Font("Arial", Font.PLAIN, 25));
         instDim = inst.getPreferredSize();
