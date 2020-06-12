@@ -71,10 +71,7 @@ public class Patty extends JComponent
         {
             locX = startX;
         }
-        else if (GamePanel.isDead())
-        {
-            locX = startX;
-        }
+
         else
         {
             locX += x;
