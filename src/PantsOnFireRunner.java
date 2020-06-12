@@ -8,6 +8,7 @@ public class PantsOnFireRunner
         InstructionsFrame i = new InstructionsFrame();
         WinFrame w = new WinFrame();
         LoseFrame l = new LoseFrame();
+        PauseFrame p = new PauseFrame();
 
         // start the program by displaying the first screen, menu
         MenuFrame.display(MenuFrame.getFrame());

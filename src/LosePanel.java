@@ -85,6 +85,7 @@ public class LosePanel extends JPanel implements ActionListener, KeyListener
         if (action.equals("play"))
         {
             MainFrame.swapScreen(3);
+            GamePanel.restart();
         }
         // make pop-up for confirmation if quit
         if (action.equals("quit"))
