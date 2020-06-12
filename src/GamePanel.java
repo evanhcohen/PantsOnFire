@@ -241,6 +241,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 InstructionsFrame.changePanel(4);
                 MenuFrame.changePanel(4);
                 death = true;
+                play = false;
             }
 
             // if player falls down to bottom it goes back to beginning

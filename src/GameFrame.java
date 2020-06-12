@@ -32,7 +32,6 @@ public class GameFrame extends MainFrame
         else
         {
             frame.setVisible(false);
-            System.out.println("dark");
         }
     }
 }

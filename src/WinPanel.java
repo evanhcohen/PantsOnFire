@@ -40,7 +40,7 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
             e.printStackTrace();
         }
 
-        play = new JButton("Play", new ImageIcon(playImage));
+        play = new JButton("Restart", new ImageIcon(playImage));
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
         quit = new JButton("Quit");
 
@@ -63,10 +63,10 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
         makeButton(quit, "quit");
 
-        title = new JLabel("Pants on Fire");
-        title.setFont(new Font("Arial", Font.PLAIN, 70));
+        title = new JLabel("Well done! Thank you for saving our city!");
+        title.setFont(new Font("Arial", Font.PLAIN, 50));
         Dimension titleDim = title.getPreferredSize();
-        title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
+        title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 1200, titleDim.height);
         add(title);
 
         yes = new JButton("Yes");
