@@ -147,7 +147,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         //sets up fire
 //        flame = new Fire(1185, 330);
-        flame = new Fire(100, 200);
+        flame = new Fire(1125, 344);
         flame.drawImg();
 
         // set up images
