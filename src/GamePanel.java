@@ -40,6 +40,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     private Fire flame;
 
+    private FireExtinguisher extinguisher;
+
     private boolean ready;
 
     private Timer time = new Timer(3, this);
@@ -150,6 +152,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         flame = new Fire(1125, 344);
         flame.drawImg();
 
+        //sets up Fire Extinguisher
+        extinguisher = new FireExtinguisher(1175, 28);
+        extinguisher.drawImg();
+
         // set up images
         try {
             background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
@@ -211,6 +217,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         // draw Patty
         g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), this);
+
+        //draw extinguisher
+        g.drawImage(extinguisher.getImg(),extinguisher.leftBoundX(),extinguisher.topY(), this);
     }
 
     public void actionPerformed (ActionEvent e)

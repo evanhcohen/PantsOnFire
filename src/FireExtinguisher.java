@@ -19,8 +19,8 @@ import java.io.IOException;
         {
             locX = x;
             locY = y;
-            width = 80;
-            height = 30;
+            width = 188/6;
+            height = 380/6;
         }
 
         //accessors
@@ -44,7 +44,7 @@ import java.io.IOException;
         public void drawImg()
         {
             try {
-                img = ImageIO.read(getClass().getResource("images/platform.png"));
+                img = ImageIO.read(getClass().getResource("images/extinguisher.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -53,5 +53,11 @@ import java.io.IOException;
         public Image getImg()
         {
             return img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        }
+
+        public boolean touching(Patty p)
+        {
+            // checks right, left, then bottom of patty; checks left, right, then top of platform
+            return (p.getLocX() < this.rightBoundX() && p.rightBoundX() > this.leftBoundX() && p.getLocY() < this.bottomY() || p.getHeight() >= this.topY());
         }
 }
