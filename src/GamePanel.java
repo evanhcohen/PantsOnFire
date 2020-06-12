@@ -84,6 +84,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         //sets up Fire Extinguisher
         extinguisher = new FireExtinguisher(1175, 28);
+//        extinguisher = new FireExtinguisher(100, 300);
         extinguisher.drawImg();
 
         // set up platforms
@@ -253,10 +254,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             if(touchEx())
             {
                 hasExtinguisher = true;
+                System.out.println("extinguisher");
+
             }
             // check if touching fire
             if(isOnFire())
             {
+                System.out.println("fire");
+
                 if(hasExtinguisher)
                 {
                     MainFrame.swapScreen(4);
