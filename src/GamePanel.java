@@ -146,7 +146,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform21);
 
         //sets up fire
-        flame = new Fire(1185, 330);
+//        flame = new Fire(1185, 330);
+        flame = new Fire(100, 200);
         flame.drawImg();
 
         // set up images
@@ -216,7 +217,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         if (play)
         {
-
             // jumping with gravity
             if(jump >= 1 && jump <= 15)
             {
@@ -233,6 +233,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             {
                 jump = 0;
                 changeY = 0;
+            }
+            if(isOnFire())
+            {
+                WinFrame.changePanel(4);
+                GameFrame.changePanel(4);
+                InstructionsFrame.changePanel(4);
+                MenuFrame.changePanel(4);
+                death = true;
             }
 
             // if player falls down to bottom it goes back to beginning
@@ -314,13 +322,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public boolean isOnFire()
     {
-
-            if (flame.touching(p))
-            {
-                return true;
-            }
-
-        return false;
+        return flame.touching(p);
     }
 
 
