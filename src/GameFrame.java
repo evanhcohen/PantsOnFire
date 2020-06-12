@@ -30,6 +30,7 @@ public class GameFrame extends MainFrame
         if(x == 3)
         {
             frame.getContentPane().add(game);
+            GamePanel.changeStatus(true);
             display(frame);
         }
         else

@@ -130,7 +130,6 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         if (action.equals("play"))
         {
             MainFrame.swapScreen(3);
-            GamePanel.changeStatus(true);
         }
         // make pop-up for confirmation if quit
         if (action.equals("quit"))
