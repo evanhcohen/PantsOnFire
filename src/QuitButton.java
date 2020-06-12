@@ -16,6 +16,7 @@ public class QuitButton extends JButton
 
     public QuitButton(ActionListener a)
     {
+        // set up the literal quit button
         quit = new JButton("Quit");
         quit.setFont(new Font("Arial", Font.PLAIN, 40));
         Dimension quitDim = quit.getPreferredSize();
@@ -67,11 +68,13 @@ public class QuitButton extends JButton
         confirmDialog = confirm.createDialog(null,null);
     }
 
+    // return the confirm pop-up
     public JDialog getConfirm()
     {
         return confirmDialog;
     }
 
+    // return the quit JButton to be added into the panel
     public JButton getQuit()
     {
         return quit;

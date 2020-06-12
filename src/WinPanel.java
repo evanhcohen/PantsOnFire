@@ -20,14 +20,7 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
     private int restartSize = 50;
 
     // quit button
-    private JButton quit;
-
-    // quit confirmation
-    JOptionPane confirm;
-    JDialog confirmDialog;
-    JButton yes;
-    JButton no;
-    JButton[] options;
+    private QuitButton quit;
 
     // win message
     JLabel message;
@@ -49,17 +42,14 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         // create buttons
         restart = new JButton("Restart", new ImageIcon(restartImg));
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
-        quit = new JButton("Quit");
 
         // set button font
         restart.setFont(new Font("Arial", Font.PLAIN, 40));
         instructions.setFont(new Font("Arial", Font.PLAIN, 40));
-        quit.setFont(new Font("Arial", Font.PLAIN, 40));
 
         // set button dimensions
         Dimension playDim = restart.getPreferredSize();
         Dimension instructionsDim = instructions.getPreferredSize();
-        Dimension quitDim = quit.getPreferredSize();
 
         // variable used to set location of buttons
         int totW = playDim.width + instructionsDim.width;
@@ -73,8 +63,8 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         makeButton(instructions, "instructions");
 
         // make and set location for quit
-        quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
-        makeButton(quit, "quit");
+        quit = new QuitButton(this);
+        add(quit.getQuit());
 
         // make and set location for win message
         message = new JLabel("Well done! Thank you for saving our city!");
@@ -82,41 +72,6 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         Dimension titleDim = message.getPreferredSize();
         message.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 1200, titleDim.height);
         add(message);
-
-        // yes quit-confirmation pop-up button
-        yes = new JButton("Yes");
-        yes.setFont(new Font("Arial", Font.PLAIN, 15));
-        yes.setPreferredSize(new Dimension(60,30));
-        yes.setContentAreaFilled(false);
-        yes.setFocusPainted(false);
-        yes.setOpaque(false);
-        yes.addActionListener(this);
-        yes.setActionCommand("yes");
-
-        // no quit-confirmation pop-up button
-        no = new JButton("No");
-        no.setFont(new Font("Arial", Font.PLAIN, 15));
-        no.setPreferredSize(new Dimension(60,30));
-        no.setContentAreaFilled(false);
-        no.setFocusPainted(false);
-        no.setOpaque(false);
-        no.addActionListener(this);
-        no.setActionCommand("no");
-
-        // array for confirmation buttons
-        options = new JButton[2];
-        options[0] = yes;
-        options[1] = no;
-
-        // quit confirmation pop-up
-        confirm = new JOptionPane();
-        confirm.setMessage("Are you sure you want to quit? All progress will be lost.");
-        confirm.setOptionType(JOptionPane.DEFAULT_OPTION);
-        confirm.setMessageType(JOptionPane.PLAIN_MESSAGE);
-        confirm.setIcon(null);
-        confirm.setOptions(options);
-        confirm.setInitialSelectionValue(options[0]);
-        confirmDialog = confirm.createDialog(null,null);
     }
 
     @Override
@@ -134,7 +89,7 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         // make pop-up for confirmation if quit
         if (action.equals("quit"))
         {
-            confirmDialog.setVisible(true);
+            quit.getConfirm().setVisible(true);
         }
         // if yes confirmed, quit
         if (action.equals("yes"))
@@ -144,7 +99,7 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         // if no confirmed, exit pop-up
         if (action.equals("no"))
         {
-            confirmDialog.setVisible(false);
+            quit.getConfirm().setVisible(false);
         }
     }
 

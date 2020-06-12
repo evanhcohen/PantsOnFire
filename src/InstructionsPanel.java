@@ -26,6 +26,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
     private int exW = (int) (557 * .75);
     private Dimension exDim;
 
+    // quit button
     private QuitButton quit;
 
     public InstructionsPanel()
@@ -81,6 +82,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         example.setBounds(MainFrame.width/2 + 200,MainFrame.height/2 - exDim.height/2, 1500, exDim.height);
         add(example);
 
+        // make the quit button
         quit = new QuitButton(this);
         add(quit.getQuit());
     }
