@@ -9,26 +9,32 @@ import java.io.IOException;
 
 public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
+    // instructions button
     private JButton instructions;
     private Image instructionsImage;
     private int instructionsSize = 50;
 
+    // menu button
     private JButton play;
     private Image playImage;
     private int playSize = 50;
 
+    // quit button
     private JButton quit;
 
+    // quit confirmation objects
     JOptionPane confirm;
     JDialog confirmDialog;
     JButton yes;
     JButton no;
     JButton[] options;
 
+    // title text
     JLabel title;
 
     public MenuPanel()
     {
+        // allow for layout
         setLayout(null);
 
         // set up images
@@ -40,26 +46,33 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
             e.printStackTrace();
         }
 
+        // create buttons
         play = new JButton("Play", new ImageIcon(playImage));
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
         quit = new JButton("Quit");
 
+        // set button fonts
         play.setFont(new Font("Arial", Font.PLAIN, 40));
         instructions.setFont(new Font("Arial", Font.PLAIN, 40));
         quit.setFont(new Font("Arial", Font.PLAIN, 40));
 
+        // set button dimensions
         Dimension playDim = play.getPreferredSize();
         Dimension instructionsDim = instructions.getPreferredSize();
         Dimension quitDim = quit.getPreferredSize();
 
+        // variable used to set location of buttons
         int totW = playDim.width + instructionsDim.width;
 
+        // set location and make play button
         play.setBounds(MainFrame.width/2 - totW/2 + 1,MainFrame.height/2 - playDim.height/2, playDim.width, playDim.height);
         makeButton(play, "play");
 
+        // set location and make instructions button
         instructions.setBounds(MainFrame.width/2 - totW/2 + playDim.width - 1,MainFrame.height/2 - instructionsDim.height/2, instructionsDim.width, instructionsDim.height);
         makeButton(instructions, "instructions");
 
+        // set location and make quit button
         quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
         makeButton(quit, "quit");
 

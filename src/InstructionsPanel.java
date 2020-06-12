@@ -9,14 +9,17 @@ import java.io.IOException;
 
 public class InstructionsPanel extends JPanel implements ActionListener, KeyListener
 {
+    // menu button
     private JButton menu;
     private Image menuImage;
     private int menuSize = 30;
     private Dimension menuDim;
 
+    // instructions label
     private JLabel inst;
     private Dimension instDim;
 
+    // image
     private Image exampleImg;
     private JLabel example;
     private int exH = (int) (460 * .75);
@@ -25,6 +28,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
 
     public InstructionsPanel()
     {
+        // allow for layout
         setLayout(null);
 
         // set up images
@@ -35,6 +39,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
             e.printStackTrace();
         }
 
+        // menu button
         menu = new JButton("Menu", new ImageIcon(menuImage));
         menu.setFont(new Font("Arial", Font.PLAIN, 30));
         menuDim = menu.getPreferredSize();
@@ -52,6 +57,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         menu.setActionCommand("menu");
         add(menu);
 
+        // instructions text
         inst = new JLabel();
         inst.setText("<html> " +
                         "Thank you for answering our call!<br>" +
@@ -66,12 +72,12 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         inst.setBounds(200,MainFrame.height/2 - instDim.height/2, 1500, instDim.height);
         add(inst);
 
+        // image text
         example = new JLabel();
         example.setIcon(new ImageIcon(exampleImg));
         exDim = example.getPreferredSize();
         example.setBounds(MainFrame.width/2 + 200,MainFrame.height/2 - exDim.height/2, 1500, exDim.height);
         add(example);
-
     }
 
     @Override
@@ -79,6 +85,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         String action = e.getActionCommand();
         if (action.equals("menu"))
         {
+            // change screens
             MainFrame.swapScreen(1);
         }
     }

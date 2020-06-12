@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame
 {
+    // some variables used throughout the program
     protected static int width = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     protected static int height = 500;
     Dimension d = new Dimension(width,height);
@@ -15,6 +16,7 @@ public class MainFrame extends JFrame
         f.setVisible(true);
     }
 
+    // screen swapping mechanism
     public static void swapScreen(int n)
     {
         GameFrame.changePanel(n);
