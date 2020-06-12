@@ -189,9 +189,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         pauseButton.setIcon(new ImageIcon(pauseButtonImg));
         add(pauseButton);
 
-        // time
-        overallStart = System.currentTimeMillis();
-
         // instructions text
         timeLabel = new JLabel();
         timeLabel.setText("Time remaining: 90");
@@ -260,7 +257,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             // time
             overallCurrent = System.currentTimeMillis();
             overallSec =  (int)((overallCurrent - overallStart) / 1000);
-//            System.out.println(90-overallSec);
 
             // jumping with gravity
             if(jump >= 1 && jump <= 15)
@@ -325,19 +321,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 changeY = 0;
             }
         }
+        // if game is paused, modify the paused time
         else if (pause)
         {
             pauseCurrent = System.currentTimeMillis();
             pauseSec =  (int)((pauseCurrent - pauseStart) / 1000);
-//            System.out.println(pauseSec);
         }
 
+        // time that gets displayed
         displayTime = 90 - overallSec + pauseSec;
+        // makes the time display
         if (ready)
         {
             timeLabel.setText("Time remaining: " + displayTime);
             add(timeLabel);
         }
+        // if time runs out
         if (displayTime == 0)
         {
             MainFrame.swapScreen(5);
@@ -418,6 +417,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         play = status;
     }
 
+    // restart time system (runs when game starts or restarts)
     public static void restart()
     {
         overallStart = System.currentTimeMillis();
