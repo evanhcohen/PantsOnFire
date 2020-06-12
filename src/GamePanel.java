@@ -88,8 +88,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setLayout(null);
 
         // set up player object
-//        p = new Patty(50, 350, 50, 50);
-        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
+        p = new Patty(50, 350, 50, 50);
+//        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
         p.drawImg();
 
         //sets up fire
@@ -330,7 +330,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
 
         // time that gets displayed
-        displayTime = 15 - overallSec + pauseSec;
+        displayTime = 90 - overallSec + pauseSec;
         // makes the time display
         if (ready)
         {
@@ -431,6 +431,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         overallStart = System.currentTimeMillis();
         pauseSec = 0;
-        overallSec = 15;
+        overallSec = 90;
     }
 }
