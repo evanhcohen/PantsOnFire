@@ -217,23 +217,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         //draw fire
         g.drawImage(flame.getImg(),flame.leftBoundX(),flame.topY(), this);
 
-        // draw Patty
-        g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), this);
-
         //draw extinguisher
         g.drawImage(extinguisher.getImg(),extinguisher.leftBoundX(),extinguisher.topY(), this);
+
+        // draw Patty
+        g.drawImage(p.getImg(),p.getLocX(),p.getLocY(), this);
     }
 
     public void actionPerformed (ActionEvent e)
     {
         if (play)
         {
-            if(extinguisher.touching((p)))
-            {
-                hasExtinguisher = true;
-
-            }
-
             // jumping with gravity
             if(jump >= 1 && jump <= 15)
             {
@@ -251,17 +245,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 jump = 0;
                 changeY = 0;
             }
-            if(isOnFire())
+            if(touchEx())
             {
-                if(hasExtinguisher)
-                {
-                    MainFrame.swapScreen(4);
-                    play = false;
-                }
-                else {
-                    death = true;
-                }
+                hasExtinguisher = true;
 
+            }
+            if(isOnFire() && hasExtinguisher)
+            {
+                MainFrame.swapScreen(4);
+                play = false;
+            }
+            else
+            {
+                death = true;
             }
 
             // if player falls down to bottom it goes back to beginning
@@ -346,8 +342,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         return flame.touching(p);
     }
 
-
-
+    public boolean touchEx()
+    {
+        return extinguisher.touching(p);
+    }
 
     public static boolean isDead()
     {
