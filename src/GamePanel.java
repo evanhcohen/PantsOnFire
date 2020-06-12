@@ -313,7 +313,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             String action = e.getActionCommand();
             if (action == "pause") // "==" for strings is incorrect, but errors occurred when .equals was used
             {
-                MainFrame.swapScreen(1);
+                MainFrame.swapScreen(6);
                 play = false;
                 pause = true;
                 pauseStart = System.currentTimeMillis();

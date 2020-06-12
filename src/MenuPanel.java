@@ -84,6 +84,7 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         if (action.equals("play"))
         {
             MainFrame.swapScreen(3);
+            GamePanel.restart();
         }
         // pop-up on quit
         if (action.equals("quit"))
