@@ -183,7 +183,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         super.paintComponent(g);
 
+        // set pause button location (issues when in constructor)
         pause.setBounds(this.getWidth() - pauseSize - 15, 15, pauseSize, pauseSize);
+
+        // images drawn in this specific order: the earlier drawn, the farther in the background
 
         // draw background
         g.drawImage(background,0,0,this.getWidth(),this.getHeight(),this);
@@ -211,10 +214,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(platform20.getImg(),platform20.leftBoundX(),platform20.topY(), this);
         g.drawImage(platform21.getImg(),platform21.leftBoundX(),platform21.topY(), this);
 
-        //draw fire
+        // draw fire
         g.drawImage(flame.getImg(),flame.leftBoundX(),flame.topY(), this);
 
-        //draw extinguisher
+        // draw extinguisher when player doesn't have extinguisher
         if (!hasExtinguisher)
         {
             g.drawImage(extinguisher.getImg(),extinguisher.leftBoundX(),extinguisher.topY(), this);
@@ -226,6 +229,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     public void actionPerformed (ActionEvent e)
     {
+        // game only runs when it's in "play" mode
         if (play)
         {
             // jumping with gravity
@@ -245,11 +249,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 jump = 0;
                 changeY = 0;
             }
+            // check if touching extinguisher
             if(touchEx())
             {
                 hasExtinguisher = true;
             }
-
+            // check if touching fire
             if(isOnFire())
             {
                 if(hasExtinguisher)
@@ -262,13 +267,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                     death = true;
                 }
             }
-
             // if player falls down to bottom it goes back to beginning
             if(p.getLocY() >= 500)
             {
                 death = true;
             }
-
             // change x and y for player
             p.changeX(changeX);
             p.changeY(changeY);
@@ -276,13 +279,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             repaint();
             death = false;
 
-
+            // check if pause is pressed
             String action = e.getActionCommand();
-            if (action == "pause")
+            if (action == "pause") // "==" for strings is incorrect, but errors occurred when .equals was used
             {
-                MenuFrame.changePanel(1);
-                GameFrame.changePanel(1);
-                InstructionsFrame.changePanel(1);
+                MainFrame.swapScreen(1);
                 play = false;
                 changeX = 0;
                 changeY = 0;
@@ -303,6 +304,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             changeX = 4;
 
         }
+        // only allow jump if touching platform
         if (c == KeyEvent.VK_UP && isTouching())
         {
             jump = 1;
@@ -328,6 +330,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     }
 
+    // check if touching platform
     public boolean isTouching()
     {
         for (Platform x : myPlatforms)
@@ -340,11 +343,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         return false;
     }
 
+    // check if touching fire
     public boolean isOnFire()
     {
         return flame.touching(p);
     }
 
+    // check if touching fire extinguisher
     public boolean touchEx()
     {
         return extinguisher.touching(p);
