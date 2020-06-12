@@ -22,7 +22,7 @@ public class LosePanel extends JPanel implements ActionListener, KeyListener
     // quit button
     private QuitButton quit;
 
-    // win message
+    // lose message
     JLabel message;
 
     public LosePanel()
@@ -66,7 +66,7 @@ public class LosePanel extends JPanel implements ActionListener, KeyListener
         quit = new QuitButton(this);
         add(quit.getQuit());
 
-        // make and set location for win message
+        // make and set location for lose message
         message = new JLabel("You have failed this city!");
         message.setFont(new Font("Arial", Font.PLAIN, 50));
         Dimension titleDim = message.getPreferredSize();
