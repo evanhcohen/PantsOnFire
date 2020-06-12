@@ -340,13 +340,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         // if time runs out
         if (displayTime == 0)
         {
-            MainFrame.swapScreen(5);
             death = true;
             hasExtinguisher = false;
             play = false;
             changeX = 0;
             changeY = 0;
+            MainFrame.swapScreen(5);
+            displayTime = 90;
+
         }
+        System.out.println(displayTime);
     }
 
     public void keyPressed (KeyEvent e)
