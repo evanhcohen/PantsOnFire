@@ -6,20 +6,21 @@ import java.io.IOException;
 
 public class Patty extends JComponent
 {
-    // instance variables
-    private int lives;
+    // current location
     private int locX;
     private int locY;
+    // starting location
     private int startX;
     private int startY;
+    // width, height
     private int width;
     private int height;
+    // image for object appearance
     private Image img;
 
     // constructor
     public Patty(int x, int y, int w, int h)
     {
-        lives = 3;
         locX = x;
         locY = y;
         startX = x;
@@ -46,11 +47,6 @@ public class Patty extends JComponent
         return locY + height;
     }
 
-    public int getLives()
-    {
-        return lives;
-    }
-
     public void drawImg()
     {
         try {
@@ -67,6 +63,7 @@ public class Patty extends JComponent
 
     public void changeX(int x)
     {
+        // if player is dead, set x to start location, otherwise change by the inputted amount
         if (GamePanel.isDead())
         {
             locX = startX;
@@ -81,6 +78,7 @@ public class Patty extends JComponent
 
     public void changeY(int y)
     {
+        // if player is dead, set y to start location, otherwise change by the inputted amount
         if (GamePanel.isDead())
         {
             locY = startY;
