@@ -56,6 +56,7 @@ import java.io.IOException;
         public boolean touching(Patty p)
         {
             // checks right, left, then bottom of patty; checks left, right, then top of platform
-            return (p.getLocX() < this.rightBoundX() && p.rightBoundX() > this.leftBoundX() && p.getLocY() < this.bottomY() && p.getHeight() >= this.topY());
+            return (p.getLocX() < this.rightBoundX() && p.rightBoundX() > this.leftBoundX() && p.getLocY() < this.bottomY() && p.getBottomY() >= this.topY());
+
         }
 }
