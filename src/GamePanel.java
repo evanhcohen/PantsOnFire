@@ -340,6 +340,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         if (displayTime == 0)
         {
             MainFrame.swapScreen(5);
+            death = true;
+            hasExtinguisher = false;
+            play = false;
+            changeX = 0;
+            changeY = 0;
         }
     }
 
