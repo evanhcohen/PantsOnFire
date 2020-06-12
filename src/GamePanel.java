@@ -12,9 +12,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
     // player object
     private static Patty p;
+    private int changeX = 0;
+    private int changeY = 0;
+    private int jump = 0;
 
-    private static boolean play = false;
+    private Fire flame;
+    private FireExtinguisher extinguisher;
 
+    // platforms
     private Platform platform1;
     private Platform platform2;
     private Platform platform3;
@@ -38,27 +43,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform21;
     private ArrayList<Platform> myPlatforms;
 
-    private Fire flame;
-
-    private FireExtinguisher extinguisher;
-
+    // game status checkers
+    private static boolean play = false;
     private boolean ready;
-
     private boolean hasExtinguisher = false;
+    private static boolean death = false;
 
+    // time
     private Timer time = new Timer(3, this);
 
+    // pause button
     private JButton pause;
     private Image pauseButton;
     private int pauseSize = 50;
 
+    // background
     private Image background;
-
-    private int changeX = 0;
-    private int changeY = 0;
-    private static boolean death = false;
-
-    private int jump = 0;
 
     // constructor
     public GamePanel()
@@ -71,13 +71,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
 
+        // layout
         setLayout(null);
 
-        // sets up player object
+        // set up player object
         p = new Patty(50, 350, 50, 50);
         p.drawImg();
 
-        // sets up platforms
+        //sets up fire
+        flame = new Fire(1125, 344);
+        flame.drawImg();
+
+        //sets up Fire Extinguisher
+        extinguisher = new FireExtinguisher(1175, 28);
+        extinguisher.drawImg();
+
+        // set up platforms
         platform1 = new Platform(50, 400);
         platform1.drawImg();
         platform2 = new Platform(150, 348);
@@ -121,11 +130,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform21 = new Platform(1185, 400);
         platform21.drawImg();
 
-
-
-
-
-
+        // create platforms ArrayList and add platforms to it
         myPlatforms = new ArrayList<>();
         myPlatforms.add(platform1);
         myPlatforms.add(platform2);
@@ -149,14 +154,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform20);
         myPlatforms.add(platform21);
 
-        //sets up fire
-        flame = new Fire(1125, 344);
-        flame.drawImg();
-
-        //sets up Fire Extinguisher
-        extinguisher = new FireExtinguisher(1175, 28);
-        extinguisher.drawImg();
-
         // set up images
         try {
             background = ImageIO.read(getClass().getResource("images/cityBackground.jpg"));
@@ -178,6 +175,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         pause.setIcon(new ImageIcon(pauseButton));
         add(pause);
 
+        // game status update
         ready = true;
     }
 
