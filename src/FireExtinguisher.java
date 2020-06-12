@@ -57,6 +57,5 @@ import java.io.IOException;
         {
             // checks right, left, then bottom of patty; checks left, right, then top of platform
             return (p.getLocX() < this.rightBoundX() && p.rightBoundX() > this.leftBoundX() && p.getLocY() < this.bottomY() && p.getBottomY() >= this.topY());
-
         }
 }
