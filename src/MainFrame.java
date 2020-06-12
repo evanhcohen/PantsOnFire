@@ -14,5 +14,13 @@ public class MainFrame extends JFrame
         f.setLocation(0,0);
         f.setVisible(true);
     }
+
+    public static void swapScreen(int n)
+    {
+        GameFrame.changePanel(n);
+        InstructionsFrame.changePanel(n);
+        MenuFrame.changePanel(n);
+        WinFrame.changePanel(n);
+    }
 }
 

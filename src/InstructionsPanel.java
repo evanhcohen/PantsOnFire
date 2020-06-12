@@ -56,10 +56,9 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         inst.setText("<html> " +
                         "Thank you for answering our call!<br>" +
                         "The city is on fire and <b>you</b> are the only one who can stop it!<br>" +
-                        "Be sure to collect the fire extinguisher before getting to the fire!<br>" +
+//                        "Be sure to collect the fire extinguisher before getting to the fire!<br>" +
                         "Now, it's your job to save the city. Good luck!<br><br>" +
                         "Use the arrow keys to move around." +
-
                         "</html>");
         inst.setFont(new Font("Arial", Font.PLAIN, 25));
         instDim = inst.getPreferredSize();
@@ -79,10 +78,7 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
         String action = e.getActionCommand();
         if (action.equals("menu"))
         {
-            MenuFrame.changePanel(1);
-            GameFrame.changePanel(1);
-            InstructionsFrame.changePanel(1);
-            WinFrame.changePanel(1);
+            MainFrame.swapScreen(1);
         }
     }
 

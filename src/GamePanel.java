@@ -236,10 +236,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             }
             if(isOnFire())
             {
-                WinFrame.changePanel(4);
-                GameFrame.changePanel(4);
-                InstructionsFrame.changePanel(4);
-                MenuFrame.changePanel(4);
+                MainFrame.swapScreen(4);
                 death = true;
                 play = false;
             }
