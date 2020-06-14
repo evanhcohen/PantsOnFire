@@ -100,8 +100,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setLayout(null);
 
         // set up player object
-//        p = new Patty(rel/31, rel/5, rel/31, rel/31);
-        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
+        p = new Patty(rel/31, rel/5, rel/31, rel/31);
+//        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
         p.drawImg();
 
         //sets up fire
@@ -181,11 +181,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform21);
 
         // set up spikes
-        spike1 = new Spike(925,110);
+        spike1 = new Spike(pL(2.695),pL(10.971));
         spike1.drawImg();
-        spike2 = new Spike(570,140);
+        spike2 = new Spike(pL(1.661),pL(13.964));
         spike2.drawImg();
-        spike3 = new Spike(1300,100);
+        spike3 = new Spike(pL(1.182),pL(15.36));
         spike3.drawImg();
 
         // add spikes to ArrayList
