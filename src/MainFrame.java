@@ -6,7 +6,7 @@ public class MainFrame extends JFrame
     // some variables used throughout the program
     protected static int width = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     protected static int height = 500;
-    Dimension d = new Dimension(width,height);
+    protected static Dimension d = new Dimension(width,height);
 
     // shows the frame
     public static void display(JFrame f)

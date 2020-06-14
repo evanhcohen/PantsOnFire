@@ -7,6 +7,30 @@ public class MenuFrame extends MainFrame
 
     public MenuFrame()
     {
+        createFrame();
+    }
+
+    public static JFrame getFrame()
+    {
+        return frame;
+    }
+
+    // helps with screen swapping
+    public static void changePanel(int x)
+    {
+        if(x == 1)
+        {
+            createFrame();
+            display(frame);
+        }
+        else
+        {
+            frame.dispose();
+        }
+    }
+
+    private static void createFrame()
+    {
         // creates the frame
         frame = new JFrame("Pants on Fire");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,23 +46,5 @@ public class MenuFrame extends MainFrame
 
         // add panel to the frame
         frame.getContentPane().add(menu);
-    }
-
-    public static JFrame getFrame()
-    {
-        return frame;
-    }
-
-    // helps with screen swapping
-    public static void changePanel(int x)
-    {
-        if(x == 1)
-        {
-            display(frame);
-        }
-        else
-        {
-            frame.setVisible(false);
-        }
     }
 }

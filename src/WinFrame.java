@@ -7,6 +7,26 @@ public class WinFrame extends MainFrame
 
     public WinFrame()
     {
+        createFrame();
+        frame.dispose();
+    }
+
+    // helps with screen swapping
+    public static void changePanel(int x)
+    {
+        if (x == 4)
+        {
+            createFrame();
+            display(frame);
+        }
+        else
+        {
+            frame.dispose();
+        }
+    }
+
+    private static void createFrame()
+    {
         // creates the frame
         frame = new JFrame("Pants on Fire");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,16 +44,4 @@ public class WinFrame extends MainFrame
         frame.getContentPane().add(win);
     }
 
-    // helps with screen swapping
-    public static void changePanel(int x)
-    {
-        if (x == 4)
-        {
-            display(frame);
-        }
-        else
-        {
-            frame.setVisible(false);
-        }
-    }
 }

@@ -330,7 +330,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
 
         // time that gets displayed
-        displayTime = 90 - overallSec + pauseSec;
+        displayTime = 15 - overallSec + pauseSec;
         // makes the time display
         if (ready)
         {
@@ -346,10 +346,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             changeX = 0;
             changeY = 0;
             MainFrame.swapScreen(5);
-            displayTime = 90;
+            displayTime = 15;
 
         }
-        System.out.println(displayTime);
+//        System.out.println(displayTime);
     }
 
     public void keyPressed (KeyEvent e)
@@ -431,6 +431,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         overallStart = System.currentTimeMillis();
         pauseSec = 0;
-        overallSec = 90;
+        overallSec = 15;
     }
 }

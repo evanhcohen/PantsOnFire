@@ -7,6 +7,26 @@ public class PauseFrame extends MainFrame
 
     public PauseFrame()
     {
+        createFrame();
+        frame.dispose();
+    }
+
+    // helps with screen swapping
+    public static void changePanel(int x)
+    {
+        if (x == 6)
+        {
+            createFrame();
+            display(frame);
+        }
+        else
+        {
+            frame.setVisible(false);
+        }
+    }
+
+    private static void createFrame()
+    {
         // creates the frame
         frame = new JFrame("Pants on Fire");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,18 +42,5 @@ public class PauseFrame extends MainFrame
 
         // add panel to the frame
         frame.getContentPane().add(pause);
-    }
-
-    // helps with screen swapping
-    public static void changePanel(int x)
-    {
-        if (x == 6)
-        {
-            display(frame);
-        }
-        else
-        {
-            frame.setVisible(false);
-        }
     }
 }
