@@ -67,6 +67,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private static boolean pause = false;
     private static int displayTime;
     private static int maxTime = 90;
+    private static int totalPause;
+    private static int pauseNum;
 
     // time label
     private JLabel timeLabel;
@@ -191,7 +193,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         pauseButton.setIcon(new ImageIcon(pauseButtonImg));
         add(pauseButton);
 
-        // instructions text
+        // pause text
         timeLabel = new JLabel();
         timeLabel.setText("Time remaining: 90");
         timeLabel.setFont(new Font("Arial", Font.BOLD, 15));
@@ -339,7 +341,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
 
         // time that gets displayed
-        displayTime = maxTime - overallSec + pauseSec;
+        displayTime = maxTime - overallSec + totalPause;
         repaint();
         death = false;
     }
@@ -384,7 +386,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     }
 
     // check if touching platform
-    public boolean isTouching()
+    private boolean isTouching()
     {
         for (Platform x : myPlatforms)
         {
@@ -410,9 +412,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public static void restart()
     {
         overallStart = System.currentTimeMillis();
-        pauseSec = 0;
         displayTime = maxTime;
         hasExtinguisher = false;
+        pauseNum = -1;
+        totalPause = 0;
+
     }
 
     private void end()
@@ -421,5 +425,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         play = false;
         changeX = 0;
         changeY = 0;
+    }
+
+    public static void setTotalPause()
+    {
+        totalPause += pauseSec;
     }
 }
