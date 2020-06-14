@@ -73,7 +73,7 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         message = new JLabel("Well done! Thank you for saving our city!");
         message.setFont(new Font("Arial", Font.PLAIN, rel/31));
         Dimension titleDim = message.getPreferredSize();
-        message.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - rel/10, rel/2, titleDim.height);
+        message.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - rel/10, rel, titleDim.height);
         add(message);
     }
 

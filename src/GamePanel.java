@@ -107,48 +107,49 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         extinguisher.drawImg();
 
         // set up platforms
-        platform1 = new Platform(50, 400);
+        platform1 = new Platform(pL(30.72), pL(3.84));
         platform1.drawImg();
-        platform2 = new Platform(150, 348);
+        platform2 = new Platform(pL(10.24), pL(4.414));
         platform2.drawImg();
-        platform3 = new Platform(20, 304);
+        platform3 = new Platform(pL(76.8), pL(5.053));
         platform3.drawImg();
-        platform4 = new Platform(200, 284);
+        platform4 = new Platform(pL(7.68), pL(5.408));
         platform4.drawImg();
-        platform5 = new Platform(125, 224);
+        platform5 = new Platform(pL(12.288), pL(6.857));
         platform5.drawImg();
-        platform6 = new Platform(75, 164);
+        platform6 = new Platform(pL(20.48), pL(9.366));
         platform6.drawImg();
-        platform7 = new Platform(250, 124);
+        platform7 = new Platform(pL(6.144), pL(12.387));
         platform7.drawImg();
-        platform8 = new Platform(450, 132);
+        platform8 = new Platform(pL(3.413), pL(11.636));
         platform8.drawImg();
-        platform9 = new Platform(675, 124);
+        platform9 = new Platform(pL(2.276), pL(12.387));
         platform9.drawImg();
-        platform10 = new Platform(800, 100);
+        platform10 = new Platform(pL(1.90), pL(15.36));
         platform10.drawImg();
-        platform11 = new Platform(1035, 92);
+        platform11 = new Platform(pL(1.484), pL(16.696));
         platform11.drawImg();
-        platform12 = new Platform(1085, 92);
+        platform12 = new Platform(pL(1.416), pL(16.696));
         platform12.drawImg();
-        platform13 = new Platform(1135, 92);
+        platform13 = new Platform(pL(1.353), pL(16.696));
         platform13.drawImg();
-        platform14 = new Platform(1185, 92);
+        platform14 = new Platform(pL(1.296), pL(16.696));
         platform14.drawImg();
-        platform15 = new Platform(500, 400);
+        platform15 = new Platform(pL(3.072), pL(3.84));
         platform15.drawImg();
-        platform16 = new Platform(725, 400);
+        platform16 = new Platform(pL(2.119), pL(3.84));
         platform16.drawImg();
-        platform17 = new Platform(800, 352);
+        platform17 = new Platform(pL(1.92), pL(4.364));
         platform17.drawImg();
-        platform18 = new Platform(1035, 400);
+        platform18 = new Platform(pL(1.484), pL(3.84));
         platform18.drawImg();
-        platform19 = new Platform(1085, 400);
+        platform19 = new Platform(pL(1.416), pL(3.84));
         platform19.drawImg();
-        platform20 = new Platform(1135, 400);
+        platform20 = new Platform(pL(1.353), pL(3.84));
         platform20.drawImg();
-        platform21 = new Platform(1185, 400);
+        platform21 = new Platform(pL(1.296), pL(3.84));
         platform21.drawImg();
+
 
         // create platforms ArrayList and add platforms to it
         myPlatforms = new ArrayList<>();
@@ -430,5 +431,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     public static void setTotalPause()
     {
         totalPause += pauseSec;
+    }
+
+    private int pL (double d)
+    {
+        double space = rel/384;
+        double location = rel / d;
+        double sL = location / space;
+        int rounded = (int)Math.round(sL);
+        return (int) (rounded * space);
     }
 }
