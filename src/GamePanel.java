@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     // game status checkers
     private static boolean play = false;
     private boolean ready;
-    private boolean hasExtinguisher = false;
+    private static boolean hasExtinguisher = false;
     private static boolean death = false;
 
     // time
@@ -66,6 +66,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private static int overallSec;
     private static boolean pause = false;
     private static int displayTime;
+    private static int maxTime = 90;
+
     // time label
     private JLabel timeLabel;
     private Dimension timeDim;
@@ -259,6 +261,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             overallCurrent = System.currentTimeMillis();
             overallSec =  (int)((overallCurrent - overallStart) / 1000);
 
+            // makes the time display
+            if (ready)
+            {
+                timeLabel.setText("Time remaining: " + displayTime);
+                add(timeLabel);
+            }
+
             // jumping with gravity
             if(jump >= 1 && jump <= 15)
             {
@@ -277,21 +286,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 changeY = 0;
             }
             // check if touching extinguisher
-            if(touchEx())
+            if(extinguisher.touching(p))
             {
                 hasExtinguisher = true;
             }
             // check if touching fire
-            if(isOnFire())
+            if(flame.touching(p))
             {
                 if(hasExtinguisher)
                 {
                     MainFrame.swapScreen(4);
-                    death = true;
-                    hasExtinguisher = false;
-                    play = false;
-                    changeX = 0;
-                    changeY = 0;
+                    end();
                 }
                 else
                 {
@@ -303,12 +308,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             {
                 death = true;
             }
-            // change x and y for player
-            p.changeX(changeX);
-            p.changeY(changeY);
-
-            repaint();
-            death = false;
 
             // check if pause is pressed
             String action = e.getActionCommand();
@@ -321,6 +320,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 changeX = 0;
                 changeY = 0;
             }
+            // if time runs out
+            if (displayTime == 0)
+            {
+                MainFrame.swapScreen(5);
+                end();
+            }
+
+            // change x and y for player
+            p.changeX(changeX);
+            p.changeY(changeY);
         }
         // if game is paused, modify the paused time
         else if (pause)
@@ -330,26 +339,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         }
 
         // time that gets displayed
-        displayTime = 15 - overallSec + pauseSec;
-        // makes the time display
-        if (ready)
-        {
-            timeLabel.setText("Time remaining: " + displayTime);
-            add(timeLabel);
-        }
-        // if time runs out
-        if (displayTime == 0)
-        {
-            death = true;
-            hasExtinguisher = false;
-            play = false;
-            changeX = 0;
-            changeY = 0;
-            MainFrame.swapScreen(5);
-            displayTime = 15;
-
-        }
-//        System.out.println(displayTime);
+        displayTime = maxTime - overallSec + pauseSec;
+        repaint();
+        death = false;
     }
 
     public void keyPressed (KeyEvent e)
@@ -404,18 +396,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         return false;
     }
 
-    // check if touching fire
-    public boolean isOnFire()
-    {
-        return flame.touching(p);
-    }
-
-    // check if touching fire extinguisher
-    public boolean touchEx()
-    {
-        return extinguisher.touching(p);
-    }
-
     public static boolean isDead()
     {
         return death;
@@ -431,6 +411,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     {
         overallStart = System.currentTimeMillis();
         pauseSec = 0;
-        overallSec = 15;
+        displayTime = maxTime;
+        hasExtinguisher = false;
+    }
+
+    private void end()
+    {
+        death = true;
+        play = false;
+        changeX = 0;
+        changeY = 0;
     }
 }
