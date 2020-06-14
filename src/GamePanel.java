@@ -46,6 +46,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private Platform platform21;
     private ArrayList<Platform> myPlatforms;
 
+    // spikes
+    private Spike spike1;
+    private ArrayList<Spike> mySpikes;
+
     // game status checkers
     private static boolean play = false;
     private boolean ready;
@@ -94,8 +98,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setLayout(null);
 
         // set up player object
-        p = new Patty(rel/31, rel/5, rel/31, rel/31);
-//        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
+//        p = new Patty(rel/31, rel/5, rel/31, rel/31);
+        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
         p.drawImg();
 
         //sets up fire
@@ -150,7 +154,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         platform21 = new Platform(pL(1.296), pL(3.84));
         platform21.drawImg();
 
-
         // create platforms ArrayList and add platforms to it
         myPlatforms = new ArrayList<>();
         myPlatforms.add(platform1);
@@ -174,6 +177,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform19);
         myPlatforms.add(platform20);
         myPlatforms.add(platform21);
+
+        // set up spikes
+        spike1 = new Spike(1300,100);
+        spike1.drawImg();
+
+        // add spikes to ArrayList
+        mySpikes = new ArrayList<Spike>();
+        mySpikes.add(spike1);
+
+
 
         // set up images
         try {
@@ -244,6 +257,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         g.drawImage(platform20.getImg(),platform20.leftBoundX(),platform20.topY(), this);
         g.drawImage(platform21.getImg(),platform21.leftBoundX(),platform21.topY(), this);
 
+        // draw spikes
+        g.drawImage(spike1.getImg(),spike1.leftBoundX(),spike1.topY(), this);
+
+
         // draw fire
         g.drawImage(flame.getImg(),flame.leftBoundX(),flame.topY(), this);
 
@@ -307,6 +324,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 {
                     death = true;
                 }
+            }
+            if(touchingSpike())
+            {
+                death = true;
             }
             // if player falls down to bottom it goes back to beginning
             if(p.getLocY() >= rel/3)
@@ -392,6 +413,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private boolean isTouching()
     {
         for (Platform x : myPlatforms)
+        {
+            if (x.touching(p))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    // check if touching platform
+    private boolean touchingSpike()
+    {
+        for (Spike x : mySpikes)
         {
             if (x.touching(p))
             {
