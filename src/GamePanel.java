@@ -181,9 +181,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform21);
 
         // set up spikes
-        spike1 = new Spike(925,100);
+        spike1 = new Spike(925,110);
         spike1.drawImg();
-        spike2 = new Spike(570,120);
+        spike2 = new Spike(570,140);
         spike2.drawImg();
         spike3 = new Spike(1300,100);
         spike3.drawImg();
@@ -330,16 +330,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 else
                 {
                     death = true;
+                    hasExtinguisher = false;
                 }
             }
             if(touchingSpike())
             {
                 death = true;
+                hasExtinguisher = false;
             }
             // if player falls down to bottom it goes back to beginning
             if(p.getLocY() >= rel/3)
             {
                 death = true;
+                hasExtinguisher = false;
             }
 
             // check if pause is pressed
