@@ -48,6 +48,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     // spikes
     private Spike spike1;
+    private Spike spike2;
+    private Spike spike3;
     private ArrayList<Spike> mySpikes;
 
     // game status checkers
@@ -179,14 +181,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         myPlatforms.add(platform21);
 
         // set up spikes
-        spike1 = new Spike(1300,100);
+        spike1 = new Spike(925,100);
         spike1.drawImg();
+        spike2 = new Spike(570,120);
+        spike2.drawImg();
+        spike3 = new Spike(1300,100);
+        spike3.drawImg();
 
         // add spikes to ArrayList
         mySpikes = new ArrayList<Spike>();
         mySpikes.add(spike1);
-
-
+        mySpikes.add(spike2);
+        mySpikes.add(spike3);
 
         // set up images
         try {
@@ -259,7 +265,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         // draw spikes
         g.drawImage(spike1.getImg(),spike1.leftBoundX(),spike1.topY(), this);
-
+        g.drawImage(spike2.getImg(),spike2.leftBoundX(),spike2.topY(), this);
+        g.drawImage(spike3.getImg(),spike3.leftBoundX(),spike3.topY(), this);
 
         // draw fire
         g.drawImage(flame.getImg(),flame.leftBoundX(),flame.topY(), this);
