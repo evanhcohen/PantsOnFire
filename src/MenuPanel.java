@@ -9,15 +9,18 @@ import java.io.IOException;
 
 public class MenuPanel extends JPanel implements ActionListener, KeyListener
 {
+    // make sizes relative
+    private int rel = MainFrame.width;
+
     // instructions button
     private JButton instructions;
     private Image instructionsImage;
-    private int instructionsSize = 50;
+    private int instructionsSize = rel/31;
 
     // menu button
     private JButton play;
     private Image playImage;
-    private int playSize = 50;
+    private int playSize = rel/31;
 
     // quit button
     private QuitButton quit;
@@ -44,8 +47,8 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
 
         // set button fonts
-        play.setFont(new Font("Arial", Font.PLAIN, 40));
-        instructions.setFont(new Font("Arial", Font.PLAIN, 40));
+        play.setFont(new Font("Arial", Font.PLAIN, rel/39));
+        instructions.setFont(new Font("Arial", Font.PLAIN, rel/39));
 
         // set button dimensions
         Dimension playDim = play.getPreferredSize();
@@ -68,9 +71,9 @@ public class MenuPanel extends JPanel implements ActionListener, KeyListener
 
         // make title label
         title = new JLabel("Pants on Fire");
-        title.setFont(new Font("Arial", Font.PLAIN, 70));
+        title.setFont(new Font("Arial", Font.PLAIN, rel/22));
         Dimension titleDim = title.getPreferredSize();
-        title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 500, titleDim.height);
+        title.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, rel/3, titleDim.height);
         add(title);
     }
 
