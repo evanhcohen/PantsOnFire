@@ -9,11 +9,11 @@ import java.io.IOException;
 
 public class InstructionsPanel extends JPanel implements ActionListener, KeyListener
 {
-    // menu button
-    private JButton menu;
-    private Image menuImage;
-    private int menuSize = 30;
-    private Dimension menuDim;
+    // back button
+    private JButton back;
+    private Image backImage;
+    private int backSize = 30;
+    private Dimension backDim;
 
     // instructions label
     private JLabel inst;
@@ -36,29 +36,29 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
 
         // set up images
         try {
-            menuImage = ImageIO.read(getClass().getResource("images/menu.png")).getScaledInstance(menuSize,menuSize, Image.SCALE_SMOOTH);
+            backImage = ImageIO.read(getClass().getResource("images/back.png")).getScaledInstance(backSize, backSize, Image.SCALE_SMOOTH);
             exampleImg = ImageIO.read(getClass().getResource("images/example.jpg")).getScaledInstance(exW,exH, Image.SCALE_SMOOTH);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // menu button
-        menu = new JButton("Menu", new ImageIcon(menuImage));
-        menu.setFont(new Font("Arial", Font.PLAIN, 30));
-        menuDim = menu.getPreferredSize();
-        menu.setBounds(MainFrame.width/2 - menuDim.width/2,30, menuDim.width, menuDim.height);
+        // back button
+        back = new JButton("Back", new ImageIcon(backImage));
+        back.setFont(new Font("Arial", Font.PLAIN, 30));
+        backDim = back.getPreferredSize();
+        back.setBounds(MainFrame.width/2 - backDim.width/2,30, backDim.width, backDim.height);
 
-        menu.setBorder(BorderFactory.createCompoundBorder(
+        back.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
                 BorderFactory.createEmptyBorder(1, 5, 1, 5)));
 
-        menu.setContentAreaFilled(false);
-        menu.setFocusPainted(false);
-        menu.setOpaque(false);
+        back.setContentAreaFilled(false);
+        back.setFocusPainted(false);
+        back.setOpaque(false);
 
-        menu.addActionListener(this);
-        menu.setActionCommand("menu");
-        add(menu);
+        back.addActionListener(this);
+        back.setActionCommand("back");
+        add(back);
 
         // instructions text
         inst = new JLabel();
@@ -90,10 +90,10 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if (action.equals("menu"))
+        if (action.equals("back"))
         {
             // change screens
-            MainFrame.swapScreen(1);
+            MainFrame.swapScreen(MainFrame.getLastScreen());
         }
         // pop-up on quit
         if (action.equals("quit"))
