@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener
 {
+    // make sizes relative
+    private int rel = MainFrame.width;
+
     // player object
     private static Patty p;
     private int changeX = 0;
@@ -55,7 +58,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     // pause button
     private JButton pauseButton;
     private Image pauseButtonImg;
-    private int pauseSize = 50;
+    private int pauseSize = rel/31;
 
     // timer
     private static long overallStart;
@@ -68,7 +71,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private static int displayTime;
     private static int maxTime = 90;
     private static int totalPause;
-    private static int pauseNum;
 
     // time label
     private JLabel timeLabel;
@@ -92,16 +94,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setLayout(null);
 
         // set up player object
-        p = new Patty(50, 350, 50, 50);
+        p = new Patty(rel/31, rel/5, rel/31, rel/31);
 //        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
         p.drawImg();
 
         //sets up fire
-        flame = new Fire(1125, 344);
+        flame = new Fire((int) ( rel/1.365), (int)(rel/4.651));
         flame.drawImg();
 
         //sets up Fire Extinguisher
-        extinguisher = new FireExtinguisher(1175, 28);
+        extinguisher = new FireExtinguisher((int)(rel/1.307), (int)(rel/54.857));
         extinguisher.drawImg();
 
         // set up platforms
@@ -193,10 +195,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         pauseButton.setIcon(new ImageIcon(pauseButtonImg));
         add(pauseButton);
 
-        // pause text
+        // timer text
         timeLabel = new JLabel();
         timeLabel.setText("Time remaining: 90");
-        timeLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        timeLabel.setFont(new Font("Arial", Font.BOLD, rel/102));
         timeLabel.setForeground(Color.red);
         timeDim = timeLabel.getPreferredSize();
         timeLabel.setBounds(0,0, 1500, timeDim.height);
@@ -211,7 +213,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         super.paintComponent(g);
 
         // set pause button location (issues when in constructor)
-        pauseButton.setBounds(this.getWidth() - pauseSize - 15, 15, pauseSize, pauseSize);
+        pauseButton.setBounds(this.getWidth() - pauseSize - rel/102, rel/102, pauseSize, pauseSize);
 
         // images drawn in this specific order: the earlier drawn, the farther in the background
 
@@ -273,12 +275,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
             // jumping with gravity
             if(jump >= 1 && jump <= 15)
             {
-                changeY = -4;
+                changeY = -rel/384;
                 jump ++;
             }
             else if(jump > 15 || (ready && !isTouching()))
             {
-                changeY = 4;
+                changeY = rel/384;
                 ready = true;
             }
             // don't move when touching platform
@@ -306,7 +308,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
                 }
             }
             // if player falls down to bottom it goes back to beginning
-            if(p.getLocY() >= 500)
+            if(p.getLocY() >= rel/3)
             {
                 death = true;
             }
@@ -352,11 +354,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
         if (c == KeyEvent.VK_LEFT)
         {
-            changeX = -4;
+            changeX = -rel/384;
         }
         if (c == KeyEvent.VK_RIGHT)
         {
-            changeX = 4;
+            changeX = rel/384;
 
         }
         // only allow jump if touching platform
@@ -414,9 +416,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         overallStart = System.currentTimeMillis();
         displayTime = maxTime;
         hasExtinguisher = false;
-        pauseNum = -1;
         totalPause = 0;
-
     }
 
     private void end()

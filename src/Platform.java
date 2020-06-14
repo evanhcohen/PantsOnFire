@@ -5,6 +5,9 @@ import java.io.IOException;
 
 public class Platform extends JComponent {
 
+    // make sizes relative
+    private int rel = MainFrame.width;
+
     //instance variables
     private int locX;
     private int locY;
@@ -17,8 +20,8 @@ public class Platform extends JComponent {
     {
         locX = x;
         locY = y;
-        width = 80;
-        height = 30;
+        width = rel/20;
+        height = rel/51;
     }
 
     //accessors

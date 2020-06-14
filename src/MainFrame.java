@@ -5,7 +5,7 @@ public class MainFrame extends JFrame
 {
     // some variables used throughout the program
     protected static int width = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-    protected static int height = 500;
+    protected static int height = width/3;
     protected static Dimension d = new Dimension(width,height);
     private static int currentScreen = 1;
     private static int lastScreen = 0;

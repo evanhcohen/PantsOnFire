@@ -9,15 +9,18 @@ import java.io.IOException;
 
 public class WinPanel extends JPanel implements ActionListener, KeyListener
 {
+    // make sizes relative
+    private int rel = MainFrame.width;
+
     // instructions button
     private JButton instructions;
     private Image instructionsImage;
-    private int instructionsSize = 50;
+    private int instructionsSize = rel/31;
 
     // restart button
     private JButton restart;
     private Image restartImg;
-    private int restartSize = 50;
+    private int restartSize = rel/31;
 
     // quit button
     private QuitButton quit;
@@ -44,8 +47,8 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
         instructions = new JButton("Instructions", new ImageIcon(instructionsImage));
 
         // set button font
-        restart.setFont(new Font("Arial", Font.PLAIN, 40));
-        instructions.setFont(new Font("Arial", Font.PLAIN, 40));
+        restart.setFont(new Font("Arial", Font.PLAIN, rel/39));
+        instructions.setFont(new Font("Arial", Font.PLAIN, rel/39));
 
         // set button dimensions
         Dimension playDim = restart.getPreferredSize();
@@ -68,9 +71,9 @@ public class WinPanel extends JPanel implements ActionListener, KeyListener
 
         // make and set location for win message
         message = new JLabel("Well done! Thank you for saving our city!");
-        message.setFont(new Font("Arial", Font.PLAIN, 50));
+        message.setFont(new Font("Arial", Font.PLAIN, rel/31));
         Dimension titleDim = message.getPreferredSize();
-        message.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 1200, titleDim.height);
+        message.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - rel/10, rel/2, titleDim.height);
         add(message);
     }
 

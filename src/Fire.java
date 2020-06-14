@@ -5,6 +5,9 @@ import java.io.IOException;
 
 public class Fire extends JComponent {
 
+    // makes sizes relative
+    private int rel = MainFrame.width;
+
     //instance variables
     private int locX;
     private int locY;
@@ -16,8 +19,8 @@ public class Fire extends JComponent {
     {
         locX = x;
         locY = y;
-        width = 562/12;
-        height = 800/12;
+        width = rel/32;
+        height = rel/22;
     }
 
     //accessors

@@ -9,10 +9,13 @@ import java.io.IOException;
 
 public class InstructionsPanel extends JPanel implements ActionListener, KeyListener
 {
+    // make sizes relative
+    private int rel = MainFrame.width;
+
     // back button
     private JButton back;
     private Image backImage;
-    private int backSize = 30;
+    private int backSize = rel/52;
     private Dimension backDim;
 
     // instructions label
@@ -22,8 +25,8 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
     // image
     private Image exampleImg;
     private JLabel example;
-    private int exH = (int) (460 * .75);
-    private int exW = (int) (557 * .75);
+    private int exH = rel/4;
+    private int exW = rel/3;
     private Dimension exDim;
 
     // quit button
@@ -44,9 +47,9 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
 
         // back button
         back = new JButton("Back", new ImageIcon(backImage));
-        back.setFont(new Font("Arial", Font.PLAIN, 30));
+        back.setFont(new Font("Arial", Font.PLAIN, rel/52));
         backDim = back.getPreferredSize();
-        back.setBounds(MainFrame.width/2 - backDim.width/2,30, backDim.width, backDim.height);
+        back.setBounds(MainFrame.width/2 - backDim.width/2,rel/52, backDim.width, backDim.height);
 
         back.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK, 3),
@@ -70,16 +73,16 @@ public class InstructionsPanel extends JPanel implements ActionListener, KeyList
                         "Use the right and left arrow keys to move around <br>" +
                         "and the up arrow to jump." +
                         "</html>");
-        inst.setFont(new Font("Arial", Font.PLAIN, 25));
+        inst.setFont(new Font("Arial", Font.PLAIN, rel/62));
         instDim = inst.getPreferredSize();
-        inst.setBounds(200,MainFrame.height/2 - instDim.height/2, 1500, instDim.height);
+        inst.setBounds(rel/8,MainFrame.height/2 - instDim.height/2, rel/2, instDim.height);
         add(inst);
 
         // image text
         example = new JLabel();
         example.setIcon(new ImageIcon(exampleImg));
         exDim = example.getPreferredSize();
-        example.setBounds(MainFrame.width/2 + 200,MainFrame.height/2 - exDim.height/2, 1500, exDim.height);
+        example.setBounds(MainFrame.width/2 + rel/8,MainFrame.height/2 - exDim.height/2, rel/2, exDim.height);
         add(example);
 
         // make the quit button

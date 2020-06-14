@@ -4,6 +4,9 @@ import java.awt.event.ActionListener;
 
 public class QuitButton extends JButton
 {
+    // make sizes relative
+    private int rel = MainFrame.width;
+
     // quit button
     private JButton quit;
 
@@ -18,7 +21,7 @@ public class QuitButton extends JButton
     {
         // set up the literal quit button
         quit = new JButton("Quit");
-        quit.setFont(new Font("Arial", Font.PLAIN, 40));
+        quit.setFont(new Font("Arial", Font.PLAIN, rel/39));
         Dimension quitDim = quit.getPreferredSize();
         quit.setBounds(MainFrame.width - quitDim.width,0,quitDim.width,quitDim.height);
         quit.setBorder(BorderFactory.createCompoundBorder(
@@ -34,8 +37,8 @@ public class QuitButton extends JButton
 
         // create yes button for quit confirmation
         yes = new JButton("Yes");
-        yes.setFont(new Font("Arial", Font.PLAIN, 15));
-        yes.setPreferredSize(new Dimension(60,30));
+        yes.setFont(new Font("Arial", Font.PLAIN, rel/102));
+        yes.setPreferredSize(new Dimension(rel/25,rel/51));
         yes.setContentAreaFilled(false);
         yes.setFocusPainted(false);
         yes.setOpaque(false);
@@ -44,8 +47,8 @@ public class QuitButton extends JButton
 
         // create no button for quit confirmation
         no = new JButton("No");
-        no.setFont(new Font("Arial", Font.PLAIN, 15));
-        no.setPreferredSize(new Dimension(60,30));
+        no.setFont(new Font("Arial", Font.PLAIN, rel/102));
+        no.setPreferredSize(new Dimension(rel/25,rel/51));
         no.setContentAreaFilled(false);
         no.setFocusPainted(false);
         no.setOpaque(false);

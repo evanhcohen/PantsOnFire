@@ -9,10 +9,13 @@ import java.io.IOException;
 
 public class PausePanel extends JPanel implements ActionListener, KeyListener
 {
+    // make sizes relative
+    private int rel = MainFrame.width;
+
     // resume button
     private JButton resume;
     private Image resumeImg;
-    private int resumeSize = 50;
+    private int resumeSize = rel/31;
 
     // quit button
     private QuitButton quit;
@@ -37,7 +40,7 @@ public class PausePanel extends JPanel implements ActionListener, KeyListener
         resume = new JButton("Resume", new ImageIcon(resumeImg));
 
         // set button font
-        resume.setFont(new Font("Arial", Font.PLAIN, 40));
+        resume.setFont(new Font("Arial", Font.PLAIN, rel/39));
 
         // set button dimensions
         Dimension resume = this.resume.getPreferredSize();
@@ -50,11 +53,11 @@ public class PausePanel extends JPanel implements ActionListener, KeyListener
         quit = new QuitButton(this);
         add(quit.getQuit());
 
-        // make and set location for win message
+        // make and set location for pause message
         message = new JLabel("Game Paused");
-        message.setFont(new Font("Arial", Font.PLAIN, 50));
+        message.setFont(new Font("Arial", Font.PLAIN, rel/31));
         Dimension titleDim = message.getPreferredSize();
-        message.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - 150, 1200, titleDim.height);
+        message.setBounds(MainFrame.width/2 - titleDim.width/2,MainFrame.height/2 - rel/10, rel/2, titleDim.height);
         add(message);
     }
 
