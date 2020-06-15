@@ -478,7 +478,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     private int rX(double d)
     {
-//        double space = rel/384;
         double location = rel / d;
         double sL = location / 4;
         int rounded = (int)Math.round(sL);
@@ -488,7 +487,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
     private int rY(double d)
     {
         double start = 512/d;
-//        double space = MainFrame.height/384;
         double location = MainFrame.height / start;
         double sL = location / 4;
         int rounded = (int)Math.round(sL);
