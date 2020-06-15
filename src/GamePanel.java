@@ -100,7 +100,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setLayout(null);
 
         // set up player object
-        p = new Patty(rel/31, rel/5, rel/31, rel/31);
+        p = new Patty(rel/31, rY(360), 40, 40);
 //        p = new Patty(675, 124-50,50,50); // used for testing fire & fire extinguisher
         p.drawImg();
 
@@ -478,11 +478,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
 
     private int rX(double d)
     {
-        double space = rel/384;
+//        double space = rel/384;
         double location = rel / d;
-        double sL = location / space;
+        double sL = location / 4;
         int rounded = (int)Math.round(sL);
-        return (int) (rounded * space);
+        return (int) (rounded * 4);
     }
 
     private int rY(double d)
