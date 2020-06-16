@@ -100,8 +100,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener
         setLayout(null);
 
         // set up player object
-//        p = new Patty(rel/31, rY(360), rY(400)-rY(360), rY(400)-rY(360));
-        p = new Patty(675, 124-40,40,40); // used for testing fire & fire extinguisher
+        p = new Patty(rel/31, rY(360), rY(400)-rY(360), rY(400)-rY(360));
+       // p = new Patty(675, 124-40,40,40); // used for testing fire & fire extinguisher
         p.drawImg();
 
         //sets up fire
